@@ -31,17 +31,32 @@ jobs:
           sudo apt update -qq
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      - name: Refresh Packages (强制统一为 RootHide Packages)
-        run: |
-          rm -rf ./Packages*
-          dpkg-scanpackages -m ./debs /dev/null > ./Packages.tmp
-          # 关键修改：全部强制改为 RootHide Packages
-          sed -i 's/^Section: .*/Section: RootHide Packages/' ./Packages.tmp
-          mv ./Packages.tmp ./Packages
-          bzip2 -v -k -9 Packages
-          xz -v -k -9 --extreme Packages
-          zstd --ultra -22 -k Packages -o Packages.zst
+      - name: Refresh Packages (自动分 Rootless / RootHide)
+  run: |
+    rm -rf ./Packages*
+    dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
+    # 生成最终 Packages
+    > Packages
+
+    # 逐行处理，按架构自动分分类
+    while IFS= read -r line; do
+      echo "$line" >> Packages
+      if echo "$line" | grep -q '^Architecture:'; then
+        if echo "$line" | grep -q 'arm64e'; then
+          echo "Section: RootHide Packages" >> Packages
+        else
+          echo "Section: Rootless" >> Packages
+        fi
+        # 跳过原来的 Section
+        read -r next_line
+      fi
+    done < Packages.raw
+
+    # 压缩
+    bzip2 -v -k -9 Packages
+    xz -v -k -9 --extreme Packages
+    zstd --ultra -22 -k Packages -o Packages.zst
       - name: Configure Git
         run: |
           git config --global user.email 'action@github.com'
