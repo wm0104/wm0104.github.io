@@ -1,8 +1,7 @@
-Origin: 自用越狱
-Label: wm0104
-Suite: stable
+Origin: wm0104.github.io
+Label: wm0104的个人越狱源
 Version: 1.0
-Codename: stable
-Architectures: iphoneos-arm64e
-Components: main
-Description: 自用越狱源
+Architectures: iphoneos-arm64
+Description: 个人越狱源，包含Telegram增强插件、实用工具等
+Maintainer: wm0104
+Section: Tweaks, Utilities, Themes
