@@ -31,19 +31,21 @@ jobs:
           sudo apt update -qq
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      - name: Refresh Packages (强制统一为 RootHide Packages + 无图标)
+      - name: Refresh Packages (强制统一分类+去重+无图标)
         run: |
           rm -rf ./Packages*
           dpkg-scanpackages -m ./debs /dev/null > ./Packages.tmp
 
-          # 删除所有插件图标
+          # 1. 彻底删除所有 Icon 行，无图标
           sed -i '/^Icon:/d' ./Packages.tmp
 
-          # 全部强制改为 RootHide Packages
-          sed -i 's/^Section: .*/Section: RootHide Packages/' ./Packages.tmp
+          # 2. 彻底删除所有旧 Section 行，杜绝残留
+          sed -i '/^Section:/d' ./Packages.tmp
 
-          mv ./Packages.tmp ./Packages
+          # 3. 统一插入唯一的 RootHide Packages 分类
+          awk '/^Architecture:/ {print; print "Section: RootHide Packages"; next} 1' ./Packages.tmp > ./Packages
 
+          # 4. 压缩包
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
@@ -65,6 +67,8 @@ jobs:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          # 修复之前的推送冲突，用 --rebase 拉取后再推
+          git pull --rebase origin main
           git push origin main
 
       - name: Download remove_all_actions
