@@ -1,30 +1,48 @@
 name: "Refresh Packages"
 
+# 强制触发：手动触发 + debs更新自动触发，彻底绕开所有依赖
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'debs/**'
+    paths: ['debs/**']
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
-      - name: Install dpkg-dev
-        run: sudo apt-get install -y dpkg-dev
-
-      - name: Generate Packages
+      - name: Install dependencies
         run: |
-          rm -rf Packages Packages.gz
-          dpkg-scanpackages --arch arm64 debs > Packages
-          gzip -9c Packages > Packages.gz
+          sudo apt-get update -qq
+          sudo apt-get install -y dpkg-dev
 
-      - name: Deploy
+      - name: 🔍 Debug: 打印debs文件夹内容（排查用）
+        run: |
+          echo "=== debs文件夹内容 ==="
+          ls -la ./debs/
+          echo "=== 当前目录 ==="
+          pwd
+
+      - name: Generate Packages index
+        run: |
+          # 强制删除旧文件
+          rm -rf ./Packages ./Packages.gz
+          # 生成新的Packages，-m参数兼容多架构，--arch指定arm64
+          dpkg-scanpackages -m ./debs/ /dev/null > ./Packages
+          # 压缩成gz
+          gzip -9c ./Packages > ./Packages.gz
+          # 验证文件生成成功
+          ls -la ./Packages ./Packages.gz
+
+      - name: Deploy updated files
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: main
           folder: .
           clean: false
+          single-commit: true
