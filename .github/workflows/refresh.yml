@@ -35,7 +35,8 @@ jobs:
         run: |
           rm -rf ./Packages*
           dpkg-scanpackages -m ./debs /dev/null > ./Packages.tmp
-          # 关键修改：全部强制改为 1839283045wjc@gmail.com     sed -i 's/^Section: .*/Section: RootHide Packages/' ./Packages.tmp
+          # 关键修改：全部强制改为 RootHide Packages
+          sed -i 's/^Section: .*/Section: RootHide Packages/' ./Packages.tmp
           mv ./Packages.tmp ./Packages
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
