@@ -127,7 +127,7 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/j
 Package: com.brend0n.nopassafterrespringsafe
 Version: 0.0.3
 Architecture: iphoneos-arm64
-Section: RootHide Packages
+Section: 插件
 Maintainer: Brend0n <brendonjkding@126.com>
 Installed-Size: 168
 Depends: mobilesubstrate
@@ -403,7 +403,7 @@ Name: SwipeExtenderX
 Package: jp.soh.freepip
 Version: 0.0.3-1
 Architecture: iphoneos-arm64
-Section: RootHide Packages
+Section: 插件
 Maintainer: Soh Satoh
 Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000)
@@ -419,7 +419,7 @@ Name: FreePIP
 Package: me.tomt000.stageduo
 Version: 1.2
 Architecture: iphoneos-arm64
-Section: RootHide Packages
+Section: 插件
 Maintainer: tomt000
 Installed-Size: 4900
 Depends: mobilesubstrate (>= 0.9.5000), com.opa334.altlist, preferenceloader
