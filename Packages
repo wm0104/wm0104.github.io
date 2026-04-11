@@ -1,0 +1,21 @@
+Package: com.choco.tgextra
+Section: 应用破解
+Installed-Size: 14980
+Maintainer: wm0104
+Architecture: iphoneos-arm64
+Version: 1.7.1
+Depends: mobilesubstrate
+Conflicts: com.choco.tgextra
+Filename: ./debs/tg增强_1.7.1_arm64.deb
+Size: 2331160
+Icon: https://TrollStoreX.Github.io/sileodepiction/Telegram/icon.png
+SileoDepiction: https://TrollStoreX.Github.io/sileodepiction/Telegram/TGExtra.json
+Description: Telegram 增强插件
+* 去除广告
+* 虚拟定位
+* 隐藏一些输入状态
+* 允许保存频道限制下载的文件
+* 设置界面-长按倒数第三个选项“客服”打开插件
+* 支持Telegram、Turrit等第三方客户端
+Name: Telegram TGExtra
+Author: wm0104
