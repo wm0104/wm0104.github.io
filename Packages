@@ -390,20 +390,22 @@ Version: 1.0.1
 Architecture: iphoneos-arm64e
 Maintainer: huami
 Installed-Size: 168
-Pre-Depends: rootless-compat (>= 0.9)
+Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 5.0), mobilesubstrate
 Conflicts: com.huami.bilinoad
 Filename: ./debs/哔哩哔哩 BiliNoAd-1.0.1-iphoneos-arm64e.deb
-Size: 4532
-MD5sum: 1e19f2bdd469e08a899e33e83b1c9ab8
-SHA1: ee3c5f02d9fd7d9ce89dbfb9018bc2aed7aaca6f
-SHA256: 478b2919e39fb9ad024ae8395700836823fc9555694e0d2347159221ff80e928
+Size: 4952
+MD5sum: 9390586324c0ed3a23396da6e714b26b
+SHA1: 4a678a1f86eea6eda9dad9637c6e2fd8fc166015
+SHA256: eb0c37fe27299d5fedb0b1385e18ddc9664491fd9de0c1630706c1eb4b357b66
 Section: 应用破解
 Priority: optional
-Description: .
+Description: BiliBili 净化开屏广告
  * 加速开屏动画
 Author: huami
+Icon: https://TrollStoreX.Github.io/sileodepiction/Bilibili/icon.png
 Name: 哔哩哔哩 BiliNoAd
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Bilibili/js.json
 
 Package: com.huami.dyyy.vita
 Version: 2.2-9
