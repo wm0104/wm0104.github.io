@@ -27,7 +27,7 @@ Maintainer: huami
 Installed-Size: 168
 Depends: firmware (>= 5.0), mobilesubstrate
 Conflicts: com.huami.bilinoad
-Filename: ./debs/哔哩哔哩 BiliNoAd-1.0.1-iphoneos-arm64.deb
+Filename: ./debs/BiliNoAd-iphoneos-arm64.deb
 Size: 3556
 MD5sum: 700303a513d65ce9af4ba804a68e662d
 SHA1: c3abd81f494ff9402c4f35a5ec7116e2498119eb
