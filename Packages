@@ -83,3 +83,20 @@ Author: Netskao
 Icon: https://TrollStoreX.Github.io/sileodepiction/repo_pic/photo.png
 Name: 禁止应用自动创建相册BlockAppsCreateAlbum
 
+Package: netskao.BlockAppsCreateAlbum
+Version: 1.1.2
+Architecture: iphoneos-arm64
+Maintainer: Nets
+Installed-Size: 19660
+Depends: mobilesubstrate, firmware (>= 15.0)
+Filename: ./debs/禁止应用自动创建相册BlockAppsCreateAlbum-1.1.2-iphoneos-arm64.deb
+Size: 4508
+MD5sum: 07913f2ebddbb34f9db154c484985b85
+SHA1: 52496d3a6f4043dc19d6c738f3b7538008b2af90
+SHA256: 1a75483d5aff7b1ba8d8a15ef66f7a9eaf0e530a11a24a2895ed3de27a959544
+Section: RootHide Packages
+Description: 阻止应用创建自己的相册
+Author: Netskao
+Icon: https://TrollStoreX.Github.io/sileodepiction/repo_pic/photo.png
+Name: 禁止应用自动创建相册BlockAppsCreateAlbum
+
