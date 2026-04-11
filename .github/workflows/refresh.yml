@@ -1,21 +1,18 @@
 name: "refresh"
 
-# 触发条件：pages 构建部署完成且成功时触发
 on:
   workflow_run:
     workflows: ["pages-build-deployment"]
     types: 
       - completed
 
-# 权限声明：给 PAT 对应的写权限（关键修复）
 permissions:
   contents: write
-  actions: write  # 用于删除旧 Actions 运行记录
+  actions: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    # 仅在 pages 构建成功时执行
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     steps:
       - name: Checkout
@@ -31,21 +28,29 @@ jobs:
           sudo apt update -qq
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      - name: Refresh Packages (强制统一分类+去重+无图标)
+      - name: Refresh Packages
         run: |
           rm -rf ./Packages*
-          dpkg-scanpackages -m ./debs /dev/null > ./Packages.tmp
+          dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
-          # 1. 彻底删除所有 Icon 行，无图标
-          sed -i '/^Icon:/d' ./Packages.tmp
+          # 去掉所有图标
+          sed -i '/^Icon:/d' Packages.raw
+          # 去掉所有旧分类
+          sed -i '/^Section:/d' Packages.raw
 
-          # 2. 彻底删除所有旧 Section 行，杜绝残留
-          sed -i '/^Section:/d' ./Packages.tmp
+          > Packages
+          while IFS= read -r line; do
+            echo "$line" >> Packages
 
-          # 3. 统一插入唯一的 RootHide Packages 分类
-          awk '/^Architecture:/ {print; print "Section: RootHide Packages"; next} 1' ./Packages.tmp > ./Packages
+            if [[ "$line" =~ ^Architecture: ]]; then
+              if echo "$line" | grep -q "arm64e"; then
+                echo "Section: RootHide Packages" >> Packages
+              else
+                echo "Section: 插件" >> Packages
+              fi
+            fi
+          done < Packages.raw
 
-          # 4. 压缩包
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
@@ -67,7 +72,6 @@ jobs:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          # 修复之前的推送冲突，用 --rebase 拉取后再推
           git pull --rebase origin main
           git push origin main
 
