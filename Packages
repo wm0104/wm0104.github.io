@@ -408,6 +408,26 @@ Author: subdiox & iosdump
 Name: StoreSwitcher 账号切换
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/js.json
 
+Package: com.susu.fuckwechatadss
+Version: 1.0.2
+Architecture: iphoneos-arm64e
+Section: RootHide Packages
+Maintainer: susu
+Installed-Size: 104
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: mobilesubstrate (>= 0.9.5000)
+Conflicts: com.susu.fuckwechatads
+Filename: ./debs/微信去广告 FuckWeChatAds-1.0.2-iphoneos-arm64e.deb
+Size: 22760
+MD5sum: 2d964f79e13258d8725bfc1b6bc857b8
+SHA1: 3b2244bc38e4f8421646d6bb41667b892860b67e
+SHA256: e2f7efb69b76d3ab6f2890b48a8ee8bf9f1bf5ffe453e5cc64a1814f2bac5d43
+Description: 移除微信广告
+ * 在微信 8.0.56 进行测试有效
+Author: susu
+Name: 微信去广告 FuckWeChatAds
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/FuckWeChatAds/js.json
+
 Package: com.tigisoftware.filza64bits
 Version: 4.0.1-4~roothide
 Architecture: iphoneos-arm64e
