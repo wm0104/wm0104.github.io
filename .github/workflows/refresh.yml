@@ -1,62 +1,79 @@
 name: "refresh"
 
 on:
-  workflow_run:
-    workflows: ["pages-build-deployment"]
-    types:
-      - completed
+  push:
+    paths:
+      - 'debs/*.deb'
+  workflow_dispatch:
 
 permissions:
-  contents: write   # ⭐关键
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
-      # Step 1: Checkout the repository
+      # 1️⃣ 拉代码
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          persist-credentials: true
 
-      # Step 2: Install dependencies for packaging
+      # 2️⃣ 安装工具
       - name: Install dependencies
         run: |
           sudo apt update
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      # Step 3: Refresh the Packages file (create/update .deb package list)
+      # 3️⃣ ✅ 清洗 DEB（核心）
+      - name: Clean DEB metadata
+        run: |
+          for deb in debs/*.deb; do
+            [ -e "$deb" ] || continue
+            echo "Processing $deb"
+
+            rm -rf work
+            mkdir work
+
+            dpkg-deb -R "$deb" work
+
+            CONTROL="work/DEBIAN/control"
+
+            # 删除 icon 和 SileoDepiction
+            sed -i '/^icon:/d' "$CONTROL"
+            sed -i '/^SileoDepiction:/d' "$CONTROL"
+
+            # 清空 Description（兼容多行）
+            sed -i '/^Description:/c\Description: .' "$CONTROL"
+
+            # 修复 rootless-compat 格式
+            sed -i 's/rootless-compat(/rootless-compat (/g' "$CONTROL"
+
+            # 确保结尾空行
+            echo "" >> "$CONTROL"
+
+            # 重新打包
+            dpkg-deb -b work "$deb"
+
+            rm -rf work
+          done
+
+      # 4️⃣ 生成 Packages
       - name: Refresh Packages
         run: |
-          rm -rf ./Packages*  # Remove old package lists
-          dpkg-scanpackages -m ./debs /dev/null > ./Packages  # Generate new Packages file
-          bzip2 -k -9 Packages  # Create bzip2 compressed version
-          xz -k -9 --extreme Packages  # Create xz compressed version
-          zstd --ultra -22 -k Packages -o Packages.zst  # Create zstd compressed version
+          rm -rf ./Packages*
+          dpkg-scanpackages -m ./debs /dev/null > ./Packages
+          bzip2 -k -9 Packages
+          xz -k -9 --extreme Packages
+          zstd --ultra -22 -k Packages -o Packages.zst
 
-      # Step 4: Commit and push the changes
+      # 5️⃣ 提交（防死循环）
       - name: Commit & Push
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
           git add .
+
           if ! git diff --staged --quiet; then
-            git commit -m "Refresh Packages"
+            git commit -m "Auto clean DEB & refresh Packages [skip ci]"
             git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           fi
-
-      # Step 5: Download and install the remove_all_actions script
-      - name: Download remove_all_actions
-        run: |
-          sudo curl -L -o /usr/bin/remove_all_actions https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions
-          sudo chmod +x /usr/bin/remove_all_actions
-
-      # Step 6: Run the remove_all_actions script to remove old actions
-      - name: Remove all old actions
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-        run: remove_all_actions
