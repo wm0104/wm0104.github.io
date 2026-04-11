@@ -48,3 +48,22 @@ Icon: https://TrollStoreX.Github.io/sileodepiction/Swiftgram/icon.png
 Name: Swiftgram Crack
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Swiftgram/js.json
 
+Package: com.storeswitcher.appstore
+Version: 1.0.6
+Architecture: iphoneos-arm64e
+Maintainer: 0xkuj
+Depends: firmware (>= 11)
+Conflicts: com.yourepo.0xkuj.storeswitcher2rootless
+Filename: ./debs/iphoneos-arm64e/com.storeswitcher.appstore_1.0.6_arm64e.deb
+Size: 24152
+MD5sum: 9e28f4fb48eed98d3189a6aa9c7e1bb9
+SHA1: 5ae167be449299be6c6afde3252961e3053d41ce
+SHA256: 7b0d8a8bf0d38c1ccccf0c7cab942e4e61a3575e0020edf0c9d558d1ef9385fe
+Section: Bootstrap
+Description: 桌面长按 App Store 进行切换账号
+ * Long press the App Store on the desktop to switch accounts
+Author: subdiox & iosdump
+Icon: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/icon.png
+Name: StoreSwitcher 账号切换
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/js.json
+
