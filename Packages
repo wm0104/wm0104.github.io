@@ -1,0 +1,35 @@
+Package: cn.zqbb.ccatop
+Version: 2.3
+Architecture: iphoneos-arm64e
+Maintainer: SXX, Domo
+Installed-Size: 840
+Conflicts: ru.domo.cocoatop, ru.domo.cocoatop64, cn.zqbb.cocoatop64.inject.roothide, zp.cocoatop64.unject, zp.cocoatop64.unject.xina, zp.cocoatop64.inject
+Filename: ./debs/CocoaTop-2.3.deb
+Size: 183270
+MD5sum: e6f12e52eca255163c501ee58796ff40
+SHA1: 485a4a10529bba9c16e330b7ee095ece62b0ce25
+SHA256: 3b09b9311f853e601134699eb0ec94bc729eae22f8b3f310105ba52631265f98
+Section: Utilities
+Description: Process Viewer for iOS GUI, updated for iOS 13 by SXX.
+Author: Domo, SXX
+Icon: https://apt.002599.xyz/web/icon/cn.zqbb.ccatop.png
+Name: CocoaTop
+Sileodepiction: https://apt.002599.xyz/web/cn.zqbb.ccatop
+
+Package: com.dao.lockdown
+Version: 1.0.3
+Architecture: iphoneos-arm64e
+Maintainer: roothide
+Installed-Size: 136
+Depends: mobilesubstrate (>= 0.9.5000)
+Conflicts: com.roothide.lockdown, cc.dao.lightshield
+Filename: ./debs/lockdown(RootHide)-1.0.3-iphoneos-arm64e.deb
+Size: 5640
+MD5sum: 4d4826ef0d75a8df2278997b0e8a49f3
+SHA1: 0b967cf2a8d044357e07bcdf21d9a65a0f164063
+SHA256: bf0cf20f62648087cb7edb2f1d4cc40a3e74c6421b9d26f330dd7c470c4cfd84
+Section: 嗨-系统
+Description: 让你的设备免受 DarkSword/Coruna 攻击！针对 WebContent 进程的 JSC 安全加固。通过配置 JavaScriptCore 选项，消除主要的漏洞利用原语（包括地址泄露/伪造对象 addrof/fakeobj、JIT 类型混淆、垃圾回收器 Use-After-Free）。该安全强化默认处于启用状态，无设置。如果使用真皮白名单RootHide，请去白名单勾选 com.apple.WebKit.WebContent。
+Author: roothide
+Name: lockdown(RootHide)
+
