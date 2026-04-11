@@ -1,0 +1,231 @@
+Package: cn.Bswbw.fixsets
+Version: 1.1
+Architecture: iphoneos-arm64e
+Maintainer: gblw
+Installed-Size: 123
+Depends: mobilesubstrate (>= 0.9.5000)
+Conflicts: cn.Bswbw.fixset
+Filename: ./debs/FixSet RootHide-1.1.deb
+Size: 36776
+MD5sum: 0dfccec44d27331f54f7ccd4d94dfb7a
+SHA1: 44d23178b112e26aba022497489390169ef01320
+SHA256: f628b5c8d88b968050c66d6d66d68ae5dfdaffb11922146b8f385b5fe8f77f14
+Section: Bootstrap
+Description: 修复部分插件转 RootHide 配置不保存问题
+Author: bswbw
+Icon: https://TrollStoreX.Github.io/sileodepiction/FixSet/icon.png
+Name: FixSet RootHide
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/FixSet/js.json
+
+Package: cn.zqbb.ccatop
+Version: 2.3
+Architecture: iphoneos-arm64e
+Maintainer: SXX, Domo
+Installed-Size: 840
+Conflicts: ru.domo.cocoatop, ru.domo.cocoatop64, cn.zqbb.cocoatop64.inject.roothide, zp.cocoatop64.unject, zp.cocoatop64.unject.xina, zp.cocoatop64.inject
+Filename: ./debs/CocoaTop-2.3.deb
+Size: 183270
+MD5sum: e6f12e52eca255163c501ee58796ff40
+SHA1: 485a4a10529bba9c16e330b7ee095ece62b0ce25
+SHA256: 3b09b9311f853e601134699eb0ec94bc729eae22f8b3f310105ba52631265f98
+Section: Utilities
+Description: Process Viewer for iOS GUI, updated for iOS 13 by SXX.
+Author: Domo, SXX
+Icon: https://apt.002599.xyz/web/icon/cn.zqbb.ccatop.png
+Name: CocoaTop
+Sileodepiction: https://apt.002599.xyz/web/cn.zqbb.ccatop
+
+Package: cn.zqbb.disupdateapp
+Version: 2.0.0-6
+Architecture: iphoneos-arm64e
+Maintainer: zqbb
+Installed-Size: 720
+Depends: mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist
+Filename: ./debs/Hello App-2.0.0-6-iphoneos-arm64e.deb
+Size: 129804
+MD5sum: cde720ec3a3c718948f181cfc1a96b67
+SHA1: a999c2b1c8856ed4485856c76572e72fef7b2360
+SHA256: 8b636260cec451024da0c620602d798533b87d97634991cd531504a79958908f
+Section: Tweaks
+Description: 屏蔽App Store更新提示(Block App Store Updates)!
+Author: zqbb
+Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.disupdateapp
+Name: Hello App
+Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.disupdateapp
+
+Package: cn.zqbb.fix120hz
+Version: 3.3.0-1
+Architecture: iphoneos-arm64e
+Maintainer: zqbb
+Installed-Size: 1084
+Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0), preferenceloader, com.opa334.altlist
+Conflicts: cn.zqbb.fix120hz15, com.zqbb.fix120hz, com.zqbb.dynamic120hz
+Filename: ./debs/Hello 120Hz-3.3.0-1-iphoneos-arm64e.deb
+Size: 314114
+MD5sum: db7e168678f8c615f588b75cbdf1c029
+SHA1: 178ac250916972793a3c9ecf8481a82094b61b1a
+SHA256: 2876170b278c7a7dd9c72f2d860d3f0b77fa9dc3e0607255072606bff1c1e8cb
+Section: Tweaks
+Description:
+ - Unlock dynamic refresh rate from 80hz to 120hz
+ - .
+ - 解锁动态刷新率80hz到120hz.
+Author: zqbb
+Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.fix120hz
+Name: Hello 120Hz
+Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.fix120hz
+
+Package: cn.zqbb.hello.memorystatus
+Version: 3.6.0-2
+Architecture: iphoneos-arm64e
+Maintainer: zqbb
+Installed-Size: 10864
+Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 14.0), preferenceloader, launchctl
+Filename: ./debs/Hello Memory Status-3.6.0-2-iphoneos-arm64e.deb
+Size: 2987162
+MD5sum: 7dd5dfae6a2e51fbe6497ae4371173fb
+SHA1: 1b47306d9105f0dc223a61273e1f79ef1f3ce362
+SHA256: ac8bde17876ed3e2546a944f6c73fd51ec3ad270aabc32b2a9888fa709da1121
+Section: Tweaks
+Description: Set memorystatus to avoid being killed by the system
+Author: zqbb
+Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.hello.memorystatus.png
+Name: Hello Memory Status
+Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.hello.memorystatus
+
+Package: cn.zqbb.hellopay
+Version: 1.0.2
+Architecture: iphoneos-arm64e
+Maintainer: zqbb
+Installed-Size: 324
+Depends: com.opa334.ccsupport
+Filename: ./debs/Hello Pay-1.0.2-iphoneos-arm64e.deb
+Size: 103228
+MD5sum: e26fea8ac2b462131e5536f14e32e0f6
+SHA1: c1d1c5e9e20301527f284c6a9cb2b2630d639801
+SHA256: a98463608c3b436a51820b306b0a0c7dff0710f5a221b7e02d57cd30b3fc5dcc
+Section: Control Center (Modules)
+Description: 微信+支付宝 控制中心添加 扫一扫,付款码.
+ - 默认支付宝扫一扫, 长按出菜单!
+Author: zqbb
+Name: Hello Pay
+Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.hellopay
+
+Package: cn.zqbb.holdcpu
+Version: 2.3.5-3
+Architecture: iphoneos-arm64e
+Maintainer: zqbb
+Installed-Size: 3664
+Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0), preferenceloader, com.opa334.ccsupport
+Conflicts: com.yourepo.0xash.powercuff, byg.iosios.net.powercuff, com.dao.powercuff, com.rpetrich.powercuff, com.yourepo.0xash.devicemonitor, com.yourepo.0xash.fuckthermal, com.shadow.fuckthermal, com.dao.fuckthermal, byg.iosios.net.monitor, byg.iosios.net.disablethermalmonitord, com.nan.disablethermalmonitord
+Filename: ./debs/Hello CPU-2.3.5-3-iphoneos-arm64e.deb
+Size: 1307670
+MD5sum: a88a116794274340441ee289835d3e4e
+SHA1: e5abdaac1a18432a429858164507f2a894a5ae8a
+SHA256: d12974e3910a945cf81b17735062539606b3f11ed8b66d58d76334ea665605ef
+Section: Tweaks
+Description: (解除温控) (锁定低电量CPU频率)
+Author: zqbb
+Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.holdcpu
+Name: Hello CPU
+Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.holdcpu
+
+Package: com.25mao.wcplugins.rootlesss
+Version: 0.1-6
+Architecture: iphoneos-arm64e
+Maintainer: admin@25mao.com
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: firmware (>= 5.0)
+Conflicts: com.25mao.wcplugins.rootless
+Replaces: com.25mao.wcplugins.rootless
+Provides: com.25mao.wcplugins.rootless
+Filename: ./debs/微信插件管理-0.1-6.deb
+Size: 18470
+MD5sum: c08ca703358643de5444d1abdcf4d3d7
+SHA1: af616df2116aa8271f99b6b639f80364d37aea2c
+SHA256: 5c20b9f20485bdbd7d9825484a43e86f01cf07a732b3e8367d18865bef829ceb
+Section: 微信插件
+Priority: optional
+Description: 微信插件管理
+ * 收纳第三方微信插件
+ * 位于微信右下角“我”-“插件”
+ * 部分微信插件不支持收纳
+ * 0.1-6 修复热更新收纳失效问题
+ * 最后更新日期 2026.03.21
+Author: Mao
+Icon: https://TrollStoreX.Github.io/sileodepiction/wcplugins/icon.png
+Name: 微信插件管理
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/wcplugins/js.json
+Sponsor: admin@25mao.com
+
+Package: com.choco.tgextras
+Version: 1.7.1
+Architecture: iphoneos-arm64e
+Maintainer: choco
+Installed-Size: 14980
+Conflicts: com.choco.tgextra
+Filename: ./debs/Telegram TGExtra-1.7.1.deb
+Size: 2330908
+MD5sum: 65e132d1d9668439ff4af68d091529cc
+SHA1: 8ee98e763883df974dcf9b637b43566287d3deb0
+SHA256: edeee078db3487f9e362b92a42d38527048907bce60558d9a847d3db2f76422e
+Section: 应用破解
+Description: Telegram 增强插件
+ * 去除广告
+ * 虚拟定位
+ * 隐藏一些输入状态
+ * 允许保存频道限制下载的文件
+ * 设置界面-长按倒数第三个选项“客服”打开插件
+ * 支持 Telegram、Turrit 等第三方客户端
+Author: choco
+Icon: https://TrollStoreX.Github.io/sileodepiction/Telegram/icon.png
+Name: Telegram TGExtra
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Telegram/TGExtra.json
+
+Package: com.hbwechathelper.ailuns
+Version: 2.0-9f
+Architecture: iphoneos-arm64e
+Maintainer: HuangBai
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: mobilesubstrate
+Conflicts: com.HBWechatHelper.ailun, byg.iosios.net.hbwechathelper.rootlless
+Filename: ./debs/黄白助手-2.0-9f.deb
+Size: 13902268
+MD5sum: d13b262ac42bfe04acb0cb4905f64be1
+SHA1: 67d7cbce6cbc1489dd17e847cafbd852ce9d02e2
+SHA256: e4733bfe687e78a87208feeb07cd1864487899bbd9630b963ab2d18956a603a1
+Section: 微信插件
+Description: 微信多功能插件
+ * 一个微信插件文本转语音
+ * 点歌朋友圈一键点赞等诸多功能
+ * 发送网络语录舔狗日记骂人等文案
+ * 4K 原图手绘壁纸等
+ * 抢私聊红包
+ * 自定义信息尾巴
+ * 自定义拍一拍 百变小尾巴 实时尾巴时间等功能
+Author: HuangBai
+Icon: https://TrollStoreX.Github.io/sileodepiction/HB/icon.png
+Name: 黄白助手
+Sileodepiction: https://TrollStoreX.Github.io/
+
+Package: com.tigisoftware.filza64bits
+Version: 4.0.1-4~roothide
+Architecture: iphoneos-arm64e
+Maintainer: TIGI Software
+Pre-Depends: patches-com.tigisoftware.filza64bit(= 4.0.1-4~roothide)
+Recommends: zip, unzip, gzip, p7zip, unrar, xz-utils
+Conflicts: com.tigisoftware.filza, com.tigisoftware.filza39, com.tigisoftware.filza64bit
+Filename: ./debs/Filza 文件管理器-4.0.1-4~roothide.deb
+Size: 6970916
+MD5sum: 46bbea1723b62c27e10810562042539e
+SHA1: d2a6995632fee7c65f645e935ffd5cdfda8e5fd0
+SHA256: 4d86696f88752f031d455c6532041c01f6facec1e37a73eec15a3c0ec0f43f7b
+Section: RootHide
+Description: Filza 文件管理器 RootHide 专用
+ * 支持 RootHide Dopamine、BootStrap 半越狱
+ * 支持解压打包 deb 插件
+Author: TIGI Software
+Icon: https://TrollStoreX.Github.io/sileodepiction/Filza/icon.png
+Name: Filza 文件管理器
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Filza/js.json
+
