@@ -575,6 +575,33 @@ Author: MiRO <tweaks_support@miro92.com>
 Icon: https://img.chariz.cloud/icon/swipeextenderx/icon@3x.png
 Name: SwipeExtenderX
 
+Package: com.xybp888.noapplemobilerepairs
+Version: 0.0.1-21
+Architecture: iphoneos-arm64e
+Maintainer: xybp888
+Installed-Size: 152
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: mobilesubstrate (>= 0.9.5000)
+Conflicts: com.xybp888.noapplemobilerepair
+Filename: ./debs/禁止显示维修记录 No Apple MobileRepair-0.0.1-21-iphoneos-arm64e.deb
+Size: 15254
+MD5sum: 8b4ca8e8f49ff0cf23e0312b02778fc6
+SHA1: ec936bc0f32e21a0ff16399ed40e14b87d2ec38e
+SHA256: 95f75efeb00a045c9f926c3f6a191b5ceb87967bed8442a963f6ec9dead8c061
+Section: Tweaks
+Description: No Apple MobileRepair
+ * 禁止在设置页面显示维修记录，例如更换电池的提醒、屏幕等
+ * 更换第三方电池后，开启显示正常电池健康值。
+ * 屏蔽关于本机显示未知部件记录。
+ * 屏蔽设置显示“红1”以及电池更新提醒信息。
+ * 屏蔽设置系统 OTA 升级显示“红1”提醒信息
+ * 本插件免费使用，安装即可生效，无设置
+ * 本插件在 16.5 多巴胺越狱环境下测试通过，其他系统自行测试
+Author: xybp888
+Icon: https://TrollStoreX.Github.io/sileodepiction/NoAppleMobileRepair/icon.png
+Name: 禁止显示维修记录 No Apple MobileRepair
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/NoAppleMobileRepair/js.json
+
 Package: com.zqbb.limitcharging
 Version: 1.0.8
 Architecture: iphoneos-arm64e
