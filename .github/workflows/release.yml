@@ -1,29 +1,37 @@
-name: Refresh Packages
+name: 自动更新源
 
+# 触发条件：只要 push 到 debs 文件夹（上传/修改/debs里的文件）
 on:
   push:
+    paths:
+      - 'debs/**'
     branches: [ main ]
-    paths: ['debs/**']
-  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Install dpkg-dev
+      - name: 安装构建工具
         run: sudo apt-get install -y dpkg-dev
 
-      - name: Generate Packages
+      - name: 生成 Packages 清单
         run: |
-          rm -rf Packages Packages.gz
-          dpkg-scanpackages --arch arm64 debs > Packages
+          # 生成标准的 Packages 文件
+          dpkg-scanpackages --arch arm64e debs > Packages
+          # 压缩成 Packages.gz
           gzip -9c Packages > Packages.gz
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: main
-          folder: .
-          clean: false
+      - name: 配置 Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: 提交并推送
+        run: |
+          git add Packages Packages.gz
+          git commit -m "Auto-update: Regenerate Packages.gz"
+          git push
