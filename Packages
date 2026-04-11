@@ -209,6 +209,30 @@ Description: Disables passcode after a respring. This version does NOT modify sy
 Author: Brend0n <brendonjkding@126.com>
 Name: NoPassAfterRespring (Safe)
 
+Package: com.choco.tgextras
+Version: 1.7.1
+Architecture: iphoneos-arm64e
+Maintainer: choco
+Installed-Size: 14980
+Conflicts: com.choco.tgextra
+Filename: ./debs/Telegram TGExtra-1.7.1-iphoneos-arm64e.deb
+Size: 2330908
+MD5sum: 65e132d1d9668439ff4af68d091529cc
+SHA1: 8ee98e763883df974dcf9b637b43566287d3deb0
+SHA256: edeee078db3487f9e362b92a42d38527048907bce60558d9a847d3db2f76422e
+Section: 应用破解
+Description: Telegram 增强插件
+ * 去除广告
+ * 虚拟定位
+ * 隐藏一些输入状态
+ * 允许保存频道限制下载的文件
+ * 设置界面-长按倒数第三个选项“客服”打开插件
+ * 支持 Telegram、Turrit 等第三方客户端
+Author: choco
+Icon: https://TrollStoreX.Github.io/sileodepiction/Telegram/icon.png
+Name: Telegram TGExtra
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Telegram/TGExtra.json
+
 Package: com.dao.ccless
 Version: 2.1.0.1
 Architecture: iphoneos-arm64e
