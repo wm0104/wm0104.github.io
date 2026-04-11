@@ -22,60 +22,65 @@ jobs:
           submodules: recursive
           persist-credentials: true
 
-      # Step 2: Install dependencies (fixed)
+      # Step 2: Install dependencies
       - name: Install dependencies
         run: |
           sudo apt update
           sudo apt install dpkg-dev bzip2 xz-utils zstd binutils -y
 
-      # Step 3: Categorize .deb and modify Section
+      # Step 3: Categorize .deb and modify Section safely
       - name: Categorize .deb and modify Section
         run: |
+          set -euo pipefail
+
+          # 清理旧文件
           rm -rf ./Packages* Rootless RootHide
           mkdir -p Rootless RootHide
 
           for f in ./debs/*.deb; do
-            arch=$(dpkg-deb -f "$f" Architecture)
-            tmpdir=$(mktemp -d)
-            cp "$f" "$tmpdir"
-            cd "$tmpdir"
+            [ -f "$f" ] || continue
 
-            # 解压 control
-            ar x "$(basename $f)" control.tar.* 2>/dev/null
-            tar -xf control.tar.* 
+            arch=$(dpkg-deb -f "$f" Architecture)
+            tmpdir=$(mktemp -d /tmp/tmpdir.XXXX)
+            cp "$f" "$tmpdir"
+            cd "$tmpdir" || continue
+
+            # 尝试解压 control
+            if ! ar x "$(basename "$f")" control.tar.*; then
+              echo "Warning: Failed to extract $f"
+              cd ..
+              rm -rf "$tmpdir"
+              continue
+            fi
+
+            tar -xf control.tar.* || true
 
             # 根据架构修改 Section
             if [ "$arch" = "iphoneos-arm64" ]; then
-              sed -i 's/^Section: .*/Section: Rootless/' control
-              mv "$(basename $f)" ../Rootless/
+              sed -i 's/^Section: .*/Section: Rootless/' control || true
+              mv "$(basename "$f")" ../Rootless/
             elif [ "$arch" = "iphoneos-arm64e" ]; then
-              sed -i 's/^Section: .*/Section: RootHide/' control
-              mv "$(basename $f)" ../RootHide/
+              sed -i 's/^Section: .*/Section: RootHide/' control || true
+              mv "$(basename "$f")" ../RootHide/
             fi
 
             # 重新打包 control
             tar -czf control.tar.gz control md5sums 2>/dev/null || tar -czf control.tar.gz control 2>/dev/null
-            ar rcs "$(basename $f)" debian-binary control.tar.gz data.tar.* 2>/dev/null
+            ar rcs "$(basename "$f")" debian-binary control.tar.gz data.tar.* 2>/dev/null
 
             cd ..
             rm -rf "$tmpdir"
           done
 
-          # Generate Packages for Rootless
-          if [ -d Rootless ] && [ "$(ls -A Rootless)" ]; then
-            dpkg-scanpackages -m ./Rootless /dev/null > ./Rootless/Packages
-            bzip2 -k -9 ./Rootless/Packages
-            xz -k -9 --extreme ./Rootless/Packages
-            zstd --ultra -22 -k ./Rootless/Packages -o ./Rootless/Packages.zst
-          fi
-
-          # Generate Packages for RootHide
-          if [ -d RootHide ] && [ "$(ls -A RootHide)" ]; then
-            dpkg-scanpackages -m ./RootHide /dev/null > ./RootHide/Packages
-            bzip2 -k -9 ./RootHide/Packages
-            xz -k -9 --extreme ./RootHide/Packages
-            zstd --ultra -22 -k ./RootHide/Packages -o ./RootHide/Packages.zst
-          fi
+          # 生成 Packages 文件（安全压缩等级）
+          for dir in Rootless RootHide; do
+            if [ -d "$dir" ] && [ "$(ls -A "$dir")" ]; then
+              dpkg-scanpackages -m "./$dir" /dev/null > "./$dir/Packages"
+              bzip2 -k -6 "./$dir/Packages"
+              xz -k -6 --extreme "./$dir/Packages"
+              zstd -19 -k "./$dir/Packages" -o "./$dir/Packages.zst"
+            fi
+          done
 
       # Step 4: Commit & Push
       - name: Commit & Push
