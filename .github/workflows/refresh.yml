@@ -3,79 +3,68 @@ name: "refresh"
 on:
   workflow_run:
     workflows: ["pages-build-deployment"]
-    types:
+    types: 
       - completed
-
-permissions:
-  contents: write   # ⭐关键
 
 jobs:
   build:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          persist-credentials: true
+          token: ${{ secrets.PAT_TOKEN }}  # 确保与 GitHub Secrets 中的名称一致
 
-      # Step 2: Install dependencies for packaging
-      - name: Install dependencies
+      - name: Install Dependencies
+        if: success()
         run: |
-          sudo apt update
+          sudo apt update -qq
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      # Step 3: List files in ./debs to confirm both .deb files exist
-      - name: List files in debs directory
-        run: |
-          echo "Listing files in ./debs directory:"
-          ls -l ./debs
-
-      # Step 4: Refresh the Packages file (create/update .deb package list)
       - name: Refresh Packages
+        if: success()
         run: |
-          # Remove old package lists to ensure clean generation
-          rm -rf ./Packages*  
-          
-          # Run dpkg-scanpackages to generate the Packages file
-          echo "Generating Packages file..."
-          dpkg-scanpackages -m ./debs /dev/null > ./Packages
-          
-          # Check the content of the Packages file
-          echo "Content of Packages file:"
-          cat ./Packages
+          rm -rf ./Packages*
+          dpkg-scanpackages -m ./debs /dev/null >./Packages
+          bzip2 -v -k -9 Packages
+          xz -v -k -9 --extreme Packages
+          zstd --ultra -22 -k Packages -o Packages.zst
 
-          # Create compressed versions of the Packages file
-          bzip2 -k -9 Packages  # Create bzip2 compressed version
-          xz -k -9 --extreme Packages  # Create xz compressed version
-          zstd --ultra -22 -k Packages -o Packages.zst  # Create zstd compressed version
-
-      # Step 5: Commit and push the changes
-      - name: Commit & Push
+      - name: Configure Git
+        if: success()
         run: |
-          # Configure Git user for commit
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-          
-          # Stage the changes and commit if necessary
+          git config --global user.email 'action@github.com'
+          git config --global user.name 'GitHub Action'
+
+      - name: Commit Changes
+        if: success()
+        run: |
           git add .
-          if ! git diff --staged --quiet; then
-            git commit -m "Refresh Packages"
-            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          if ! git diff --staged --exit-code 1>>/dev/null; then
+            git commit -m 'Refresh Packages'
           fi
 
-      # Step 6: Download and install the remove_all_actions script
-      - name: Download remove_all_actions
-        run: |
-          sudo curl -L -o /usr/bin/remove_all_actions https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions
-          sudo chmod +x /usr/bin/remove_all_actions
-
-      # Step 7: Run the remove_all_actions script to remove old actions
-      - name: Remove all old actions
+      - name: Push Changes
+        if: success() && github.ref == 'refs/heads/main'  # 确保在主分支上推送
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}  # 确保与 GitHub Secrets 中的名称一致
+        run: |
+          # 使用 PAT 进行身份验证
+          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git push origin main  # 根据实际分支名称修改，例如 main 或 master
+
+      - name: Download remove_all_actions
+        if: success()
+        run: |
+          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
+          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
+
+      - name: Remove All Old Actions
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}  # 使用 PAT 替代默认的 GITHUB_TOKEN
           GH_REPO: ${{ github.repository }}
-        run: remove_all_actions
+        run: |
+          remove_all_actions
