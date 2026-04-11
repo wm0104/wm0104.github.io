@@ -14,6 +14,24 @@ Description: SwipeExtenderX汉化，swipeextenderx汉化--(rootess)简体中文�
 Author: 来了老弟
 Name: SwipeExtenderX汉化-roothide
 
+Package: cn.octoforce.copyvault
+Version: 1.9.0
+Architecture: iphoneos-arm64e
+Maintainer: SquidForce, Backup
+Installed-Size: 6380
+Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
+Conflicts: com.squidforce.copyvault
+Filename: ./debs/CopyVault(激活码版)-1.9.0-iphoneos-arm64e.deb
+Size: 1706700
+MD5sum: 1a5621471aca26b018ed683e98cd5310
+SHA1: 94cfacd0452d09fa12cbd37fd0be95627eb89ecf
+SHA256: 1c9cf44e27ee4d54d907784e3ac3178e8f5982487b217149a17027cc58cc7a9b
+Section: Tweaks
+Description: 激活码用户或需要激活码的用户安装这个，非激活码用户不要安装！！Do not install if you do not have an activation code!!! Your Copy Vault, Your Pasteboard
+Author: SquidForce, Backup
+Name: CopyVault(激活码版)
+Sileodepiction: https://lclrc.github.io/repo/depictions/native/cn.octoforce.copyvault/depiction.json
+
 Package: cn.zqbb.ccatop
 Version: 2.3
 Architecture: iphoneos-arm64e
@@ -175,6 +193,22 @@ Icon: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/icon.png
 Name: 微信推送直达聊天窗口 WechatPushMsgPage
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/js.json
 
+Package: com.brend0n.nopassafterrespringsafe
+Version: 0.0.3
+Architecture: iphoneos-arm64
+Maintainer: Brend0n <brendonjkding@126.com>
+Installed-Size: 168
+Depends: mobilesubstrate
+Filename: ./debs/NoPassAfterRespring (Safe)-0.0.3-iphoneos-arm64.deb
+Size: 3364
+MD5sum: efde97ae3c76f1cf199d5bec89b3f3fd
+SHA1: bd0682e682fd9b409dd70d971055ec85c3c726ab
+SHA256: 333f21c93bd99d68595ad73747dfa795de9960e8aa5501d58f76fd1449e66df0
+Section: Tweaks
+Description: Disables passcode after a respring. This version does NOT modify system file. It's safe to use. 在注销前是解锁状态的情况下，注销后自动跳过人脸或指纹识别到桌面。
+Author: Brend0n <brendonjkding@126.com>
+Name: NoPassAfterRespring (Safe)
+
 Package: com.dao.ccless
 Version: 2.1.0.1
 Architecture: iphoneos-arm64e
@@ -192,6 +226,23 @@ Description: 超级控制中心模块集合！
 Author: 妖刀
 Name: CCLess++(RootHide)
 Sileodepiction: https://xiangfeidexiaohuo.github.io/sileodepiction/ccless/js.json
+
+Package: com.dao.filzacrack
+Version: 1.1-9
+Architecture: iphoneos-arm64e
+Maintainer: Nets
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: firmware (>= 15.0), mobilesubstrate
+Conflicts: com.netskao.filzacrack, netskao.filzacrack-rootless
+Filename: ./debs/Filza Crack(RootHide)-1.1-9-iphoneos-arm64e.deb
+Size: 28916
+MD5sum: 780888e00f6a297ae56497c8a703e641
+SHA1: 32f92db6ca5cc095b25291484ff87a293263fd24
+SHA256: 370d022cefa5615f39acb2ed9f16627bc765c958f0279924fd7991c9f6abc698
+Section: 嗨-工具
+Description: Filza解锁全部功能，请在官方源安装Filza。Netskao新更的版本，上架备份；转换支持 roothide。
+Author: Netskao
+Name: Filza Crack(RootHide)
 
 Package: com.dao.hammerit
 Version: 1.7.1
@@ -369,6 +420,43 @@ Author: Netskao
 Icon: https://TrollStoreX.Github.io/sileodepiction/WeChatNotiAvatar/icon.png
 Name: WeChatNotiAvatar 微信头像
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WeChatNotiAvatar/js.json
+
+Package: com.sini.filzaswipeselect
+Version: 0.0.2
+Architecture: iphoneos-arm64
+Maintainer: korboy <korboybeats@gmail.com>
+Installed-Size: 184
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: ./debs/FilzaSwipeSelect(rootless)-0.0.2-iphoneos-arm64.deb
+Size: 8756
+MD5sum: 74dd4ec964a2d55211124b6c180915c0
+SHA1: d80d8e002c694c6f23a573aebd3f515c2d3b4dd1
+SHA256: c2d00a55c23a50133ac2d1e865de8cd20c577f5e04eb0dd2c056850984a28a70
+Section: 越狱插件
+Description: Filza的滑动多选功能。不再单独点击每个文件进行选择。
+Author: korboy <korboybeats@gmail.com>
+Icon: https://sini921.github.io/repo/sileodepiction/icon/filzaswipeselect.png
+Name: FilzaSwipeSelect(rootless)
+Sileodepiction: https://sini921.github.io/repo/sileodepiction/filzaswipeselect/js.json
+
+Package: com.storeswitcher.appstore
+Version: 1.0.6
+Architecture: iphoneos-arm64e
+Maintainer: 0xkuj
+Depends: firmware (>= 11)
+Conflicts: com.yourepo.0xkuj.storeswitcher2rootless
+Filename: ./debs/StoreSwitcher 账号切换-1.0.6-iphoneos-arm64e.deb
+Size: 24152
+MD5sum: 9e28f4fb48eed98d3189a6aa9c7e1bb9
+SHA1: 5ae167be449299be6c6afde3252961e3053d41ce
+SHA256: 7b0d8a8bf0d38c1ccccf0c7cab942e4e61a3575e0020edf0c9d558d1ef9385fe
+Section: Bootstrap
+Description: 桌面长按 App Store 进行切换账号
+ * Long press the App Store on the desktop to switch accounts
+Author: subdiox & iosdump
+Icon: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/icon.png
+Name: StoreSwitcher 账号切换
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/js.json
 
 Package: com.tigisoftware.filza64bits
 Version: 4.0.1-4~roothide
