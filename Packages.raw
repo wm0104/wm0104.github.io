@@ -99,6 +99,24 @@ Author: Mao
 Name: 微信助手 密友
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/mao/js.json
 
+Package: com.autoscroll.jb
+Version: 1.0.0
+Architecture: iphoneos-arm64e
+Maintainer: pxcex
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: mobilesubstrate
+Filename: ./debs/AutoScroll 自动滑动-1.0.0-iphoneos-arm64e.deb
+Size: 7390
+MD5sum: 800ee7bc62172ec7feba9941786dd598
+SHA1: f60a6197ae17e6aa520dad038f8e7acbc9c87437
+SHA256: 41b8966d3d59f7a34902fcabde2ea92db3d3534fb992514d2530b7277aed1ca4
+Description: 页面自动滑动
+ * 安装生效无设置选项
+ * 跟随你的手指滑动幅度，页面始终自动滑动，直到你触摸屏幕才停止
+Author: pxcex
+Name: AutoScroll 自动滑动
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/AutoScroll/js.json
+
 Package: com.be-huge.wechat-push-msg-pages
 Version: 0.0.3
 Architecture: iphoneos-arm64e
@@ -131,6 +149,28 @@ SHA256: 333f21c93bd99d68595ad73747dfa795de9960e8aa5501d58f76fd1449e66df0
 Description: Disables passcode after a respring. This version does NOT modify system file. It's safe to use. 在注销前是解锁状态的情况下，注销后自动跳过人脸或指纹识别到桌面。
 Author: Brend0n <brendonjkding@126.com>
 Name: NoPassAfterRespring (Safe)
+
+Package: com.choco.tgextras
+Version: 1.7.1
+Architecture: iphoneos-arm64e
+Maintainer: choco
+Installed-Size: 14980
+Conflicts: com.choco.tgextra
+Filename: ./debs/Telegram TGExtra-1.7.1-iphoneos-arm64e.deb
+Size: 2330908
+MD5sum: 65e132d1d9668439ff4af68d091529cc
+SHA1: 8ee98e763883df974dcf9b637b43566287d3deb0
+SHA256: edeee078db3487f9e362b92a42d38527048907bce60558d9a847d3db2f76422e
+Description: Telegram 增强插件
+ * 去除广告
+ * 虚拟定位
+ * 隐藏一些输入状态
+ * 允许保存频道限制下载的文件
+ * 设置界面-长按倒数第三个选项“客服”打开插件
+ * 支持 Telegram、Turrit 等第三方客户端
+Author: choco
+Name: Telegram TGExtra
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Telegram/TGExtra.json
 
 Package: com.dao.filzacrack
 Version: 1.1-9
@@ -194,6 +234,25 @@ SHA256: 4801a5a2fbf715091caa0b495677acc901d433dfc829da6732f779bbc6ab9a85
 Description: 设置自定义、归类插件，源内有汉化包；v3.0.x版本，功能大体和之前v2.1.1差不多，就改了个插件首页。
 Author: SOPPPra
 Name: SettingsRevamp(RootHide)
+
+Package: com.exile90.icleanerpros
+Version: 7.10.0
+Architecture: iphoneos-arm64e
+Maintainer: Ivano Bilenchi
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: firmware (>= 4.0), findutils, apt | apt7
+Conflicts: com.exile90.icleanerpro, org.altervista.exilecom.icleaner
+Filename: ./debs/iCleaner Pro-7.10.0-iphoneos-arm64e.deb
+Size: 2493324
+MD5sum: 88d09886db54aec8b3aa59ddcef1bd06
+SHA1: ad7fd0aed46b7427351a7abd3cd9bba7f3c4de46
+SHA256: b494302ec57388e154e609b84851c00f434e146c0595592f584a587cfc396d9c
+Description: iCleaner Pro
+ * 垃圾清理工具，启动项管理等
+ * The first real iOS system cleanup and management utility
+Author: Ivano Bilenchi
+Name: iCleaner Pro
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/iCleanerPro/js.json
 
 Package: com.hbwechathelper.ailuns
 Version: 2.0-9f
