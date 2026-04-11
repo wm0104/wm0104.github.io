@@ -27,15 +27,27 @@ jobs:
         run: |
           sudo apt update
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
+          sudo apt install locales -y
+          sudo locale-gen zh_CN.UTF-8
+          export LANG=zh_CN.UTF-8
 
       # Step 3: Refresh the Packages file (create/update .deb package list)
       - name: Refresh Packages
         run: |
-          rm -rf ./Packages*  # Remove old package lists
-          dpkg-scanpackages -m ./debs /dev/null > ./Packages  # Generate new Packages file
-          bzip2 -k -9 Packages  # Create bzip2 compressed version
-          xz -k -9 --extreme Packages  # Create xz compressed version
-          zstd --ultra -22 -k Packages -o Packages.zst  # Create zstd compressed version
+          mkdir -p ./debs
+          chmod +r ./debs/*.deb || true
+          for f in ./debs/*.deb; do
+            base=$(basename "$f")
+            newname=$(echo "$base" | iconv -f UTF-8 -t ASCII//TRANSLIT | tr ' ' '_' | tr -cd '[:alnum:]_-.')
+            if [ "$base" != "$newname" ]; then
+              mv "$f" "./debs/$newname"
+            fi
+          done
+          rm -rf ./Packages*
+          dpkg-scanpackages -m ./debs /dev/null > ./Packages
+          bzip2 -k -9 Packages
+          xz -k -9 --extreme Packages
+          zstd --ultra -22 -k Packages -o Packages.zst
 
       # Step 4: Commit and push the changes
       - name: Commit & Push
@@ -60,3 +72,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
         run: remove_all_actions
+
+      # Step 7: Post Checkout (if needed)
+      - name: Post Checkout
+        run: echo "Post Checkout step completed"
+
+      # Step 8: Complete job
+      - name: Complete job
+        run: echo "Build job completed"
