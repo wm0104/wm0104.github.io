@@ -10,7 +10,7 @@ Size: 7852280
 MD5sum: 6b5a8a72021e59482e19c274429d087d
 SHA1: c5ac440df2a35f395ef1338ddafac3ceb2a7af19
 SHA256: 9b3ec755294eb8e47692d93bd06d75a4a3d4d11765651aa897b982cb54ddc702
-Section: RootHide Packages
+Section: 应用破解
 Description: Telegram 增强插件
  * 去除广告
  * 虚拟定位
@@ -36,7 +36,7 @@ Size: 573530
 MD5sum: 189e12650d871c7060b0b203dac61f83
 SHA1: 1f6893deb5687d33065f379e54952f074fa1c814
 SHA256: 2f1024f5ece1e5590680d7262cb476937e997c17bf9c9c6608db59953b51f402
-Section: RootHide Packages
+Section: 应用破解
 Description: Swiftgram Pro
  * 附加解除下载保护
  * 解除截图保护
