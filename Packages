@@ -1,21 +1,70 @@
-Package: com.choco.tgextra
-Section: 应用破解
+Package: com.choco.tgextras
+Version: 1.2-9+debug
+Architecture: iphoneos-arm64e
+Maintainer: choco
 Installed-Size: 14980
-Maintainer: wm0104
-Architecture: iphoneos-arm64
-Version: 1.7.1
-Depends: mobilesubstrate
+Pre-Depends: rootless-compat(>= 0.9)
 Conflicts: com.choco.tgextra
-Filename: ./debs/tg增强_1.7.1_arm64.deb
-Size: 2331160
-Icon: https://TrollStoreX.Github.io/sileodepiction/Telegram/icon.png
-SileoDepiction: https://TrollStoreX.Github.io/sileodepiction/Telegram/TGExtra.json
+Filename: ./debs/iphoneos-arm64e/com.choco.tgextras_1.2-9+debug_arm64e.deb
+Size: 7852280
+MD5sum: 6b5a8a72021e59482e19c274429d087d
+SHA1: c5ac440df2a35f395ef1338ddafac3ceb2a7af19
+SHA256: 9b3ec755294eb8e47692d93bd06d75a4a3d4d11765651aa897b982cb54ddc702
+Section: 应用破解
 Description: Telegram 增强插件
-* 去除广告
-* 虚拟定位
-* 隐藏一些输入状态
-* 允许保存频道限制下载的文件
-* 设置界面-长按倒数第三个选项“客服”打开插件
-* 支持Telegram、Turrit等第三方客户端
+ * 去除广告
+ * 虚拟定位
+ * 隐藏一些输入状态
+ * 允许保存频道限制下载的文件
+ * 设置界面-长按倒数第三个选项“客服”打开插件
+ * 支持 Telegram、Turrit 等第三方客户端
+Author: choco
+Icon: https://TrollStoreX.Github.io/sileodepiction/Telegram/icon.png
 Name: Telegram TGExtra
-Author: wm0104
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Telegram/TGExtra.json
+
+Package: com.lenglengyu.baidunetdiskoutput
+Version: 1.0.1K
+Architecture: iphoneos-arm64e
+Maintainer: 冷冷雨
+Installed-Size: 616
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: mobilesubstrate
+Conflicts: com.lenglengyu.baidunetdiskoutput-rootless, byg.iosios.net.baidunetdiskoutput-rootless
+Filename: ./debs/iphoneos-arm64e/无.11.0.1K_arm64e.deb
+Size: 197632
+MD5sum: a65ecf11f3c8f3aecc2b09276df5ab08
+SHA1: 965fd2f6333c5a9c752c098ac98a6121e78b2714
+SHA256: a99171092d2a4853e19b9357e1a4d5b6db06ec10cf4ae255d75667a42591e1c4
+Section: 应用破解
+Description: 百度网盘下载管理添加导出按钮
+Author: 冷冷雨
+Icon: https://TrollStoreX.Github.io/sileodepiction/DP/icon.png
+Name: 百度网盘导出文件
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/DP/js.json
+
+Package: com.netskao.swiftgramcracks
+Version: 1.1-7
+Architecture: iphoneos-arm64e
+Maintainer: Nets
+Installed-Size: 1080
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: firmware (>= 13.0), mobilesubstrate
+Conflicts: com.netskao.swiftgramcrack
+Filename: ./debs/iphoneos-arm64e/com.netskao.swiftgramcracks_1.1-7_arm64e.deb
+Size: 573530
+MD5sum: 189e12650d871c7060b0b203dac61f83
+SHA1: 1f6893deb5687d33065f379e54952f074fa1c814
+SHA256: 2f1024f5ece1e5590680d7262cb476937e997c17bf9c9c6608db59953b51f402
+Section: 应用破解
+Description: Swiftgram Pro
+ * 附加解除下载保护
+ * 解除截图保护
+ * 去除官方广告
+ * 解锁 Pro 首次登录需重启一次应用
+ * 最后在 Swiftgram 12.2 进行测试
+Author: Netskao
+Icon: https://TrollStoreX.Github.io/sileodepiction/Swiftgram/icon.png
+Name: Swiftgram Crack
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Swiftgram/js.json
+
