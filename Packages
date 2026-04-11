@@ -124,22 +124,6 @@ Author: be-huge
 Name: 微信推送直达聊天窗口 WechatPushMsgPage
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/js.json
 
-Package: com.brend0n.nopassafterrespringsafe
-Version: 0.0.3
-Architecture: iphoneos-arm64
-Section: 插件
-Maintainer: Brend0n <brendonjkding@126.com>
-Installed-Size: 168
-Depends: mobilesubstrate
-Filename: ./debs/NoPassAfterRespring (Safe)-0.0.3-iphoneos-arm64.deb
-Size: 3364
-MD5sum: efde97ae3c76f1cf199d5bec89b3f3fd
-SHA1: bd0682e682fd9b409dd70d971055ec85c3c726ab
-SHA256: 333f21c93bd99d68595ad73747dfa795de9960e8aa5501d58f76fd1449e66df0
-Description: Disables passcode after a respring. This version does NOT modify system file. It's safe to use. 在注销前是解锁状态的情况下，注销后自动跳过人脸或指纹识别到桌面。
-Author: Brend0n <brendonjkding@126.com>
-Name: NoPassAfterRespring (Safe)
-
 Package: com.dao.filzacrack
 Version: 1.1-9
 Architecture: iphoneos-arm64e
