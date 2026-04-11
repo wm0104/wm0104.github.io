@@ -11,7 +11,7 @@ Size: 4952
 MD5sum: 9390586324c0ed3a23396da6e714b26b
 SHA1: 4a678a1f86eea6eda9dad9637c6e2fd8fc166015
 SHA256: eb0c37fe27299d5fedb0b1385e18ddc9664491fd9de0c1630706c1eb4b357b66
-Section: 应用破解
+Section: RootHide Packages
 Priority: optional
 Description: BiliBili 净化开屏广告
  * 加速开屏动画
@@ -32,7 +32,7 @@ Size: 3556
 MD5sum: 700303a513d65ce9af4ba804a68e662d
 SHA1: c3abd81f494ff9402c4f35a5ec7116e2498119eb
 SHA256: 7d9ba97aae88278542c6368ed5ccf369704dd0e662dc554b5c25f36494e36bbe
-Section: 应用破解
+Section: RootHide Packages
 Priority: optional
 Description: BiliBili 净化开屏广告
  * 加速开屏动画
@@ -53,7 +53,7 @@ Size: 439328
 MD5sum: 811d1ddb00b882147fce679502584333
 SHA1: 1606ff87b29ebf2729b04b39c6a3146d49dd6ff7
 SHA256: 13ee91d97a52a7f82000b4e9c2f29a0b21842a828c2bab863e070902947f0475
-Section: 抖音插件
+Section: RootHide Packages
 Priority: optional
 Description: 基于 DYYY 的抖音插件
  * 用于调整抖音 UI 的插件
@@ -77,7 +77,7 @@ Size: 6232
 MD5sum: e8ff13f866a92b806dda8e2419dbe425
 SHA1: eb709609949f5a7488dafeec35bf8434b909ed49
 SHA256: 9ca4085a9a69eafeab20c98f83254a8ff15388dac6943ed5052062caa45d74a1
-Section: Netskao-Tweaks
+Section: RootHide Packages
 Description: 阻止应用创建自己的相册
 Author: Netskao
 Icon: https://TrollStoreX.Github.io/sileodepiction/repo_pic/photo.png
