@@ -1,70 +1,74 @@
 name: "refresh"
 
+# 触发条件：pages 构建部署完成且成功时触发
 on:
   workflow_run:
     workflows: ["pages-build-deployment"]
     types: 
       - completed
 
+# 权限声明：给 PAT 对应的写权限（关键修复）
+permissions:
+  contents: write
+  actions: write  # 用于删除旧 Actions 运行记录
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # 仅在 pages 构建成功时执行
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          token: ${{ secrets.PAT_TOKEN }}  # 确保与 GitHub Secrets 中的名称一致
+          token: ${{ secrets.PAT_TOKEN }}
+          persist-credentials: true
+          fetch-depth: 0
 
       - name: Install Dependencies
-        if: success()
         run: |
           sudo apt update -qq
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      - name: Refresh Packages
-        if: success()
+      - name: Refresh Packages (强制统一为 RootHide Packages)
         run: |
           rm -rf ./Packages*
-          dpkg-scanpackages -m ./debs /dev/null >./Packages
+          dpkg-scanpackages -m ./debs /dev/null > ./Packages.tmp
+          # 关键修改：全部强制改为 RootHide Packages
+          sed -i 's/^Section: .*/Section: RootHide Packages/' ./Packages.tmp
+          mv ./Packages.tmp ./Packages
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
 
       - name: Configure Git
-        if: success()
         run: |
           git config --global user.email 'action@github.com'
           git config --global user.name 'GitHub Action'
 
       - name: Commit Changes
-        if: success()
         run: |
           git add .
-          if ! git diff --staged --exit-code 1>>/dev/null; then
-            git commit -m 'Refresh Packages'
+          if ! git diff --staged --exit-code; then
+            git commit -m 'Refresh Packages [skip ci]'
           fi
 
       - name: Push Changes
-        if: success() && github.ref == 'refs/heads/main'  # 确保在主分支上推送
         env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}  # 确保与 GitHub Secrets 中的名称一致
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          # 使用 PAT 进行身份验证
           git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          git push origin main  # 根据实际分支名称修改，例如 main 或 master
+          git push origin main
 
       - name: Download remove_all_actions
-        if: success()
         run: |
           sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
-          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
+          sudo chmod +x '/usr/bin/remove_all_actions'
 
       - name: Remove All Old Actions
-        if: success()
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}  # 使用 PAT 替代默认的 GITHUB_TOKEN
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
           GH_REPO: ${{ github.repository }}
         run: |
           remove_all_actions
