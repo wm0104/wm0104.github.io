@@ -22,11 +22,11 @@ jobs:
           submodules: recursive
           persist-credentials: true
 
-      # Step 2: Install dependencies
+      # Step 2: Install dependencies (fixed)
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install dpkg-dev bzip2 xz-utils zstd ar -y
+          sudo apt install dpkg-dev bzip2 xz-utils zstd binutils -y
 
       # Step 3: Categorize .deb and modify Section
       - name: Categorize .deb and modify Section
