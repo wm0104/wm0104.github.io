@@ -6,16 +6,14 @@ Installed-Size: 123
 Depends: mobilesubstrate (>= 0.9.5000)
 Conflicts: cn.Bswbw.fixset
 Filename: ./debs/FixSet RootHide-1.1-iphoneos-arm64e.deb
-Size: 36776
-MD5sum: 0dfccec44d27331f54f7ccd4d94dfb7a
-SHA1: 44d23178b112e26aba022497489390169ef01320
-SHA256: f628b5c8d88b968050c66d6d66d68ae5dfdaffb11922146b8f385b5fe8f77f14
+Size: 41148
+MD5sum: 410296c0b694ad37ea1c1c38cef9a628
+SHA1: 94deae9fd23f623205f9030705df499626e980c2
+SHA256: 466805308a32991599065483d8e72d5c613130103741c95a03440a414e19d52c
 Section: Bootstrap
-Description: 修复部分插件转 RootHide 配置不保存问题
+Description: .
 Author: bswbw
-Icon: https://TrollStoreX.Github.io/sileodepiction/FixSet/icon.png
 Name: FixSet RootHide
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/FixSet/js.json
 
 Package: cn.llld.swipeextenderx
 Version: 0.0.2
@@ -24,12 +22,12 @@ Maintainer: 来了老弟
 Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000)
 Filename: ./debs/SwipeExtenderX汉化-roothide-0.0.2-iphoneos-arm64e.deb
-Size: 10448
-MD5sum: 3ce8f89cf9a4c9dad96160aec8b2489b
-SHA1: 38e8c2be21d710621745efa94073082210b3bdee
-SHA256: 67f23e546e4ac38be463a6c6097259dee4e17105eac728763b2e5dfe838d1234
+Size: 11432
+MD5sum: 811d5dc15ebff3cf838080e9da3060f5
+SHA1: 424021eedf8993a42fc3874817f4922d081fb713
+SHA256: 0e90658a23001eb0f4425dfa32d307a6a2c9434a55927f64d3ae7fe472d37c36
 Section: roothide汉化补丁
-Description: SwipeExtenderX汉化，swipeextenderx汉化--(rootess)简体中文包，更新：防止与任何汉化冲突，现在任意装
+Description: .
 Author: 来了老弟
 Name: SwipeExtenderX汉化-roothide
 
@@ -41,15 +39,14 @@ Installed-Size: 6380
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
 Conflicts: com.squidforce.copyvault
 Filename: ./debs/CopyVault(激活码版)-1.9.0-iphoneos-arm64e.deb
-Size: 1706700
-MD5sum: 1a5621471aca26b018ed683e98cd5310
-SHA1: 94cfacd0452d09fa12cbd37fd0be95627eb89ecf
-SHA256: 1c9cf44e27ee4d54d907784e3ac3178e8f5982487b217149a17027cc58cc7a9b
+Size: 1973428
+MD5sum: bef0bfc188c1091a5460174994f19c04
+SHA1: fe60bdcfcadf3e2a13583381111641bfa1bbc8c1
+SHA256: 345a023a651916704a256f549e377cd00f016ea30d820e94d9d95e1f3462c7da
 Section: Tweaks
-Description: 激活码用户或需要激活码的用户安装这个，非激活码用户不要安装！！Do not install if you do not have an activation code!!! Your Copy Vault, Your Pasteboard
+Description: .
 Author: SquidForce, Backup
 Name: CopyVault(激活码版)
-Sileodepiction: https://lclrc.github.io/repo/depictions/native/cn.octoforce.copyvault/depiction.json
 
 Package: cn.zqbb.ccatop
 Version: 2.3
@@ -58,16 +55,15 @@ Maintainer: SXX, Domo
 Installed-Size: 840
 Conflicts: ru.domo.cocoatop, ru.domo.cocoatop64, cn.zqbb.cocoatop64.inject.roothide, zp.cocoatop64.unject, zp.cocoatop64.unject.xina, zp.cocoatop64.inject
 Filename: ./debs/CocoaTop-2.3.deb
-Size: 183270
-MD5sum: e6f12e52eca255163c501ee58796ff40
-SHA1: 485a4a10529bba9c16e330b7ee095ece62b0ce25
-SHA256: 3b09b9311f853e601134699eb0ec94bc729eae22f8b3f310105ba52631265f98
+Size: 202540
+MD5sum: 80125697bf18fce05f79b688d32bc3ca
+SHA1: 536505e2e0197513a33ba6a408a5a487979de9e4
+SHA256: 620ab73a5275b02718147b748eaec15dcbf4944e6ebdd2bb16b009cc99799cdf
 Section: Utilities
-Description: Process Viewer for iOS GUI, updated for iOS 13 by SXX.
+Description: .
 Author: Domo, SXX
 Icon: https://apt.002599.xyz/web/icon/cn.zqbb.ccatop.png
 Name: CocoaTop
-Sileodepiction: https://apt.002599.xyz/web/cn.zqbb.ccatop
 
 Package: cn.zqbb.disupdateapp
 Version: 2.0.0-6
@@ -76,16 +72,15 @@ Maintainer: zqbb
 Installed-Size: 720
 Depends: mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist
 Filename: ./debs/Hello App-2.0.0-6-iphoneos-arm64e.deb
-Size: 129804
-MD5sum: cde720ec3a3c718948f181cfc1a96b67
-SHA1: a999c2b1c8856ed4485856c76572e72fef7b2360
-SHA256: 8b636260cec451024da0c620602d798533b87d97634991cd531504a79958908f
+Size: 146046
+MD5sum: 4aa2d5a93a7a0eac4160547f85b80f0c
+SHA1: fb759dea9c634605011c3d04c5a2b8defb77f7ef
+SHA256: 983e4c19267b6c82c8911c3a6a5fd23fcb788261aa7b24503a4a209d1ca68471
 Section: Tweaks
-Description: 屏蔽App Store更新提示(Block App Store Updates)!
+Description: .
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.disupdateapp
 Name: Hello App
-Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.disupdateapp
 
 Package: cn.zqbb.fix120hz
 Version: 3.3.0-1
@@ -95,19 +90,18 @@ Installed-Size: 1084
 Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0), preferenceloader, com.opa334.altlist
 Conflicts: cn.zqbb.fix120hz15, com.zqbb.fix120hz, com.zqbb.dynamic120hz
 Filename: ./debs/Hello 120Hz-3.3.0-1-iphoneos-arm64e.deb
-Size: 314114
-MD5sum: db7e168678f8c615f588b75cbdf1c029
-SHA1: 178ac250916972793a3c9ecf8481a82094b61b1a
-SHA256: 2876170b278c7a7dd9c72f2d860d3f0b77fa9dc3e0607255072606bff1c1e8cb
+Size: 364346
+MD5sum: 60d01329c5836736eeae36b7309d8d76
+SHA1: 1120181a879ad5c13a95e8b5cb57837a7337082a
+SHA256: 9fd7a1bb736cde711d8be8b390446445c5ac06539615b299133c0757a4f3b5b2
 Section: Tweaks
-Description:
+Description: .
  - Unlock dynamic refresh rate from 80hz to 120hz
  - .
  - 解锁动态刷新率80hz到120hz.
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.fix120hz
 Name: Hello 120Hz
-Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.fix120hz
 
 Package: cn.zqbb.hello.memorystatus
 Version: 3.6.0-2
@@ -116,16 +110,15 @@ Maintainer: zqbb
 Installed-Size: 10864
 Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 14.0), preferenceloader, launchctl
 Filename: ./debs/Hello Memory Status-3.6.0-2-iphoneos-arm64e.deb
-Size: 2987162
-MD5sum: 7dd5dfae6a2e51fbe6497ae4371173fb
-SHA1: 1b47306d9105f0dc223a61273e1f79ef1f3ce362
-SHA256: ac8bde17876ed3e2546a944f6c73fd51ec3ad270aabc32b2a9888fa709da1121
+Size: 3510022
+MD5sum: 2c3b93fe3e9f8d9df95b899d6b4cbad0
+SHA1: 044258cc0c463400851a688f43bbff9c988209a4
+SHA256: d527314dd084d7a4fec665d6522c28cd66c31638bebe34e02456625cf3d257ce
 Section: Tweaks
-Description: Set memorystatus to avoid being killed by the system
+Description: .
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.hello.memorystatus.png
 Name: Hello Memory Status
-Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.hello.memorystatus
 
 Package: cn.zqbb.hellopay
 Version: 1.0.2
@@ -134,16 +127,15 @@ Maintainer: zqbb
 Installed-Size: 324
 Depends: com.opa334.ccsupport
 Filename: ./debs/Hello Pay-1.0.2-iphoneos-arm64e.deb
-Size: 103228
-MD5sum: e26fea8ac2b462131e5536f14e32e0f6
-SHA1: c1d1c5e9e20301527f284c6a9cb2b2630d639801
-SHA256: a98463608c3b436a51820b306b0a0c7dff0710f5a221b7e02d57cd30b3fc5dcc
+Size: 113024
+MD5sum: f1a3aa496eef5cef78a613f27725a53c
+SHA1: 3e1ca464908325cbaa2e4e753acbde48362d0789
+SHA256: e7163d07aceb74ccfcb3973dbe2027c8a4b09af215c43324df7c3003dd4e27f4
 Section: Control Center (Modules)
-Description: 微信+支付宝 控制中心添加 扫一扫,付款码.
+Description: .
  - 默认支付宝扫一扫, 长按出菜单!
 Author: zqbb
 Name: Hello Pay
-Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.hellopay
 
 Package: cn.zqbb.holdcpu
 Version: 2.3.5-3
@@ -153,84 +145,78 @@ Installed-Size: 3664
 Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0), preferenceloader, com.opa334.ccsupport
 Conflicts: com.yourepo.0xash.powercuff, byg.iosios.net.powercuff, com.dao.powercuff, com.rpetrich.powercuff, com.yourepo.0xash.devicemonitor, com.yourepo.0xash.fuckthermal, com.shadow.fuckthermal, com.dao.fuckthermal, byg.iosios.net.monitor, byg.iosios.net.disablethermalmonitord, com.nan.disablethermalmonitord
 Filename: ./debs/Hello CPU-2.3.5-3-iphoneos-arm64e.deb
-Size: 1307670
-MD5sum: a88a116794274340441ee289835d3e4e
-SHA1: e5abdaac1a18432a429858164507f2a894a5ae8a
-SHA256: d12974e3910a945cf81b17735062539606b3f11ed8b66d58d76334ea665605ef
+Size: 1457472
+MD5sum: c2a732849c9cefa618938fe26c983096
+SHA1: 6fd9820b6e4af2c03ed8ed3601a76230e25f2797
+SHA256: 7c9ab9c318618ed48a0b37ccdc8f6085fd4bd502e474022defb9493ff57ba57d
 Section: Tweaks
-Description: (解除温控) (锁定低电量CPU频率)
+Description: .
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.holdcpu
 Name: Hello CPU
-Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.holdcpu
 
 Package: com.25mao.wcplugins.rootlesss
 Version: 0.1-6
 Architecture: iphoneos-arm64e
 Maintainer: admin@25mao.com
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: firmware (>= 5.0)
 Conflicts: com.25mao.wcplugins.rootless
 Replaces: com.25mao.wcplugins.rootless
 Provides: com.25mao.wcplugins.rootless
 Filename: ./debs/微信插件管理-0.1-6.deb
-Size: 18470
-MD5sum: c08ca703358643de5444d1abdcf4d3d7
-SHA1: af616df2116aa8271f99b6b639f80364d37aea2c
-SHA256: 5c20b9f20485bdbd7d9825484a43e86f01cf07a732b3e8367d18865bef829ceb
+Size: 15798
+MD5sum: 6bd5e8f8c67479fb80e3bbf8e02163ba
+SHA1: 7a1048b60639c4fa139c03d1ad8ae38c25d62ed9
+SHA256: a191699bf3a52a669824ea43b3631890d1ff70407946ae2c04f397cf412597d2
 Section: 微信插件
 Priority: optional
-Description: 微信插件管理
+Description: .
  * 收纳第三方微信插件
  * 位于微信右下角“我”-“插件”
  * 部分微信插件不支持收纳
  * 0.1-6 修复热更新收纳失效问题
  * 最后更新日期 2026.03.21
 Author: Mao
-Icon: https://TrollStoreX.Github.io/sileodepiction/wcplugins/icon.png
 Name: 微信插件管理
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/wcplugins/js.json
 Sponsor: admin@25mao.com
 
 Package: com.autoscroll.jb
 Version: 1.0.0
 Architecture: iphoneos-arm64e
 Maintainer: pxcex
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: mobilesubstrate
 Filename: ./debs/AutoScroll 自动滑动-1.0.0-iphoneos-arm64e.deb
-Size: 7390
-MD5sum: 800ee7bc62172ec7feba9941786dd598
-SHA1: f60a6197ae17e6aa520dad038f8e7acbc9c87437
-SHA256: 41b8966d3d59f7a34902fcabde2ea92db3d3534fb992514d2530b7277aed1ca4
+Size: 6566
+MD5sum: 66568f9a72693d5daa97e3e5802bfa6d
+SHA1: df05ae9ab4a8cdffcc97bff8e10b26f4f04a26be
+SHA256: 0f3cc874de797b717c581496efa9af59b7de9354e574f827fac844d5de014329
 Section: Bootstrap
-Description: 页面自动滑动
+Description: .
  * 安装生效无设置选项
  * 跟随你的手指滑动幅度，页面始终自动滑动，直到你触摸屏幕才停止
 Author: pxcex
-Icon: https://TrollStoreX.Github.io/sileodepiction/AutoScroll/icon.png
 Name: AutoScroll 自动滑动
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/AutoScroll/js.json
 
 Package: com.be-huge.wechat-push-msg-pages
 Version: 0.0.3
 Architecture: iphoneos-arm64e
 Maintainer: be-huge
 Installed-Size: 232
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: dev.theos.orion (>= 1.0.0), firmware (>= 12.2)
 Conflicts: com.be-huge.wechat-push-msg-page
 Filename: ./debs/微信推送直达聊天窗口 WechatPushMsgPage-0.0.3-iphoneos-arm64e.deb
-Size: 30768
-MD5sum: 9f4e99475ddbcf53367ed213ff73337b
-SHA1: 10ade8256100f5be73eb2e12a342e1d9982a068f
-SHA256: d52476048fdead3c6336bb55e1ad44bbbf3b225010218b7154479f05e8d8db4e
+Size: 26850
+MD5sum: baa80d983b16bc736bf9874587d97002
+SHA1: 127e9128a06d9a2b20038050fff5debaf22e1b2d
+SHA256: 39a9057beaef1d8a522abfc7e60033768ae6bb93b0549ef030db3e93f2537492
 Section: 微信插件
-Description: 弥补微信通知不足，支持点击微信消息通知横幅，跳转到对应的窗口
+Description: .
 Author: be-huge
 Icon: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/icon.png
 Name: 微信推送直达聊天窗口 WechatPushMsgPage
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/js.json
 
 Package: com.brend0n.nopassafterrespringsafe
 Version: 0.0.3
@@ -239,12 +225,12 @@ Maintainer: Brend0n <brendonjkding@126.com>
 Installed-Size: 168
 Depends: mobilesubstrate
 Filename: ./debs/NoPassAfterRespring (Safe)-0.0.3-iphoneos-arm64.deb
-Size: 3364
-MD5sum: efde97ae3c76f1cf199d5bec89b3f3fd
-SHA1: bd0682e682fd9b409dd70d971055ec85c3c726ab
-SHA256: 333f21c93bd99d68595ad73747dfa795de9960e8aa5501d58f76fd1449e66df0
+Size: 3204
+MD5sum: 92249360a3aefbc487a55da1956318a8
+SHA1: c4c6b61f14d4506d14fc4e8d5b1b070bc43efa55
+SHA256: 4792b8583c926a131401a7ffa8101cc3035759f34fe46d7ab935fc8f58d18eaf
 Section: Tweaks
-Description: Disables passcode after a respring. This version does NOT modify system file. It's safe to use. 在注销前是解锁状态的情况下，注销后自动跳过人脸或指纹识别到桌面。
+Description: .
 Author: Brend0n <brendonjkding@126.com>
 Name: NoPassAfterRespring (Safe)
 
@@ -255,12 +241,12 @@ Maintainer: choco
 Installed-Size: 14980
 Conflicts: com.choco.tgextra
 Filename: ./debs/Telegram TGExtra-1.7.1-iphoneos-arm64e.deb
-Size: 2330908
-MD5sum: 65e132d1d9668439ff4af68d091529cc
-SHA1: 8ee98e763883df974dcf9b637b43566287d3deb0
-SHA256: edeee078db3487f9e362b92a42d38527048907bce60558d9a847d3db2f76422e
+Size: 2768830
+MD5sum: 90ef80d3855103f94ce7677d5a7cec36
+SHA1: 479fadee2f027212916776dbba5d11d093fe1c18
+SHA256: 151199db20de09f954b1d1be78a7586ab1b2325d0e61dedf5ef2c03dc9ab15ae
 Section: 应用破解
-Description: Telegram 增强插件
+Description: .
  * 去除广告
  * 虚拟定位
  * 隐藏一些输入状态
@@ -270,40 +256,38 @@ Description: Telegram 增强插件
 Author: choco
 Icon: https://TrollStoreX.Github.io/sileodepiction/Telegram/icon.png
 Name: Telegram TGExtra
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Telegram/TGExtra.json
 
 Package: com.dao.ccless
 Version: 2.1.0.1
 Architecture: iphoneos-arm64e
 Maintainer: 妖刀
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: firmware (>= 15.0), mobilesubstrate, com.opa334.ccsupport
 Conflicts: com.skypain.cclocation, com.skypain.ccsettrings, com.skypain.ccrespring, com.sop.cpumagicrootless, netskao.ccbadgeclear-rootless, com.mtac.uptime, netskao.alipayscan-rootless, netskao.wechatscan-rootless, com.skypain.ccvpn, netskao.ccswitchdata-rootless, netskao.ccsim-rootless, netskao.tinyccmodules-rootless, netskao.cccellularrate-rootless, netskao.quantumultxlauncher-rootless, com.p2kdev.snapper2cc, com.skypain.ccautobrightness, com.skypain.ccscreenshot, com.skypain.cclockscreen, xyz.cypwn.safeccmodules, com.zqbb.ccpay, com.zqbb.qszqb, com.netskao.ccbadgeclear, com.kingpuffdaddi.control-center.ccvpn, com.netskao.cclifttowake, com.kdt.caperfhudmodule, com.kingpuffdaddi.control-center.ccvibration, com.hk.roothide.cc, com.hk.rootless.cc
 Filename: ./debs/CCLess++(RootHide)-2.1.0.1-iphoneos-arm64e.deb
-Size: 498256
-MD5sum: edbbb602ba5ec129edc1396803efff79
-SHA1: d66d7fb81718be6dd220f40621a538b8fb933e97
-SHA256: 0fa305deda572f8dde4ec69ab6571dff1af7d6cd0ac4eb090b69d7a12f64921d
+Size: 520066
+MD5sum: 59f84aa9240887e4c0a214815d9a2b50
+SHA1: 82dbfa98d065cec148e15c9b3efebf33f56a98bb
+SHA256: d001be8b7cd72b52621719e1283dae4fa10d77f6cbff4dadf5e7d17b4b279109
 Section: 嗨-工具
-Description: 超级控制中心模块集合！
+Description: .
 Author: 妖刀
 Name: CCLess++(RootHide)
-Sileodepiction: https://xiangfeidexiaohuo.github.io/sileodepiction/ccless/js.json
 
 Package: com.dao.filzacrack
 Version: 1.1-9
 Architecture: iphoneos-arm64e
 Maintainer: Nets
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: firmware (>= 15.0), mobilesubstrate
 Conflicts: com.netskao.filzacrack, netskao.filzacrack-rootless
 Filename: ./debs/Filza Crack(RootHide)-1.1-9-iphoneos-arm64e.deb
-Size: 28916
-MD5sum: 780888e00f6a297ae56497c8a703e641
-SHA1: 32f92db6ca5cc095b25291484ff87a293263fd24
-SHA256: 370d022cefa5615f39acb2ed9f16627bc765c958f0279924fd7991c9f6abc698
+Size: 32736
+MD5sum: 56854dd237ea358d73eb6b59b0ff7805
+SHA1: 11e19c448e9bdd2d49a8be2c3a1a84a384489539
+SHA256: 4f4af356134c47e88673fddf7ded86536e5db66288d22c663247afa4fabaefe2
 Section: 嗨-工具
-Description: Filza解锁全部功能，请在官方源安装Filza。Netskao新更的版本，上架备份；转换支持 roothide。
+Description: .
 Author: Netskao
 Name: Filza Crack(RootHide)
 
@@ -311,16 +295,16 @@ Package: com.dao.hammerit
 Version: 1.7.1
 Architecture: iphoneos-arm64e
 Maintainer: lclrc(SquidForce)
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist, com.opa334.ccsupport, com.opa334.libsandy, firmware (>= 14.0)
 Conflicts: com.lclrc.hammerit
 Filename: ./debs/HammerIt(RootHide)-1.7.1-iphoneos-arm64e.deb
-Size: 962860
-MD5sum: 2030b713030383d6f17b14c85d81981b
-SHA1: 7ce4889e42eff1bf03a4a4ae750517e5e17b7f40
-SHA256: 13bb2904e1b186b042e752c7ac4c1b8436203596cf5d0c144c55c23bd44f2a88
+Size: 1108202
+MD5sum: 170b8ac5dbe20b74015309fbfca77d6f
+SHA1: 4653fa1f59b6287aa08a0e0b04344d98c2bfc857
+SHA256: 34b11c5bb5ac655b02403b80af692fc83a2fc10e4bf0c2ad99e23b5565d22f4c
 Section: 嗨-工具
-Description: 乌贼的锤子大爆炸，上架备用；roothide版为rootless版本转换。
+Description: .
 Author: lclrc(SquidForce)
 Name: HammerIt(RootHide)
 
@@ -332,12 +316,12 @@ Installed-Size: 136
 Depends: mobilesubstrate (>= 0.9.5000)
 Conflicts: com.roothide.lockdown, cc.dao.lightshield
 Filename: ./debs/lockdown(RootHide)-1.0.3-iphoneos-arm64e.deb
-Size: 5640
-MD5sum: 4d4826ef0d75a8df2278997b0e8a49f3
-SHA1: 0b967cf2a8d044357e07bcdf21d9a65a0f164063
-SHA256: bf0cf20f62648087cb7edb2f1d4cc40a3e74c6421b9d26f330dd7c470c4cfd84
+Size: 5456
+MD5sum: abc8fff97fc67fd32a9ad6698d905e19
+SHA1: 845f7a90de091e7a336a2fc0043ea8dd3f0ad7e0
+SHA256: 2e7eacaf802934a5fe6a94e79e2f552f896ddb246e89ef485b91ac3a6ececf26
 Section: 嗨-系统
-Description: 让你的设备免受 DarkSword/Coruna 攻击！针对 WebContent 进程的 JSC 安全加固。通过配置 JavaScriptCore 选项，消除主要的漏洞利用原语（包括地址泄露/伪造对象 addrof/fakeobj、JIT 类型混淆、垃圾回收器 Use-After-Free）。该安全强化默认处于启用状态，无设置。如果使用真皮白名单RootHide，请去白名单勾选 com.apple.WebKit.WebContent。
+Description: .
 Author: roothide
 Name: lockdown(RootHide)
 
@@ -348,12 +332,12 @@ Maintainer: SOPPPra
 Depends: mobilesubstrate, preferenceloader, com.mrgcgamer.libgcuniversal, firmware (>= 14), com.hk.settingsrevamp.cn.rl
 Conflicts: com.creaturecoding.shuffle, com.trappledestek.ikset, pro.ikghd.iksettings, xyz.cypwn.settingswidgets, org.mr.settingswidgets, com.trappledestek.settingswidgets, com.shepgoba.settingswidgets, com.sop.settingsrevamp
 Filename: ./debs/SettingsRevamp(RootHide)-3.0.1.1-iphoneos-arm64e.deb
-Size: 408120
-MD5sum: 62944430c975e25f84e1b0d421dfb798
-SHA1: 306174e2b598351e6cd5d521f70d16e7318d8869
-SHA256: 4801a5a2fbf715091caa0b495677acc901d433dfc829da6732f779bbc6ab9a85
+Size: 425136
+MD5sum: 6be8c02d05ad96b1eb8f48ef63420def
+SHA1: ae2ca8d1f8b9731344ecd092f3aaa43185436dd8
+SHA256: 60e8e7c8842a644ccef9c1b5266c16883c4215c3768bfbece64fbef813a05357
 Section: 嗨-工具
-Description: 设置自定义、归类插件，源内有汉化包；v3.0.x版本，功能大体和之前v2.1.1差不多，就改了个插件首页。
+Description: .
 Author: SOPPPra
 Name: SettingsRevamp(RootHide)
 
@@ -361,37 +345,36 @@ Package: com.exile90.icleanerpros
 Version: 7.10.0
 Architecture: iphoneos-arm64e
 Maintainer: Ivano Bilenchi
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: firmware (>= 4.0), findutils, apt | apt7
 Conflicts: com.exile90.icleanerpro, org.altervista.exilecom.icleaner
 Filename: ./debs/iCleaner Pro-7.10.0-iphoneos-arm64e.deb
-Size: 2493324
-MD5sum: 88d09886db54aec8b3aa59ddcef1bd06
-SHA1: ad7fd0aed46b7427351a7abd3cd9bba7f3c4de46
-SHA256: b494302ec57388e154e609b84851c00f434e146c0595592f584a587cfc396d9c
+Size: 1090122
+MD5sum: 5a54e573d658025f8b9b410fce6d4174
+SHA1: 2686517f4cfea5c2796d206e5fc819de9c5bf710
+SHA256: 82e214241355d86f24c1589aaba3b6854f90410923f7975b9bd5b1b2fbbc74be
 Section: Bootstrap
-Description: iCleaner Pro
+Description: .
  * 垃圾清理工具，启动项管理等
  * The first real iOS system cleanup and management utility
 Author: Ivano Bilenchi
 Icon: https://TrollStoreX.Github.io/sileodepiction/iCleanerPro/icon.png
 Name: iCleaner Pro
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/iCleanerPro/js.json
 
 Package: com.hbwechathelper.ailuns
 Version: 2.0-9f
 Architecture: iphoneos-arm64e
 Maintainer: HuangBai
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: mobilesubstrate
 Conflicts: com.HBWechatHelper.ailun, byg.iosios.net.hbwechathelper.rootlless
 Filename: ./debs/黄白助手-2.0-9f.deb
-Size: 13902268
-MD5sum: d13b262ac42bfe04acb0cb4905f64be1
-SHA1: 67d7cbce6cbc1489dd17e847cafbd852ce9d02e2
-SHA256: e4733bfe687e78a87208feeb07cd1864487899bbd9630b963ab2d18956a603a1
+Size: 16132672
+MD5sum: d28c8b2678f0dba17b5c43231fc5c317
+SHA1: 6e0683490738f5ef18ca9c7fc7abd7f581a75330
+SHA256: 25c0bffa0201b1be6c2d07588553fcd276f8821f9e82dbed0fe673441311dade
 Section: 微信插件
-Description: 微信多功能插件
+Description: .
  * 一个微信插件文本转语音
  * 点歌朋友圈一键点赞等诸多功能
  * 发送网络语录舔狗日记骂人等文案
@@ -400,9 +383,27 @@ Description: 微信多功能插件
  * 自定义信息尾巴
  * 自定义拍一拍 百变小尾巴 实时尾巴时间等功能
 Author: HuangBai
-Icon: https://TrollStoreX.Github.io/sileodepiction/HB/icon.png
 Name: 黄白助手
-Sileodepiction: https://TrollStoreX.Github.io/
+
+Package: com.huami.bilinoads
+Version: 1.0.1
+Architecture: iphoneos-arm64e
+Maintainer: huami
+Installed-Size: 168
+Pre-Depends: rootless-compat (>= 0.9)
+Depends: firmware (>= 5.0), mobilesubstrate
+Conflicts: com.huami.bilinoad
+Filename: ./debs/哔哩哔哩 BiliNoAd-1.0.1-iphoneos-arm64e.deb
+Size: 4532
+MD5sum: 1e19f2bdd469e08a899e33e83b1c9ab8
+SHA1: ee3c5f02d9fd7d9ce89dbfb9018bc2aed7aaca6f
+SHA256: 478b2919e39fb9ad024ae8395700836823fc9555694e0d2347159221ff80e928
+Section: 应用破解
+Priority: optional
+Description: .
+ * 加速开屏动画
+Author: huami
+Name: 哔哩哔哩 BiliNoAd
 
 Package: com.huami.dyyy.vita
 Version: 2.2-9
@@ -412,13 +413,13 @@ Installed-Size: 1932
 Depends: firmware (>= 5.0), mobilesubstrate
 Conflicts: com.huami.dyyy, com.huami.dyyys
 Filename: ./debs/抖音 DYYY-2.2-9-iphoneos-arm64e.deb
-Size: 439328
-MD5sum: 811d1ddb00b882147fce679502584333
-SHA1: 1606ff87b29ebf2729b04b39c6a3146d49dd6ff7
-SHA256: 13ee91d97a52a7f82000b4e9c2f29a0b21842a828c2bab863e070902947f0475
+Size: 520050
+MD5sum: 27df1c88bb92a2cafcc6f9c76263dc3b
+SHA1: d8ee5882881e281bdaae5000001ecd69cd0ecaf0
+SHA256: ff86c0426ffecd6cf048faeaa4f0540dcdac31654d45382847adcf8fc603f1b2
 Section: 抖音插件
 Priority: optional
-Description: 基于 DYYY 的抖音插件
+Description: .
  * 用于调整抖音 UI 的插件
  * 仅在抖音 34.2.0 版本中测试
  * 仅供学习交流，禁止用于商业用途
@@ -426,7 +427,6 @@ Description: 基于 DYYY 的抖音插件
 Author: huami & vita
 Icon: https://TrollStoreX.Github.io/sileodepiction/DYYYVita/icon.png
 Name: 抖音 DYYY
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/DYYYVita/js.json
 
 Package: com.lclrc.controltab
 Version: 1.0
@@ -436,15 +436,14 @@ Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000)
 Conflicts: com.chr1s.newtab
 Filename: ./debs/ControlTab - 控制Safari标签页-1.0-iphoneos-arm64.deb
-Size: 6112
-MD5sum: 99fdb6bf17f0be5fb441b6f76c9e77a5
-SHA1: deafe2721eb678d28bfe0074980a55e369a1ab31
-SHA256: 5fafffcff06e2fd5623738c4312556178318afcb89b13aa9cf4ef78c42bc91a6
+Size: 6328
+MD5sum: 409443f02110df4a2eaa4cb3be322f75
+SHA1: 8201b343b26c04819ad11016b0a2a5587c728dad
+SHA256: df37a8059bcdc9a665de93aa33df9aed35c239cab99bdb23683e475cd0625283
 Section: Tweaks
-Description: tweak for Safari
+Description: .
 Author: SquidForce
 Name: ControlTab - 控制Safari标签页
-Sileodepiction: https://lclrc.github.io/repo/depictions/native/com.lclrc.controltab/depiction.json
 
 Package: com.lclrc.squidgesture
 Version: 1.3.7
@@ -453,12 +452,12 @@ Maintainer: lclrc(SquidForce)
 Installed-Size: 1512
 Depends: mobilesubstrate, preferenceloader, firmware (>= 14.0), com.opa334.altlist
 Filename: ./debs/SquidGesture-1.3.7-iphoneos-arm64e.deb
-Size: 382118
-MD5sum: 563038333d02c7d290ebd2f67df0e60f
-SHA1: b454c39cb87c5b837ea9f9ce1d167942645ebb3e
-SHA256: aba10272daaa5d69bf47f54ca21997f4dd74995b8ae88dc08cd8bdf2f0957ad7
+Size: 428880
+MD5sum: 541c0cba5acc7a5caa406baf14d82957
+SHA1: dd5a051dd462b5c31c25c70541f2360f03dcc78a
+SHA256: 515db16c03f2bb09b23a4a2642aa484f33ccb0773c3972f36afa82cc3b6c1177
 Section: Tweaks
-Description: Gestures
+Description: .
 Author: lclrc(SquidForce)
 Icon: file:///Library/PreferenceBundles/SquidGesturePrefs.bundle/SquidGesture_icon@3x.png
 Name: SquidGesture
@@ -468,42 +467,38 @@ Version: 1.4.4
 Architecture: iphoneos-arm64e
 Maintainer: Netskao
 Installed-Size: 3772
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: firmware (>= 15.0), mobilesubstrate, preferenceloader
 Conflicts: com.netskao.appdata, byg.iosios.net.appdata-rootless, com.dao.appdata
 Filename: ./debs/AppData-1.4.4-iphoneos-arm64e.deb
-Size: 10005284
-MD5sum: a50b7a76d1590d5dd9d1f2d6ff4021cb
-SHA1: ee752badb65f1ba95fc0815b7d0d0e7f54064898
-SHA256: 7efa1cdbc682c26606cea0a8ee94ddee16f8a2d08e57a5ea0a45039a9e686367
+Size: 11522124
+MD5sum: 76eda4ac6706c5db012d19abfa0aecd1
+SHA1: b2da7293d327e0a0d7c1642ebc55033453ff4320
+SHA256: 09f9d3e66679c88070695e8288d2f0a680a13e6da0211d9fbe4fe94e9576fc71
 Section: Netskao-Tweaks
-Description: 桌面图标增强插件
+Description: .
  * 由 Netskao 汉化修改
  * 桌面图标上滑或下滑或3D长按菜单选择即可唤出图标
  * View & Manage Applications Data from your Home Screen
 Author: Fouad Raheb
-Icon: https://TrollStoreX.Github.io/sileodepiction/Appdata/icon.png
 Name: AppData
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Appdata/js.json
 
 Package: com.netskao.wechatnotiavatars
 Version: 1.3-1
 Architecture: iphoneos-arm64e
 Maintainer: Nets
 Installed-Size: 2336
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: firmware (>= 15.0), firmware (<< 17.0), mobilesubstrate
 Filename: ./debs/WeChatNotiAvatar 微信头像-1.3-1-iphoneos-arm64e.deb
-Size: 341576
-MD5sum: 680bd6e0fb3649b0e5a9b00705b376fb
-SHA1: b7b6b8985f1175a73595672221697356a075a124
-SHA256: 8e3180a3ea18cc4a5a4fdd9ffbcaa936445bcc0cc4fb88c4395ae84b9a6eb574
+Size: 282588
+MD5sum: 2f645977d5888e2ad42dbe5f368ae701
+SHA1: ce4a1c05eea99f4d437c3246a12d7f9c8bdc6710
+SHA256: 318c927bd0384733ac35bc0ac3360e63cbf722e9c48e1f5e240ccd2911504379
 Section: Netskao-Tweaks
-Description: 让微信消息通知显示微信好友头像
+Description: .
 Author: Netskao
-Icon: https://TrollStoreX.Github.io/sileodepiction/WeChatNotiAvatar/icon.png
 Name: WeChatNotiAvatar 微信头像
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WeChatNotiAvatar/js.json
 
 Package: com.sini.filzaswipeselect
 Version: 0.0.2
@@ -512,12 +507,12 @@ Maintainer: korboy <korboybeats@gmail.com>
 Installed-Size: 184
 Depends: mobilesubstrate (>= 0.9.5000)
 Filename: ./debs/FilzaSwipeSelect(rootless)-0.0.2-iphoneos-arm64.deb
-Size: 8756
-MD5sum: 74dd4ec964a2d55211124b6c180915c0
-SHA1: d80d8e002c694c6f23a573aebd3f515c2d3b4dd1
-SHA256: c2d00a55c23a50133ac2d1e865de8cd20c577f5e04eb0dd2c056850984a28a70
+Size: 9172
+MD5sum: 434b7bed6dcae792f9cc983880b109d4
+SHA1: db3fd875d2e94e783ef7ecd77bcfc84c427a9624
+SHA256: ef61681e43788e59bd68e69a082a8d469154af6fb5b6a9c2d431a01b265af96e
 Section: 越狱插件
-Description: Filza的滑动多选功能。不再单独点击每个文件进行选择。
+Description: .
 Author: korboy <korboybeats@gmail.com>
 Icon: https://sini921.github.io/repo/sileodepiction/icon/filzaswipeselect.png
 Name: FilzaSwipeSelect(rootless)
@@ -530,17 +525,15 @@ Maintainer: 0xkuj
 Depends: firmware (>= 11)
 Conflicts: com.yourepo.0xkuj.storeswitcher2rootless
 Filename: ./debs/StoreSwitcher 账号切换-1.0.6-iphoneos-arm64e.deb
-Size: 24152
-MD5sum: 9e28f4fb48eed98d3189a6aa9c7e1bb9
-SHA1: 5ae167be449299be6c6afde3252961e3053d41ce
-SHA256: 7b0d8a8bf0d38c1ccccf0c7cab942e4e61a3575e0020edf0c9d558d1ef9385fe
+Size: 27394
+MD5sum: 8d414885dd7cfecc3a120f257a2e5011
+SHA1: 03d8f03bff90f106234006accf5beaa1ed1b24f2
+SHA256: 0e8b3cf88b7f0f6cfa802cf74b9f043ea63bad1808362da473fc86c8f2c00c08
 Section: Bootstrap
-Description: 桌面长按 App Store 进行切换账号
+Description: .
  * Long press the App Store on the desktop to switch accounts
 Author: subdiox & iosdump
-Icon: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/icon.png
 Name: StoreSwitcher 账号切换
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/js.json
 
 Package: com.tigisoftware.filza64bits
 Version: 4.0.1-4~roothide
@@ -550,33 +543,32 @@ Pre-Depends: patches-com.tigisoftware.filza64bit(= 4.0.1-4~roothide)
 Recommends: zip, unzip, gzip, p7zip, unrar, xz-utils
 Conflicts: com.tigisoftware.filza, com.tigisoftware.filza39, com.tigisoftware.filza64bit
 Filename: ./debs/Filza 文件管理器-4.0.1-4~roothide.deb
-Size: 6970916
-MD5sum: 46bbea1723b62c27e10810562042539e
-SHA1: d2a6995632fee7c65f645e935ffd5cdfda8e5fd0
-SHA256: 4d86696f88752f031d455c6532041c01f6facec1e37a73eec15a3c0ec0f43f7b
+Size: 7531922
+MD5sum: 069be7c6716b9517f2588a41d3b17bfc
+SHA1: cf2558595a61b9cd9d8e2278945c789236f7c990
+SHA256: 293b1161eeb8b9552edca115298f31d9327370f7d96ca4013a041ce9aa6bed65
 Section: RootHide
-Description: Filza 文件管理器 RootHide 专用
+Description: .
  * 支持 RootHide Dopamine、BootStrap 半越狱
  * 支持解压打包 deb 插件
 Author: TIGI Software
 Icon: https://TrollStoreX.Github.io/sileodepiction/Filza/icon.png
 Name: Filza 文件管理器
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Filza/js.json
 
 Package: com.wkk.swipeextenderx
 Version: 1.6.2
 Architecture: iphoneos-arm64e
 Maintainer: MiRO <tweaks_support@miro92.com>
 Installed-Size: 614
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: firmware (>=14.0), mobilesubstrate, org.thebigboss.libcolorpicker
 Filename: ./debs/SwipeExtenderX-1.6.2-iphoneos-arm64e.deb
-Size: 108076
-MD5sum: 40103b2cbc07d4368839c0391c080787
-SHA1: 939db6bc6fde13be35572785c6f5be1ec43caaac
-SHA256: c5fc988471c40bf6c9d299ca9f502e67ec8128237e77949495f96039a74fdc1e
+Size: 92906
+MD5sum: d7dd8f448a91875d58bc9c18761dbf24
+SHA1: b2bc5ce18881e60b293709f509963793a801b3ed
+SHA256: a61ea18c0ccfb1a2f7941ff650d1f92654660beda566af57199ee6694c41b568
 Section: Tweaks
-Description: 用这款传奇的插件重塑你的原生键盘，自带我的预设，在Presets中可以找到并恢复。无汉化。
+Description: .
 Author: MiRO <tweaks_support@miro92.com>
 Icon: https://img.chariz.cloud/icon/swipeextenderx/icon@3x.png
 Name: SwipeExtenderX
@@ -589,17 +581,16 @@ Installed-Size: 244
 Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0)
 Conflicts: zp.limitcharging.rootless
 Filename: ./debs/Hello Charging-1.0.8-iphoneos-arm64e.deb
-Size: 17980
-MD5sum: ae3cceb16c0922ade08fbcff8d13bf90
-SHA1: 12a848dea64dadae45a67156bb79421764cd3ed7
-SHA256: 6356dce48a460622f8cd8f523f0f5085be636894a4b4e38cc8d5f85162aff75f
+Size: 18720
+MD5sum: 06c004342ddce7819946f2827cf26ac5
+SHA1: 38d465aaddfcc73ee0175aea5ad74182e1a992d6
+SHA256: 6640d6331b407dab54055849656f9079e0fcdcb7aebe0a9e7ba9df3cf89f6096
 Section: Tweaks
-Description: Hello Charging (限制充电)
+Description: .
  - Wi-Fi Not Disconnected on Lock Screen (Standby consumes 5% more power)
  - 锁屏不断Wi-Fi(待机多费电5%)
 Author: zqbb
 Name: Hello Charging
-Sileodepiction: https://rootless.002599.xyz/web/com.zqbb.limitcharging
 
 Package: jp.soh.freepip
 Version: 0.0.3-1
@@ -608,12 +599,12 @@ Maintainer: Soh Satoh
 Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000)
 Filename: ./debs/FreePIP-0.0.3-1-iphoneos-arm64.deb
-Size: 6436
-MD5sum: b3ebc197d00de4d0efa18d44fb5ffeda
-SHA1: 261894f30792c470d74d7c23a52fa118a28f229b
-SHA256: b01e09e9ede05356513270940df126c77fcf3149a47b7061127e72a19b2729e8
+Size: 6420
+MD5sum: 45b743c69a124b366bd5c6bc6de28a1a
+SHA1: 128da2cbd9eb2127af163c9e7bbecc21ec7702da
+SHA256: 84f43e882968084a3be1109a2d06b1750b86ffa817cceea1756dc1a7cce2fc9a
 Section: Tweaks
-Description: FreePIP is a tweak to un-snap and scale the view of Picture-in-Picture on iOS unlimitedly. Long Press PIP window to enable freepip mode. 解锁画中画的限制，可以放在任意位置和调整到任意大小。长按画中画窗口进入 FreePIP 模式进行调整。v0.0.3-1更新：改为默认是正常模式，略微美化FreePIP模式。
+Description: .
 Author: Soh Satoh
 Name: FreePIP
 
@@ -624,12 +615,12 @@ Maintainer: tomt000
 Installed-Size: 4900
 Depends: mobilesubstrate (>= 0.9.5000), com.opa334.altlist, preferenceloader
 Filename: ./debs/Dynamic Stage-1.2-iphoneos-arm64.deb
-Size: 3086730
-MD5sum: a7928dbcbcda367cd69eb0fcaa43ee8e
-SHA1: 6bc513dd33949b42150a745488cd45c12353ef06
-SHA256: f55144278ad75d2c56f14900793c330ccc51f06b2839656e0ebfa812efe4a84f
+Size: 3151586
+MD5sum: 3b737002450011cdb6b250d7b1aac281
+SHA1: 44ec8c4489726b79c4d64818a94cc73ce6ad8bdd
+SHA256: 0fa4a5477d930ae44c497ff111ff3058fd026b4a659d941570208b11fe9ccb69
 Section: Tweaks
-Description: Stage Manager Reimagined for iPhone
+Description: .
 Author: tomt000
 Name: Dynamic Stage
 
@@ -638,16 +629,15 @@ Version: 1.1.2
 Architecture: iphoneos-arm64e
 Maintainer: Nets
 Installed-Size: 19660
-Pre-Depends: rootless-compat(>= 0.9)
+Pre-Depends: rootless-compat (>= 0.9)
 Depends: mobilesubstrate, firmware (>= 15.0)
 Filename: ./debs/禁止应用自动创建相册BlockAppsCreateAlbum-1.1.2-iphoneos-arm64e.deb
-Size: 6232
-MD5sum: e8ff13f866a92b806dda8e2419dbe425
-SHA1: eb709609949f5a7488dafeec35bf8434b909ed49
-SHA256: 9ca4085a9a69eafeab20c98f83254a8ff15388dac6943ed5052062caa45d74a1
+Size: 5528
+MD5sum: 85b1b19e046d0e570df16d89387415a2
+SHA1: 013132d74ea03369942fd62e786f12db40513eaa
+SHA256: 34658c7c582d64850794faa45356cf9c30db7425d198ffa3f87be436d48c104c
 Section: Netskao-Tweaks
-Description: 阻止应用创建自己的相册
+Description: .
 Author: Netskao
-Icon: https://TrollStoreX.Github.io/sileodepiction/repo_pic/photo.png
 Name: 禁止应用自动创建相册BlockAppsCreateAlbum
 
