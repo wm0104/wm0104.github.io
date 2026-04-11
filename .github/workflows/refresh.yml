@@ -31,13 +31,19 @@ jobs:
           sudo apt update -qq
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      - name: Refresh Packages (强制统一为 RootHide Packages)
+      - name: Refresh Packages (强制统一为 RootHide Packages + 无图标)
         run: |
           rm -rf ./Packages*
           dpkg-scanpackages -m ./debs /dev/null > ./Packages.tmp
-          # 关键修改：全部强制改为 RootHide Packages
+
+          # 删除所有插件图标
+          sed -i '/^Icon:/d' ./Packages.tmp
+
+          # 全部强制改为 RootHide Packages
           sed -i 's/^Section: .*/Section: RootHide Packages/' ./Packages.tmp
+
           mv ./Packages.tmp ./Packages
+
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
