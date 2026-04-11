@@ -23,46 +23,6 @@ Icon: https://TrollStoreX.Github.io/sileodepiction/Telegram/icon.png
 Name: Telegram TGExtra
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Telegram/TGExtra.json
 
-Package: com.lenglengyu.baidunetdiskoutput
-Version: 1.0.1K
-Architecture: iphoneos-arm64e
-Maintainer: 冷冷雨
-Installed-Size: 616
-Pre-Depends: rootless-compat(>= 0.9)
-Depends: mobilesubstrate
-Conflicts: com.lenglengyu.baidunetdiskoutput-rootless, byg.iosios.net.baidunetdiskoutput-rootless
-Filename: ./debs/iphoneos-arm64e/无.11.0.1K_arm64e.deb
-Size: 197632
-MD5sum: a65ecf11f3c8f3aecc2b09276df5ab08
-SHA1: 965fd2f6333c5a9c752c098ac98a6121e78b2714
-SHA256: a99171092d2a4853e19b9357e1a4d5b6db06ec10cf4ae255d75667a42591e1c4
-Section: 应用破解
-Description: 百度网盘下载管理添加导出按钮
-Author: 冷冷雨
-Icon: https://TrollStoreX.Github.io/sileodepiction/DP/icon.png
-Name: 百度网盘导出文件
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/DP/js.json
-
-Package: com.lenglengyu.baidunetdiskoutput
-Version: 1.0.1K
-Architecture: iphoneos-arm64e
-Maintainer: 冷冷雨
-Installed-Size: 616
-Pre-Depends: rootless-compat(>= 0.9)
-Depends: mobilesubstrate
-Conflicts: com.lenglengyu.baidunetdiskoutput-rootless, byg.iosios.net.baidunetdiskoutput-rootless
-Filename: ./debs/iphoneos-arm64e/2.11.0.1K_arm64e.deb
-Size: 197632
-MD5sum: a65ecf11f3c8f3aecc2b09276df5ab08
-SHA1: 965fd2f6333c5a9c752c098ac98a6121e78b2714
-SHA256: a99171092d2a4853e19b9357e1a4d5b6db06ec10cf4ae255d75667a42591e1c4
-Section: 应用破解
-Description: 百度网盘下载管理添加导出按钮
-Author: 冷冷雨
-Icon: https://TrollStoreX.Github.io/sileodepiction/DP/icon.png
-Name: 百度网盘导出文件
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/DP/js.json
-
 Package: com.netskao.swiftgramcracks
 Version: 1.1-7
 Architecture: iphoneos-arm64e
