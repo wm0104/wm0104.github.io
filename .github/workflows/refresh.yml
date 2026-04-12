@@ -3,50 +3,101 @@ name: "refresh"
 on:
   workflow_run:
     workflows: ["pages-build-deployment"]
-    types: [completed]
+    types: 
+      - completed
 
 jobs:
-  rebuild-packages:
+  build:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          submodules: recursive
 
-      - name: 配置Git身份
+      - name: install depend
+        if: success()
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-
-      - name: 清理旧文件
-        run: |
-          rm -f Packages Packages.bz2 Packages.xz Packages.zst
-          git rm -f Packages* --ignore-unmatch
-          git commit -m "清理旧Packages" --allow-empty
-
-      - name: 创建分类目录
-        run: |
-          mkdir -p debs/工具类
-          mkdir -p debs/系统类
-          mkdir -p debs/增强类
-
-      - name: 安装依赖
-        run: |
-          sudo apt update
+          sudo apt update 2>>/dev/null 1>>/dev/null
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      - name: 生成分类Packages（修复权限）
+      - name: Refresh Packages
+        if: success()
         run: |
-          # 加sudo解决权限问题
-          sudo dpkg-scanpackages -m ./debs /dev/null > Packages
-          bzip2 -k Packages
-          xz -k Packages
-          zstd -k Packages
+          rm -rf ./Packages*
+          
+          sudo chmod -R 0755 ./debs
+          sudo chown -R runner:runner ./debs
+          
+          # 1. 先生成原始 Packages，保留所有原有信息
+          sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
+          
+          # 2. 核心修复逻辑：只处理 arm64e，其他保持原样
+          # 规则：
+          # - arm64e -> 强制归为 Rootless
+          # - 其他架构 -> 保留原 Section，不做任何修改
+          awk '
+            /^Architecture:/ {
+              arch = $0
+              print arch
+              if (arch ~ /arm64e/) {
+                # arm64e 强制加入 Rootless 分组
+                print "Section: Rootless"
+              } else {
+                # 其他架构 -> 在下一行处理原有的 Section
+                # 这里先空着，等遇到 Section 时再处理
+              }
+              next
+            }
+            
+            /^Section:/ {
+              # 如果是 arm64e 的包，我们已经手动写了 Rootless，所以跳过原有的
+              if (prev_arch ~ /arm64e/) {
+                prev_arch = ""
+                next
+              }
+              # 非 arm64e，保留原有的分组
+              print $0
+              next
+            }
+            
+            # 记录当前架构
+            {
+              if ($0 ~ /^Architecture:/) {
+                prev_arch = $2
+              }
+              print $0
+            }
+          ' Packages.raw > Packages
+          
+          bzip2 -v -k -9 Packages
+          xz -v -k -9 --extreme Packages
+          zstd --ultra -22 -k Packages -o Packages.zst
+          
+          rm -f Packages.raw
 
-      - name: 提交分类后的文件
+      - name: save change if local change
+        if: success()
         run: |
+          git config --global user.email 'action@github.com'
+          git config --global user.name 'GitHub Action'
           git add .
-          git commit -m "生成工具/系统/增强类分类Packages"
-          git push
+          if ! git diff --staged --exit-code 1>>/dev/null; then
+            git commit -m 'Fix: 仅arm64e归为Rootless，其他分组不动'
+            git push
+          fi
+          
+      - name: download remove_all_actions
+        if: success()
+        run: |
+          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
+          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
+
+      - name: remove all old actions
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          remove_all_actions
