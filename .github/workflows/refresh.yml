@@ -31,12 +31,16 @@ jobs:
 
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
-          # 🔥 全部去掉分类，所有插件合并在一起
           awk '
             /^Section:/ { next }
+            /^Architecture:/ {
+              print $0
+              print "Section: 常用"
+              next
+            }
             1
           ' Packages.raw > Packages
-
+          
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
