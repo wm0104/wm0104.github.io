@@ -3,45 +3,40 @@ name: "refresh"
 on:
   workflow_run:
     workflows: ["pages-build-deployment"]
-    types: 
-      - completed
+    types: [completed]
 
 jobs:
-  build:
+  rebuild-packages:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
-          fetch-depth: 0 # 拉取完整历史，避免文件残留
+          fetch-depth: 0
 
-      - name: Clean Old Files
+      - name: 仅清理Packages文件（不碰debs目录）
         run: |
-          rm -rf ./Packages* # 强制删除所有旧的Packages文件
-          rm -rf ./debs/*.deb # 可选：清理旧包（确保新包重新生成分类）
+          rm -rf ./Packages*
+          git rm -rf ./Packages* --ignore-unmatch
+          git commit -m "清理旧Packages文件" --allow-empty
 
-      - name: install depend
+      - name: 安装依赖
         run: |
-          sudo apt update 2>>/dev/null 1>>/dev/null
+          sudo apt update
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      - name: Refresh Packages
+      - name: 生成Packages（基于现有debs目录）
         run: |
-          sudo chmod -R 0755 ./debs
-          sudo chown -R runner:runner ./debs
-          # 重新生成Packages（彻底覆盖旧文件）
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages
-          # 压缩文件
-          bzip2 -v -k -9 Packages
-          xz -v -k -9 --extreme Packages
-          zstd --ultra -22 -k Packages -o Packages.zst
+          bzip2 -k Packages
+          xz -k Packages
+          zstd -k Packages
 
-      - name: Force Commit All Changes
+      - name: 提交修改
         run: |
-          git config --global user.email 'action@github.com'
-          git config --global user.name 'GitHub Action'
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
           git add .
-          git commit -m '彻底重建Packages，统一分类' --allow-empty
+          git commit -m "重新生成Packages"
           git push
