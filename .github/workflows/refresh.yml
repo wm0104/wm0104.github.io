@@ -1,4 +1,4 @@
-name: "refresh"  # 保持名称不变
+name: "refresh" 
 
 on:
   workflow_run:
