@@ -33,34 +33,39 @@ jobs:
           # 生成原始Packages
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
           
-          # 核心：按包名关键词划分Section（直接匹配包名，不依赖路径）
+          # 核心：无“其他”类，所有包分到4个分类
           awk '
+            BEGIN { section = "功能类" } # 默认兜底（后续可补充规则）
+            
             /^Name:/ {
-              # 记录当前包名
               pkg_name = $0
-              # 按包名关键词分类
-              if (pkg_name ~ /工具|Tool|工具类/) {
-                section = "工具类"
-              } else if (pkg_name ~ /系统|System|系统类/) {
-                section = "系统类"
-              } else if (pkg_name ~ /功能|Func|功能类/) {
-                section = "功能类"
-              } else if (pkg_name ~ /RootHide/) {
+              # 1. RootHide专属分类
+              if (pkg_name ~ /RootHide/) {
                 section = "RootHide Packages"
-              } else {
-                section = "其他"
+              }
+              # 2. 工具类（匹配“工具/复制/激活码”类功能）
+              else if (pkg_name ~ /工具|CopyVault|激活码|Tool|备份/) {
+                section = "工具类"
+              }
+              # 3. 系统类（匹配“系统优化/屏蔽/系统级功能”）
+              else if (pkg_name ~ /系统|屏蔽|App Store|优化|权限|System/) {
+                section = "系统类"
+              }
+              # 4. 功能类（其余所有包默认归到这里）
+              else {
+                section = "功能类"
               }
               print $0
               next
             }
             
-            # 覆盖Section字段
+            # 强制覆盖Section
             /^Section:/ {
               print "Section: " section
+              section = "功能类" # 重置默认值
               next
             }
             
-            # 其他行原样输出
             { print $0 }
           ' Packages.raw > Packages
           
@@ -78,7 +83,7 @@ jobs:
           git config --global user.name 'GitHub Action'
           git add .
           if ! git diff --staged --exit-code 1>>/dev/null; then
-            git commit -m 'Fix: 按包名关键词划分分类'
+            git commit -m 'Fix: 移除其他类，所有包分工具/系统/功能/RootHide'
             git push
           fi
           
