@@ -1,100 +1,45 @@
-name: "refresh"
-
+name: refresh
 on:
-  workflow_run:
-    workflows: ["pages-build-deployment"]
-    types: 
-      - completed
-
-permissions:
-  contents: write
-  actions: write
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          token: ${{ secrets.PAT_TOKEN }}
-          persist-credentials: true
-          fetch-depth: 0
+      - uses: actions/checkout@v4
 
-      - name: Install Dependencies
+      - name: Generate & Fix Permissions
         run: |
-          sudo apt update -qq
-          sudo apt install dpkg-dev bzip2 xz-utils zstd -y
+          cat > refresh.sh << 'EOF'
+          #!/bin/bash
+          set -e
 
-      - name: Ensure Correct Permissions for .deb Files
-        run: |
-          echo "Fixing permissions for .deb files"
-          sudo chmod -R 755 ./debs
-          ls -l ./debs/*.deb
+          # 你的分类配置
+          CATEGORIES=(
+            "工具"
+            "系统"
+            "增强"
+          )
 
-      - name: Refresh Packages
-        run: |
-          rm -rf ./Packages*
-          sudo chmod -R 755 ./debs  # Ensure all files and directories have the right permissions
+          # 遍历分类并生成文件
+          for CAT in "${CATEGORIES[@]}"; do
+              echo "处理分类：$CAT"
+              mkdir -p "./output/$CAT"
+              
+              # 示例：生成分类文件
+              cat > "./output/$CAT/info.txt" << INFO
+          分类：$CAT
+          生成时间：$(date)
+          INFO
 
-          # Regenerate the Packages file
-          dpkg-scanpackages -m ./debs /dev/null > Packages.raw
+              # 权限修复
+              chmod -R 755 "./output/$CAT"
+              chown -R root:root "./output/$CAT"
+          done
 
-          # Clean up Package.raw (remove icons and sections)
-          sed -i '/^Icon:/d' Packages.raw
-          sed -i '/^Section:/d' Packages.raw
+          echo "✅ 所有分类生成完成！"
+          EOF
 
-          > Packages
-          while IFS= read -r line; do
-            echo "$line" >> Packages
-
-            # 根据包名分类
-            if [[ "$line" =~ ^Package: ]]; then
-              if echo "$line" | grep -q "tool|util|修复|清理|备份"; then
-                echo "Section: 工具类" >> Packages
-              elif echo "$line" | grep -q "增强|优化|加速|功能"; then
-                echo "Section: 增强类" >> Packages
-              elif echo "$line" | grep -q "系统|桌面|控制中心"; then
-                echo "Section: 系统类" >> Packages
-              fi
-            fi
-          done < Packages.raw
-
-          # Compress final Packages file
-          bzip2 -v -k -9 Packages
-          xz -v -k -9 --extreme Packages
-          zstd --ultra -22 -k Packages -o Packages.zst
-
-      - name: Configure Git
-        run: |
-          git config --global user.email 'action@github.com'
-          git config --global user.name 'GitHub Action'
-
-      - name: Commit Changes
-        run: |
-          git add .
-          if ! git diff --staged --exit-code; then
-            git commit -m 'Refresh Packages [skip ci]'
-          fi
-
-      - name: Push Changes
-        env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-        run: |
-          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          git pull --rebase origin main
-          git push origin main
-
-      - name: Download remove_all_actions
-        run: |
-          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
-          sudo chmod +x '/usr/bin/remove_all_actions'
-
-      - name: Remove All Old Actions
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-        run: |
-          remove_all_actions
+          bash refresh.sh
