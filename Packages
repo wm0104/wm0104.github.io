@@ -89,7 +89,7 @@ Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.holdcpu
 Package: com.25mao.leftpan.rootless
 Version: 1.0-6
 Architecture: iphoneos-arm64
-Section: Rootless
+Section: 工具
 Maintainer: admin@25mao.com
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist (>=1.0.4)
 Filename: ./debs/左滑返回-Rootless-1.0-6-iphoneos-arm64.deb
@@ -162,7 +162,7 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/j
 Package: com.brend0n.nopassafterrespringsafe
 Version: 0.0.3
 Architecture: iphoneos-arm64
-Section: Rootless
+Section: 工具
 Maintainer: Brend0n <brendonjkding@126.com>
 Installed-Size: 168
 Depends: mobilesubstrate
@@ -313,7 +313,7 @@ Sileodepiction: https://TrollStoreX.Github.io/
 Package: com.huami.bilinoads
 Version: 1.0.1
 Architecture: iphoneos-arm64
-Section: Rootless
+Section: 工具
 Maintainer: huami
 Installed-Size: 168
 Depends: firmware (>= 5.0), mobilesubstrate
@@ -557,7 +557,7 @@ Sileodepiction: https://apt.htv123.com/sileo/281
 Package: jp.soh.freepip
 Version: 0.0.3-1
 Architecture: iphoneos-arm64
-Section: Rootless
+Section: 工具
 Maintainer: Soh Satoh
 Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000)
@@ -573,7 +573,7 @@ Name: FreePIP
 Package: me.tomt000.stageduo
 Version: 1.2
 Architecture: iphoneos-arm64
-Section: Rootless
+Section: 工具
 Maintainer: tomt000
 Installed-Size: 4900
 Depends: mobilesubstrate (>= 0.9.5000), com.opa334.altlist, preferenceloader
