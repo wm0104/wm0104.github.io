@@ -30,21 +30,24 @@ jobs:
 
       - name: Refresh Packages
         run: |
-          # 🔴 强制彻底删除所有旧文件，杜绝残留
           rm -rf ./Packages*
           
           sudo chmod -R 0755 ./debs/
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
-          # 🔴 用awk一次性处理，彻底删除所有旧Section/Icon，100%无残留
+          # 🔥 彻底删除所有旧的 Icon 和 Section
+          sed -i '/^Icon:/d' Packages.raw
+          sed -i '/^Section:/d' Packages.raw
+
+          # 🔧 核心逻辑：只保留 4 个分类
+          # RootHide Packages（粗体） + 工具/系统/增强（细体）
           awk '
-            /^Icon:/    { next }
-            /^Section:/ { next }
             /^Architecture:/ {
               print $0
               if ($0 ~ /arm64e/) {
                 print "Section: RootHide Packages"
               } else {
+                # 这里默认全部先写「工具」，你之后手动改成系统/增强
                 print "Section: 工具"
               }
               next
@@ -52,12 +55,10 @@ jobs:
             1
           ' Packages.raw > Packages
 
-          # 压缩
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
 
-          # 清理临时文件
           rm -f Packages.raw
 
       - name: Configure Git
@@ -69,7 +70,7 @@ jobs:
         run: |
           git add .
           if ! git diff --staged --exit-code; then
-            git commit -m 'Fix: 彻底修复重复分类 [skip ci]'
+            git commit -m 'Fix: 三分类（工具/系统/增强）[skip ci]'
           fi
 
       - name: Push Changes
