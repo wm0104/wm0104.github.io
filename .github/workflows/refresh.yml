@@ -11,27 +11,72 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
+          token: ${{ secrets.PAT_TOKEN }}
 
-      - name: fix packages
+      - name: install depend
+        if: success()
         run: |
-          # 1. 查找所有 arm64 的包，强制改为 arm64e (常用)
-          # 2. 查找所有 arm64e 的包，标记为 Rootless (无分类)
-          # 3. 清除原有的 Section 信息，避免残留
-          sudo apt install -y dpkg-dev devscript
-          dpkg-scanpackages . /dev/null | grep -v 'Package:' > /dev/null
+          sudo apt update 2>>/dev/null 1>>/dev/null
+          sudo apt install dpkg-dev bzip2 xz-utils zstd -y
+
+      - name: Refresh Packages
+        if: success()
+        run: |
+          rm -rf ./Packages*
+          sudo chmod -R 0755 ./debs
+          sudo chown -R runner:runner ./debs
+
+          sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
+
+          awk '
+            BEGIN { current_arch = "" }
+            /^Architecture:/ {
+              current_arch = $2
+              print $0
+              next
+            }
+            /^Section:/ {
+              if (current_arch == "arm64") {
+                print "Section: Rootless"
+              } else {
+                print "Section: 常用"
+              }
+              next
+            }
+            { print $0 }
+          ' Packages.raw > Packages
           
-          # 具体修改
-          sed -i 's/^Package: arm64$/& arch=arm64e section=常用 priority=extra/' Packages
-          sed -i 's/^Package: arm64e$/& arch=arm64 section=rootless priority=extra/' Packages
+          bzip2 -v -k -9 Packages
+          xz -v -k -9 --extreme Packages
+          zstd --ultra -22 -k Packages -o Packages.zst
+
+          rm -f Packages.raw
+
+      - name: save change if local change
+        if: success()
+        run: |
+          git config --global user.email 'action@github.com'
+          git config --global user.name 'GitHub Action'
+          git add .
+          if ! git diff --staged --exit-code 1>>/dev/null; then
+            git commit -m 'Refresh Packages'
+            git push
+          fi
           
-          # 压缩输出
-          gzip -9 Packages
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+      - name: download remove_all_actions
+        if: success()
+        run: |
+          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
+          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
+
+      - name: remove all old actions
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          remove_all_actions
