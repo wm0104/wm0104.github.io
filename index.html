@@ -48,22 +48,26 @@
 
         h1 {
             color: var(--text-color);
-            font-size: 2.2rem;
-            margin-bottom: 30px;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         .btn {
             display: block;
             width: 100%;
-            padding: 18px;
-            margin: 15px 0;
+            padding: 16px;
+            margin: 12px 0;
             border: none;
             border-radius: 12px;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
+            font-weight: 500;
             color: var(--text-color);
             background: var(--btn-bg);
-            text-decoration: none;
+            cursor: pointer;
             transition: all 0.2s ease;
+            text-decoration: none;
         }
 
         .btn:hover {
@@ -72,9 +76,10 @@
 
         .tip {
             color: var(--text-color);
-            margin-top: 25px;
-            font-size: 0.95rem;
+            margin-top: 20px;
+            font-size: 0.85rem;
             opacity: 0.7;
+            transition: color 0.3s ease;
         }
     </style>
 </head>
@@ -83,6 +88,7 @@
         <h1>选择添加源</h1>
         <a href="sileo://source/https://wm0104.github.io/" class="btn">Sileo</a>
         <a href="saily://add?url=https://wm0104.github.io/" class="btn">Saily</a>
+        <a href="zbra://sources/add?url=https://wm0104.github.io/" class="btn">Zebra</a>
         <p class="tip">点击对应按钮，自动唤起包管理器添加源</p>
     </div>
 </body>
