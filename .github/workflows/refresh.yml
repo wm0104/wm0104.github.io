@@ -1,4 +1,4 @@
-name: "refresh" 
+name: "refresh"
 
 on:
   workflow_run:
@@ -30,32 +30,39 @@ jobs:
           sudo chmod -R 0755 ./debs
           sudo chown -R runner:runner ./debs
           
-          # 1. 先生成原始 Packages，保留所有原有信息
+          # 生成原始Packages
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
           
-          # 2. 核心逻辑：根据包路径中的类型子目录划分 Section
-          # 假设路径格式为：debs/工具类/xxx.deb 或 debs/系统类/yyy.deb
+          # 核心逻辑：同时处理架构（RootHide）和路径分类（工具/系统/功能）
           awk '
             BEGIN { current_type = "其他" }
             
-            # 提取包的路径（从 Filename 字段获取）
-            /^Filename:/ {
-              # 示例：假设 Filename 为 "Filename: debs/工具类/abc.deb"
-              if ($0 ~ /debs\/工具类\//) {
-                current_type = "工具类"
-              } else if ($0 ~ /debs\/系统类\//) {
-                current_type = "系统类"
-              } else if ($0 ~ /debs\/功能类\//) {
-                current_type = "功能类"
+            # 1. 先判断架构（arm64e对应RootHide Packages）
+            /^Architecture:/ {
+              if ($2 == "arm64e") {
+                current_section = "RootHide Packages"
               }
-              print $0  # 输出原始 Filename 行
+              print $0
               next
             }
             
-            # 处理 Section 字段，用 current_type 覆盖
+            # 2. 再判断路径分类（覆盖非arm64e的Section）
+            /^Filename:/ {
+              # 仅当不是RootHide时，才按路径分工具/系统/功能
+              if (current_section != "RootHide Packages") {
+                if ($0 ~ /debs\/工具类\//) current_section = "工具类"
+                else if ($0 ~ /debs\/系统类\//) current_section = "系统类"
+                else if ($0 ~ /debs\/功能类\//) current_section = "功能类"
+                else current_section = "其他"
+              }
+              print $0
+              next
+            }
+            
+            # 3. 写入最终的Section
             /^Section:/ {
-              print "Section: " current_type
-              current_type = "其他"  # 重置类型，避免跨包污染
+              print "Section: " current_section
+              current_section = ""  # 重置，避免跨包污染
               next
             }
             
@@ -63,7 +70,7 @@ jobs:
             { print $0 }
           ' Packages.raw > Packages
           
-          # 3. 生成压缩文件
+          # 压缩文件
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
@@ -77,7 +84,7 @@ jobs:
           git config --global user.name 'GitHub Action'
           git add .
           if ! git diff --staged --exit-code 1>>/dev/null; then
-            git commit -m 'Fix: 按路径类型划分 Section'
+            git commit -m 'Fix: 新增工具类/系统类/功能类分类'
             git push
           fi
           
