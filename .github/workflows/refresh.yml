@@ -60,12 +60,13 @@ jobs:
                 # 根据插件名称分类
                 if echo "$line" | grep -q "tool|util|文件|终端|清理|备份|修复|工具"; then
                   echo "Section: 工具类" >> Packages
+                  echo "分类为 工具类：" "$line"  # 输出调试信息
                 elif echo "$line" | grep -q "enhance|plus|pro|增强|优化|加速|功能"; then
                   echo "Section: 增强类" >> Packages
+                  echo "分类为 增强类：" "$line"  # 输出调试信息
                 elif echo "$line" | grep -q "system|ui|桌面|状态栏|控制中心|锁屏|系统"; then
                   echo "Section: 系统类" >> Packages
-                else
-                  echo "Section: 插件" >> Packages
+                  echo "分类为 系统类：" "$line"  # 输出调试信息
                 fi
               fi
             fi
