@@ -13,7 +13,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
+    if: ${{ github.event.workflow.conclusion == 'success' && github.event.workflow.head_branch == 'main' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,64 +31,53 @@ jobs:
       - name: Refresh Packages
         run: |
           rm -rf ./Packages*
-          
           sudo chmod -R 0755 ./debs/
-          sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
+          sudo dpkg-scanpackages -m ./debs > Packages.raw
 
-          # 🔥 彻底删除所有旧的 Icon 和 Section
-          sed -i '/^Icon:/d' Packages.raw
-          sed -i '/^Section:/d' Packages.raw
-
-          # 🔧 核心逻辑：只保留 4 个分类
-          # RootHide Packages（粗体） + 工具/系统/增强（细体）
           awk '
+            /^Icon:/    { next }
+            /^Section:/ { next }
+
+            /^Package:/ {
+              pkg = tolower($0)
+              print $0
+              next
+            }
+
             /^Architecture:/ {
               print $0
               if ($0 ~ /arm64e/) {
                 print "Section: RootHide Packages"
               } else {
-                # 这里默认全部先写「工具」，你之后手动改成系统/增强
-                print "Section: 工具"
+                if (pkg ~ /tool|util|文件|终端|清理|备份|修复|工具/)
+                  print "Section: 工具"
+                else if (pkg ~ /system|ui|桌面|状态栏|控制中心|锁屏|系统/)
+                  print "Section: 系统"
+                else if (pkg ~ /enhance|plus|pro|增强|优化|加速|功能/)
+                  print "Section: 增强"
+                else
+                  print "Section: 工具"
               }
               next
             }
             1
           ' Packages.raw > Packages
 
-          bzip2 -v -k -9 Packages
-          xz -v -k -9 --extreme Packages
-          zstd --ultra -22 -k Packages -o Packages.zst
+          bzip2 -k -9 Packages
+          xz -k -9 Packages
+          zstd -k --ultra -22 Packages
 
           rm -f Packages.raw
 
-      - name: Configure Git
+      - name: Git Config
         run: |
-          git config --global user.email 'action@github.com'
-          git config --global user.name 'GitHub Action'
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
 
-      - name: Commit Changes
+      - name: Commit & Push
         run: |
-          git add .
-          if ! git diff --staged --exit-code; then
-            git commit -m 'Fix: 三分类（工具/系统/增强）[skip ci]'
+          git add Packages*
+          if ! git diff --staged --quiet; then
+            git commit -m "Update packages [skip ci]"
+            git push
           fi
-
-      - name: Push Changes
-        env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-        run: |
-          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          git pull --rebase origin main
-          git push origin main
-
-      - name: Download remove_all_actions
-        run: |
-          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
-          sudo chmod +x '/usr/bin/remove_all_actions'
-
-      - name: Remove All Old Actions
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-        run: |
-          remove_all_actions
