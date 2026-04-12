@@ -1,7 +1,6 @@
 Package: cn.octoforce.copyvault
 Version: 1.9.0
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: SquidForce, Backup
 Installed-Size: 6380
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
@@ -19,7 +18,6 @@ Sileodepiction: https://lclrc.github.io/repo/depictions/native/cn.octoforce.copy
 Package: cn.zqbb.disupdateapp
 Version: 2.0.0-6
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: zqbb
 Installed-Size: 720
 Depends: mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist
@@ -36,7 +34,6 @@ Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.disupdateapp
 Package: cn.zqbb.hello.memorystatus
 Version: 3.6.0-2
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: zqbb
 Installed-Size: 10864
 Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 14.0), preferenceloader, launchctl
@@ -53,7 +50,6 @@ Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.hello.memorystatus
 Package: cn.zqbb.hellopay
 Version: 1.0.2
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: zqbb
 Installed-Size: 324
 Depends: com.opa334.ccsupport
@@ -71,7 +67,6 @@ Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.hellopay
 Package: cn.zqbb.holdcpu
 Version: 2.3.5-3
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: zqbb
 Installed-Size: 3664
 Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0), preferenceloader, com.opa334.ccsupport
@@ -89,7 +84,6 @@ Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.holdcpu
 Package: com.25mao.leftpan.rootless
 Version: 1.0-6
 Architecture: iphoneos-arm64
-Section: 插件
 Maintainer: admin@25mao.com
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist (>=1.0.4)
 Filename: ./debs/左滑返回-Rootless-1.0-6-iphoneos-arm64.deb
@@ -105,7 +99,6 @@ Name: 左滑返回-Rootless
 Package: com.25mao.miyou.rootlesss
 Version: 3.9-5
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: admin@25mao.com
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 5.0)
@@ -124,7 +117,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/mao/js.json
 Package: com.autoscroll.jb
 Version: 1.0.0
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: pxcex
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate
@@ -143,7 +135,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/AutoScroll/js.json
 Package: com.be-huge.wechat-push-msg-pages
 Version: 0.0.3
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: be-huge
 Installed-Size: 232
 Pre-Depends: rootless-compat(>= 0.9)
@@ -162,7 +153,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/j
 Package: com.brend0n.nopassafterrespringsafe
 Version: 0.0.3
 Architecture: iphoneos-arm64
-Section: 插件
 Maintainer: Brend0n <brendonjkding@126.com>
 Installed-Size: 168
 Depends: mobilesubstrate
@@ -178,7 +168,6 @@ Name: NoPassAfterRespring (Safe)
 Package: com.choco.tgextras
 Version: 1.7.1
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: choco
 Installed-Size: 14980
 Conflicts: com.choco.tgextra
@@ -201,7 +190,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Telegram/TGExtra.js
 Package: com.dao.filzacrack
 Version: 1.1-9
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: Nets
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 15.0), mobilesubstrate
@@ -218,7 +206,6 @@ Name: Filza Crack(RootHide)
 Package: com.dao.hammerit
 Version: 1.7.1
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: lclrc(SquidForce)
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist, com.opa334.ccsupport, com.opa334.libsandy, firmware (>= 14.0)
@@ -235,7 +222,6 @@ Name: HammerIt(RootHide)
 Package: com.dao.lockdown
 Version: 1.0.3
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: roothide
 Installed-Size: 136
 Depends: mobilesubstrate (>= 0.9.5000)
@@ -252,7 +238,6 @@ Name: lockdown(RootHide)
 Package: com.dao.settingsrevamp
 Version: 3.0.1.1
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: SOPPPra
 Depends: mobilesubstrate, preferenceloader, com.mrgcgamer.libgcuniversal, firmware (>= 14), com.hk.settingsrevamp.cn.rl
 Conflicts: com.creaturecoding.shuffle, com.trappledestek.ikset, pro.ikghd.iksettings, xyz.cypwn.settingswidgets, org.mr.settingswidgets, com.trappledestek.settingswidgets, com.shepgoba.settingswidgets, com.sop.settingsrevamp
@@ -268,7 +253,6 @@ Name: SettingsRevamp(RootHide)
 Package: com.exile90.icleanerpros
 Version: 7.10.0
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: Ivano Bilenchi
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 4.0), findutils, apt | apt7
@@ -288,7 +272,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/iCleanerPro/js.json
 Package: com.hbwechathelper.ailuns
 Version: 2.0-9f
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: HuangBai
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate
@@ -313,7 +296,6 @@ Sileodepiction: https://TrollStoreX.Github.io/
 Package: com.huami.bilinoads
 Version: 1.0.1
 Architecture: iphoneos-arm64
-Section: 插件
 Maintainer: huami
 Installed-Size: 168
 Depends: firmware (>= 5.0), mobilesubstrate
@@ -333,7 +315,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Bilibili/js.json
 Package: com.huami.dyyy.vita
 Version: 2.2-9-bulid1653
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: vita
 Installed-Size: 2184
 Depends: firmware (>= 5.0), mobilesubstrate
@@ -356,7 +337,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/DYYYVita/js.json
 Package: com.lclrc.controltab
 Version: 1.0
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: SquidForce
 Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000)
@@ -373,7 +353,6 @@ Sileodepiction: https://lclrc.github.io/repo/depictions/native/com.lclrc.control
 Package: com.lclrc.squidgesture
 Version: 1.3.7
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: lclrc(SquidForce)
 Installed-Size: 1512
 Depends: mobilesubstrate, preferenceloader, firmware (>= 14.0), com.opa334.altlist
@@ -389,7 +368,6 @@ Name: SquidGesture
 Package: com.netskao.appdatas
 Version: 1.4.4
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: Netskao
 Installed-Size: 3772
 Pre-Depends: rootless-compat(>= 0.9)
@@ -411,7 +389,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Appdata/js.json
 Package: com.netskao.wechatnotiavatars
 Version: 1.3-1
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: Nets
 Installed-Size: 2336
 Pre-Depends: rootless-compat(>= 0.9)
@@ -429,7 +406,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WeChatNotiAvatar/js
 Package: com.storeswitcher.appstore
 Version: 1.0.6
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: 0xkuj
 Depends: firmware (>= 11)
 Conflicts: com.yourepo.0xkuj.storeswitcher2rootless
@@ -447,7 +423,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/js.js
 Package: com.susu.fuckwechatadss
 Version: 1.0.2
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: susu
 Installed-Size: 104
 Pre-Depends: rootless-compat(>= 0.9)
@@ -467,7 +442,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/FuckWeChatAds/js.js
 Package: com.tigisoftware.filza64bits
 Version: 4.0.1-4~roothide
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: TIGI Software
 Pre-Depends: patches-com.tigisoftware.filza64bit(= 4.0.1-4~roothide)
 Recommends: zip, unzip, gzip, p7zip, unrar, xz-utils
@@ -487,7 +461,6 @@ Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Filza/js.json
 Package: com.wkk.filzaswipeselect
 Version: 0.0.2
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: korboy <korboybeats@gmail.com>
 Installed-Size: 184
 Pre-Depends: rootless-compat(>= 0.9)
@@ -504,7 +477,6 @@ Name: FilzaSwipeSelect
 Package: com.wkk.swipeextenderx
 Version: 1.6.2
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: MiRO <tweaks_support@miro92.com>
 Installed-Size: 614
 Pre-Depends: rootless-compat(>= 0.9)
@@ -521,7 +493,6 @@ Name: SwipeExtenderX
 Package: com.xybp888.callassist16.dopamine.roothide
 Version: 2.3.1
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: xybp888
 Depends: firmware (>= 16.0), preferenceloader, com.opa334.libsandy
 Filename: ./debs/电话助手iOS16-正式版(Roothide)-2.3.1.deb
@@ -539,7 +510,6 @@ Sileodepiction: https://apt.htv123.com/sileo/600
 Package: com.xybp888.perfectdynamiclsland.roothide
 Version: 1.2-30
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: xybp888
 Depends: firmware (>= 16.0), mobilesubstrate
 Filename: ./debs/灵动通知iOS16-正式版(RootHide)-1.2-30.deb
@@ -557,7 +527,6 @@ Sileodepiction: https://apt.htv123.com/sileo/281
 Package: jp.soh.freepip
 Version: 0.0.3-1
 Architecture: iphoneos-arm64
-Section: 插件
 Maintainer: Soh Satoh
 Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000)
@@ -573,7 +542,6 @@ Name: FreePIP
 Package: me.tomt000.stageduo
 Version: 1.2
 Architecture: iphoneos-arm64
-Section: 插件
 Maintainer: tomt000
 Installed-Size: 4900
 Depends: mobilesubstrate (>= 0.9.5000), com.opa334.altlist, preferenceloader
@@ -589,7 +557,6 @@ Name: Dynamic Stage
 Package: netskao.BlockAppsCreateAlbum
 Version: 1.1.2
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: Nets
 Installed-Size: 19660
 Pre-Depends: rootless-compat(>= 0.9)
@@ -606,7 +573,6 @@ Name: 禁止应用自动创建相册BlockAppsCreateAlbum
 Package: ru.domo.cocoatop64
 Version: 2.2.3
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: SXX, Domo
 Installed-Size: 892
 Conflicts: ru.domo.cocoatop
