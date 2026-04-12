@@ -1,7 +1,6 @@
 Package: com.25mao.leftpan.rootless
 Version: 1.0-6
 Architecture: iphoneos-arm64
-Section: 工具类
 Maintainer: admin@25mao.com
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist (>=1.0.4)
 Filename: ./debs/左滑返回-Rootless-1.0-6-iphoneos-arm64.deb
@@ -9,6 +8,7 @@ Size: 66402
 MD5sum: e0268dfd449fc1973941da59bb3e4743
 SHA1: c9ea4ae935426ee471effdd5e4f85596cba42534
 SHA256: 6ced73222aadaf35091aa25fbf878648a2947ee80f9ca4d4c36b5fa92311aa2e
+Section: Rootless
 Priority: optional
 Description: 左滑返回上一页面
 Author: Mao
@@ -17,7 +17,6 @@ Name: 左滑返回-Rootless
 Package: com.autoscroll.jb
 Version: 1.0.0
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: pxcex
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate
@@ -26,17 +25,18 @@ Size: 7390
 MD5sum: 800ee7bc62172ec7feba9941786dd598
 SHA1: f60a6197ae17e6aa520dad038f8e7acbc9c87437
 SHA256: 41b8966d3d59f7a34902fcabde2ea92db3d3534fb992514d2530b7277aed1ca4
+Section: Bootstrap
 Description: 页面自动滑动
  * 安装生效无设置选项
  * 跟随你的手指滑动幅度，页面始终自动滑动，直到你触摸屏幕才停止
 Author: pxcex
+Icon: https://TrollStoreX.Github.io/sileodepiction/AutoScroll/icon.png
 Name: AutoScroll 自动滑动
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/AutoScroll/js.json
 
 Package: com.dao.ccless
 Version: 2.1.0.1
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: 妖刀
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 15.0), mobilesubstrate, com.opa334.ccsupport
@@ -46,6 +46,7 @@ Size: 498256
 MD5sum: edbbb602ba5ec129edc1396803efff79
 SHA1: d66d7fb81718be6dd220f40621a538b8fb933e97
 SHA256: 0fa305deda572f8dde4ec69ab6571dff1af7d6cd0ac4eb090b69d7a12f64921d
+Section: 嗨-工具
 Description: 超级控制中心模块集合！
 Author: 妖刀
 Name: CCLess++(RootHide)
@@ -54,7 +55,6 @@ Sileodepiction: https://xiangfeidexiaohuo.github.io/sileodepiction/ccless/js.jso
 Package: com.huami.bilinoads
 Version: 1.0.1
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: huami
 Installed-Size: 168
 Pre-Depends: rootless-compat(>= 0.9)
@@ -65,17 +65,18 @@ Size: 4952
 MD5sum: 9390586324c0ed3a23396da6e714b26b
 SHA1: 4a678a1f86eea6eda9dad9637c6e2fd8fc166015
 SHA256: eb0c37fe27299d5fedb0b1385e18ddc9664491fd9de0c1630706c1eb4b357b66
+Section: 应用破解
 Priority: optional
 Description: BiliBili 净化开屏广告
  * 加速开屏动画
 Author: huami
+Icon: https://TrollStoreX.Github.io/sileodepiction/Bilibili/icon.png
 Name: 哔哩哔哩 BiliNoAd
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Bilibili/js.json
 
 Package: com.netskao.appdatas
 Version: 1.4.4
 Architecture: iphoneos-arm64e
-Section: RootHide Packages
 Maintainer: Netskao
 Installed-Size: 3772
 Pre-Depends: rootless-compat(>= 0.9)
@@ -86,11 +87,13 @@ Size: 10005284
 MD5sum: a50b7a76d1590d5dd9d1f2d6ff4021cb
 SHA1: ee752badb65f1ba95fc0815b7d0d0e7f54064898
 SHA256: 7efa1cdbc682c26606cea0a8ee94ddee16f8a2d08e57a5ea0a45039a9e686367
+Section: Netskao-Tweaks
 Description: 桌面图标增强插件
  * 由 Netskao 汉化修改
  * 桌面图标上滑或下滑或3D长按菜单选择即可唤出图标
  * View & Manage Applications Data from your Home Screen
 Author: Fouad Raheb
+Icon: https://TrollStoreX.Github.io/sileodepiction/Appdata/icon.png
 Name: AppData
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Appdata/js.json
 
