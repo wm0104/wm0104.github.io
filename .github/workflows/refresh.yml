@@ -33,36 +33,30 @@ jobs:
           # 生成原始Packages
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
           
-          # 核心逻辑：同时处理架构（RootHide）和路径分类（工具/系统/功能）
+          # 核心：按包名关键词划分Section（直接匹配包名，不依赖路径）
           awk '
-            BEGIN { current_type = "其他" }
-            
-            # 1. 先判断架构（arm64e对应RootHide Packages）
-            /^Architecture:/ {
-              if ($2 == "arm64e") {
-                current_section = "RootHide Packages"
+            /^Name:/ {
+              # 记录当前包名
+              pkg_name = $0
+              # 按包名关键词分类
+              if (pkg_name ~ /工具|Tool|工具类/) {
+                section = "工具类"
+              } else if (pkg_name ~ /系统|System|系统类/) {
+                section = "系统类"
+              } else if (pkg_name ~ /功能|Func|功能类/) {
+                section = "功能类"
+              } else if (pkg_name ~ /RootHide/) {
+                section = "RootHide Packages"
+              } else {
+                section = "其他"
               }
               print $0
               next
             }
             
-            # 2. 再判断路径分类（覆盖非arm64e的Section）
-            /^Filename:/ {
-              # 仅当不是RootHide时，才按路径分工具/系统/功能
-              if (current_section != "RootHide Packages") {
-                if ($0 ~ /debs\/工具类\//) current_section = "工具类"
-                else if ($0 ~ /debs\/系统类\//) current_section = "系统类"
-                else if ($0 ~ /debs\/功能类\//) current_section = "功能类"
-                else current_section = "其他"
-              }
-              print $0
-              next
-            }
-            
-            # 3. 写入最终的Section
+            # 覆盖Section字段
             /^Section:/ {
-              print "Section: " current_section
-              current_section = ""  # 重置，避免跨包污染
+              print "Section: " section
               next
             }
             
@@ -84,7 +78,7 @@ jobs:
           git config --global user.name 'GitHub Action'
           git add .
           if ! git diff --staged --exit-code 1>>/dev/null; then
-            git commit -m 'Fix: 新增工具类/系统类/功能类分类'
+            git commit -m 'Fix: 按包名关键词划分分类'
             git push
           fi
           
