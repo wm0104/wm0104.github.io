@@ -32,7 +32,6 @@ jobs:
         run: |
           rm -rf ./Packages*
           
-          # 🔧 核心修复：修复目录权限 + 用 sudo 执行 dpkg 命令，彻底解决 Permission denied
           sudo chmod -R 0755 ./debs/
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
@@ -49,7 +48,8 @@ jobs:
               if echo "$line" | grep -q "arm64e"; then
                 echo "Section: RootHide Packages" >> Packages
               else
-                echo "Section: 插件" >> Packages
+                # 👇 这里改成 Rootless
+                echo "Section: Rootless" >> Packages
               fi
             fi
           done < Packages.raw
