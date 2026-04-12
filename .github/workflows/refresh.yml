@@ -1,45 +1,114 @@
-name: refresh
+name: "refresh"
+
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types: 
+      - completed
+
+permissions:
+  contents: write
+  actions: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.PAT_TOKEN }}
+          persist-credentials: true
+          fetch-depth: 0
 
-      - name: Generate & Fix Permissions
+      - name: Install Dependencies
         run: |
-          cat > refresh.sh << 'EOF'
-          #!/bin/bash
-          set -e
+          sudo apt update -qq
+          sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-          # 你的分类配置
-          CATEGORIES=(
-            "工具"
-            "系统"
-            "增强"
-          )
+      - name: Ensure Correct Permissions for .deb Files
+        run: |
+          echo "Fixing permissions for .deb files"
+          sudo chmod -R 755 ./debs
+          ls -l ./debs/*.deb
 
-          # 遍历分类并生成文件
-          for CAT in "${CATEGORIES[@]}"; do
-              echo "处理分类：$CAT"
-              mkdir -p "./output/$CAT"
-              
-              # 示例：生成分类文件
-              cat > "./output/$CAT/info.txt" << INFO
-          分类：$CAT
-          生成时间：$(date)
-          INFO
+      - name: Refresh Packages
+        run: |
+          # 彻底删除旧文件
+          rm -rf ./Packages*
+          sudo chmod -R 755 ./debs
 
-              # 权限修复
-              chmod -R 755 "./output/$CAT"
-              chown -R root:root "./output/$CAT"
-          done
+          # 用 sudo 执行 dpkg-scanpackages，彻底解决权限问题
+          sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
-          echo "✅ 所有分类生成完成！"
-          EOF
+          # 用 awk 一次性处理，彻底替代 while 循环，杜绝逻辑错误
+          awk '
+            /^Icon:/    { next }
+            /^Section:/ { next }
 
-          bash refresh.sh
+            /^Package:/ {
+              pkg = tolower($0)
+              print $0
+              next
+            }
+
+            /^Architecture:/ {
+              print $0
+              if ($0 ~ /arm64e/) {
+                print "Section: RootHide Packages"
+              } else {
+                if (pkg ~ /tool|util|filza|icleaner|terminal|ssh|修复|清理|备份|工具/)
+                  print "Section: 工具类"
+                else if (pkg ~ /enhance|plus|pro|activator|增强|优化|加速|功能/)
+                  print "Section: 增强类"
+                else if (pkg ~ /system|ui|springboard|statusbar|controlcenter|桌面|控制中心|系统/)
+                  print "Section: 系统类"
+                else
+                  print "Section: 工具类"
+              }
+              next
+            }
+            1
+          ' Packages.raw > Packages
+
+          # 生成压缩包
+          bzip2 -v -k -9 Packages
+          xz -v -k -9 --extreme Packages
+          zstd --ultra -22 -k Packages -o Packages.zst
+
+          # 清理临时文件
+          rm -f Packages.raw
+
+      - name: Configure Git
+        run: |
+          git config --global user.email 'action@github.com'
+          git config --global user.name 'GitHub Action'
+
+      - name: Commit Changes
+        run: |
+          git add .
+          if ! git diff --staged --exit-code; then
+            git commit -m 'Refresh Packages: 修复权限+三分类自动分配 [skip ci]'
+          fi
+
+      - name: Push Changes
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git pull --rebase origin main
+          git push origin main
+
+      - name: Download remove_all_actions
+        run: |
+          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
+          sudo chmod +x '/usr/bin/remove_all_actions'
+
+      - name: Remove All Old Actions
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          remove_all_actions
