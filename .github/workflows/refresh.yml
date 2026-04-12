@@ -48,47 +48,13 @@ jobs:
               next
             }
             { print $0 }
-          ' Packages.raw > Packages.tmp
-
-      
-          awk '
-          BEGIN {
-            current_arch = ""
-            suffix = ""
-          }
-          /^Architecture:/ {
-            current_arch = $2
-            if (current_arch == "iphoneos-arm64") {
-              suffix = " (Rootless)"
-            } else if (current_arch == "iphoneos-arm64e") {
-              suffix = " (RootHide)"
-            } else {
-              suffix = ""
-            }
-            print $0
-            next
-          }
-          /^Name:/ {
-            if (suffix == "") {
-              print $0
-              next
-            }
-          
-            if ($0 ~ /Rootless/ || $0 ~ /RootHide/) {
-              print $0
-            } else {
-              print $0 suffix
-            }
-            next
-          }
-          { print }
-          ' Packages.tmp > Packages
+          ' Packages.raw > Packages
           
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
 
-          rm -f Packages.raw Packages.tmp
+          rm -f Packages.raw
 
       - name: save change if local change
         if: success()
