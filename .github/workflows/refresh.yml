@@ -35,7 +35,11 @@ jobs:
             /^Section:/ { next }
             /^Architecture:/ {
               print $0
-              print "Section: 常用"
+              if ($2 == "arm64") {
+                print "Section: Rootless"
+              } else {
+                print "Section: 常用"
+              }
               next
             }
             1
