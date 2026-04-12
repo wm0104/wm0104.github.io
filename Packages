@@ -10,7 +10,7 @@ Size: 1706952
 MD5sum: 28714525eeb38495089d5989142edee0
 SHA1: 84e21ccc11c9be4f0578951c279f5b657d6364cb
 SHA256: 26453fc418aa4d7b7986901d3112f5f117b8c69ab8e43894b8d420b5737ad996
-Section: 其他
+Section: 
 Description: 激活码用户或需要激活码的用户安装这个，非激活码用户不要安装！！Do not install if you do not have an activation code!!! Your Copy Vault, Your Pasteboard
 Author: SquidForce, Backup
 Name: CopyVault(激活码版)
@@ -44,7 +44,7 @@ Size: 129804
 MD5sum: cde720ec3a3c718948f181cfc1a96b67
 SHA1: a999c2b1c8856ed4485856c76572e72fef7b2360
 SHA256: 8b636260cec451024da0c620602d798533b87d97634991cd531504a79958908f
-Section: 其他
+Section: RootHide Packages
 Description: 屏蔽App Store更新提示(Block App Store Updates)!
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.disupdateapp
@@ -249,7 +249,7 @@ Size: 962860
 MD5sum: 2030b713030383d6f17b14c85d81981b
 SHA1: 7ce4889e42eff1bf03a4a4ae750517e5e17b7f40
 SHA256: 13bb2904e1b186b042e752c7ac4c1b8436203596cf5d0c144c55c23bd44f2a88
-Section: 其他
+Section: RootHide Packages
 Description: 乌贼的锤子大爆炸，上架备用；roothide版为rootless版本转换。
 Author: lclrc(SquidForce)
 Name: HammerIt(RootHide)
@@ -266,7 +266,7 @@ Size: 5640
 MD5sum: 4d4826ef0d75a8df2278997b0e8a49f3
 SHA1: 0b967cf2a8d044357e07bcdf21d9a65a0f164063
 SHA256: bf0cf20f62648087cb7edb2f1d4cc40a3e74c6421b9d26f330dd7c470c4cfd84
-Section: 其他
+Section: RootHide Packages
 Description: 让你的设备免受 DarkSword/Coruna 攻击！针对 WebContent 进程的 JSC 安全加固。通过配置 JavaScriptCore 选项，消除主要的漏洞利用原语（包括地址泄露/伪造对象 addrof/fakeobj、JIT 类型混淆、垃圾回收器 Use-After-Free）。该安全强化默认处于启用状态，无设置。如果使用真皮白名单RootHide，请去白名单勾选 com.apple.WebKit.WebContent。
 Author: roothide
 Name: lockdown(RootHide)
@@ -282,7 +282,7 @@ Size: 408120
 MD5sum: 62944430c975e25f84e1b0d421dfb798
 SHA1: 306174e2b598351e6cd5d521f70d16e7318d8869
 SHA256: 4801a5a2fbf715091caa0b495677acc901d433dfc829da6732f779bbc6ab9a85
-Section: 其他
+Section: RootHide Packages
 Description: 设置自定义、归类插件，源内有汉化包；v3.0.x版本，功能大体和之前v2.1.1差不多，就改了个插件首页。
 Author: SOPPPra
 Name: SettingsRevamp(RootHide)
@@ -299,7 +299,7 @@ Size: 2493324
 MD5sum: 88d09886db54aec8b3aa59ddcef1bd06
 SHA1: ad7fd0aed46b7427351a7abd3cd9bba7f3c4de46
 SHA256: b494302ec57388e154e609b84851c00f434e146c0595592f584a587cfc396d9c
-Section: 其他
+Section: RootHide Packages
 Description: iCleaner Pro
  * 垃圾清理工具，启动项管理等
  * The first real iOS system cleanup and management utility
@@ -613,7 +613,7 @@ Size: 6436
 MD5sum: b3ebc197d00de4d0efa18d44fb5ffeda
 SHA1: 261894f30792c470d74d7c23a52fa118a28f229b
 SHA256: b01e09e9ede05356513270940df126c77fcf3149a47b7061127e72a19b2729e8
-Section: 其他
+Section: RootHide Packages
 Description: FreePIP is a tweak to un-snap and scale the view of Picture-in-Picture on iOS unlimitedly. Long Press PIP window to enable freepip mode. 解锁画中画的限制，可以放在任意位置和调整到任意大小。长按画中画窗口进入 FreePIP 模式进行调整。v0.0.3-1更新：改为默认是正常模式，略微美化FreePIP模式。
 Author: Soh Satoh
 Name: FreePIP
