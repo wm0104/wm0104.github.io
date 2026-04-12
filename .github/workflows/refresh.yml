@@ -26,28 +26,55 @@ jobs:
         if: success()
         run: |
           rm -rf ./Packages*
+          
           sudo chmod -R 0755 ./debs
           sudo chown -R runner:runner ./debs
-
+          
+          # 1. 先生成原始 Packages，保留所有原有信息
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
-
-          # 只处理 arm64 → Rootless
-          # arm64e 完全不碰
+          
+          # 2. 核心修复逻辑：只处理 arm64e，其他保持原样
+          # 规则：
+          # - arm64e -> 强制归为 Rootless
+          # - 其他架构 -> 保留原 Section，不做任何修改
           awk '
-            /^Architecture:/ { arch=$2; print; next }
-            /^Section:/ {
-              if (arch == "arm64") {
+            /^Architecture:/ {
+              arch = $0
+              print arch
+              if (arch ~ /arm64e/) {
+                # arm64e 强制加入 Rootless 分组
                 print "Section: Rootless"
+              } else {
+                # 其他架构 -> 在下一行处理原有的 Section
+                # 这里先空着，等遇到 Section 时再处理
+              }
+              next
+            }
+            
+            /^Section:/ {
+              # 如果是 arm64e 的包，我们已经手动写了 Rootless，所以跳过原有的
+              if (prev_arch ~ /arm64e/) {
+                prev_arch = ""
                 next
               }
+              # 非 arm64e，保留原有的分组
+              print $0
+              next
             }
-            1
+            
+            # 记录当前架构
+            {
+              if ($0 ~ /^Architecture:/) {
+                prev_arch = $2
+              }
+              print $0
+            }
           ' Packages.raw > Packages
-
+          
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
-
+          
           rm -f Packages.raw
 
       - name: save change if local change
@@ -57,7 +84,7 @@ jobs:
           git config --global user.name 'GitHub Action'
           git add .
           if ! git diff --staged --exit-code 1>>/dev/null; then
-            git commit -m 'Refresh Packages'
+            git commit -m 'Fix: 仅arm64e归为Rootless，其他分组不动'
             git push
           fi
           
