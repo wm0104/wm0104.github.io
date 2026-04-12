@@ -31,7 +31,18 @@ jobs:
       - name: Refresh Packages
         run: |
           rm -rf ./Packages*
-          dpkg-scanpackages -m ./debs /dev/null > Packages.raw
+          
+          # 检查 ./debs 目录是否存在
+          if [ ! -d "./debs" ]; then
+            echo "Directory './debs' not found!"
+            exit 1
+          fi
+
+          # 设置文件夹权限
+          sudo chmod -R 755 ./debs
+
+          # 生成 Packages.raw
+          sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
           # 去掉所有图标
           sed -i '/^Icon:/d' Packages.raw
