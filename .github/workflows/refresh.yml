@@ -48,13 +48,42 @@ jobs:
               next
             }
             { print $0 }
-          ' Packages.raw > Packages
-          
+          ' Packages.raw > Packages.tmp
+
+          # 只在这里新增：给名字后面加 Rootless / RootHide，不重复加
+          awk '
+          BEGIN {
+            current_arch = ""
+            suffix = ""
+          }
+          /^Architecture:/ {
+            current_arch = $2
+            if (current_arch == "iphoneos-arm64") {
+              suffix = " Rootless"
+            } else if (current_arch == "iphoneos-arm64e") {
+              suffix = " RootHide"
+            } else {
+              suffix = ""
+            }
+            print $0
+            next
+          }
+          /^Name:/ {
+            if (suffix == "" || $0 ~ /Rootless$/ || $0 ~ /RootHide$/) {
+              print $0
+            } else {
+              print $0 suffix
+            }
+            next
+          }
+          { print }
+          ' Packages.tmp > Packages
+
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
 
-          rm -f Packages.raw
+          rm -f Packages.raw Packages.tmp
 
       - name: save change if local change
         if: success()
@@ -66,7 +95,7 @@ jobs:
             git commit -m 'Refresh Packages'
             git push
           fi
-          
+
       - name: download remove_all_actions
         if: success()
         run: |
