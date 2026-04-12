@@ -13,7 +13,7 @@ SHA256: 26453fc418aa4d7b7986901d3112f5f117b8c69ab8e43894b8d420b5737ad996
 Section: 常用
 Description: 激活码用户或需要激活码的用户安装这个，非激活码用户不要安装！！Do not install if you do not have an activation code!!! Your Copy Vault, Your Pasteboard
 Author: SquidForce, Backup
-Name: CopyVault(激活码版)
+Name: CopyVault(激活码版) RootHide
 Sileodepiction: https://lclrc.github.io/repo/depictions/native/cn.octoforce.copyvault/depiction.json
 
 Package: cn.zqbb.cocoatop64.inject.roothide
@@ -30,7 +30,7 @@ SHA256: 8567f38a1093bb3d83f12e9bfcfb445866c2fb47315b91d83db32e2501f6ba22
 Section: 常用
 Description: (RootHide) 白名单注入辅助器
 Author: Domo, SXX , zp
-Name: CocoaTop64 inject (RootHide)
+Name: CocoaTop64 inject (RootHide) RootHide
 Sileodepiction: https://rootless.zqbb.cf/web/cn.zqbb.cocoatop64.inject.roothide
 
 Package: cn.zqbb.disupdateapp
@@ -48,7 +48,7 @@ Section: 常用
 Description: 屏蔽App Store更新提示(Block App Store Updates)!
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.disupdateapp
-Name: Hello App
+Name: Hello App RootHide
 Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.disupdateapp
 
 Package: cn.zqbb.fix120hz
@@ -70,7 +70,7 @@ Description:
  - 解锁动态刷新率80hz到120hz.
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.fix120hz
-Name: Hello 120Hz
+Name: Hello 120Hz RootHide
 Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.fix120hz
 
 Package: cn.zqbb.hello.memorystatus
@@ -88,7 +88,7 @@ Section: 常用
 Description: Set memorystatus to avoid being killed by the system
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.hello.memorystatus.png
-Name: Hello Memory Status
+Name: Hello Memory Status RootHide
 Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.hello.memorystatus
 
 Package: cn.zqbb.hellopay
@@ -106,7 +106,7 @@ Section: 常用
 Description: 微信+支付宝 控制中心添加 扫一扫,付款码.
  - 默认支付宝扫一扫, 长按出菜单!
 Author: zqbb
-Name: Hello Pay
+Name: Hello Pay RootHide
 Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.hellopay
 
 Package: cn.zqbb.holdcpu
@@ -125,7 +125,7 @@ Section: 常用
 Description: (解除温控) (锁定低电量CPU频率)
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.holdcpu
-Name: Hello CPU
+Name: Hello CPU RootHide
 Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.holdcpu
 
 Package: com.25mao.leftpan.rootless
@@ -161,7 +161,7 @@ Priority: optional
 Description: 微信多功能插件（密友）
 Author: Mao
 Icon: https://TrollStoreX.Github.io/sileodepiction/mao/icon.png
-Name: 微信助手 密友
+Name: 微信助手 密友 RootHide
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/mao/js.json
 
 Package: com.autoscroll.jb
@@ -181,7 +181,7 @@ Description: 页面自动滑动
  * 跟随你的手指滑动幅度，页面始终自动滑动，直到你触摸屏幕才停止
 Author: pxcex
 Icon: https://TrollStoreX.Github.io/sileodepiction/AutoScroll/icon.png
-Name: AutoScroll 自动滑动
+Name: AutoScroll 自动滑动 RootHide
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/AutoScroll/js.json
 
 Package: com.be-huge.wechat-push-msg-pages
@@ -201,7 +201,7 @@ Section: 常用
 Description: 弥补微信通知不足，支持点击微信消息通知横幅，跳转到对应的窗口
 Author: be-huge
 Icon: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/icon.png
-Name: 微信推送直达聊天窗口 WechatPushMsgPage
+Name: 微信推送直达聊天窗口 WechatPushMsgPage RootHide
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/js.json
 
 Package: com.brend0n.nopassafterrespringsafe
@@ -218,7 +218,7 @@ SHA256: 333f21c93bd99d68595ad73747dfa795de9960e8aa5501d58f76fd1449e66df0
 Section: 常用
 Description: Disables passcode after a respring. This version does NOT modify system file. It's safe to use. 在注销前是解锁状态的情况下，注销后自动跳过人脸或指纹识别到桌面。
 Author: Brend0n <brendonjkding@126.com>
-Name: NoPassAfterRespring (Safe)
+Name: NoPassAfterRespring (Safe) Rootless
 
 Package: com.dao.filzacrack
 Version: 1.1-9
@@ -235,7 +235,7 @@ SHA256: 370d022cefa5615f39acb2ed9f16627bc765c958f0279924fd7991c9f6abc698
 Section: 常用
 Description: Filza解锁全部功能，请在官方源安装Filza。Netskao新更的版本，上架备份；转换支持 roothide。
 Author: Netskao
-Name: Filza Crack(RootHide)
+Name: Filza Crack(RootHide) RootHide
 
 Package: com.dao.hammerit
 Version: 1.7.1
@@ -252,7 +252,7 @@ SHA256: 13bb2904e1b186b042e752c7ac4c1b8436203596cf5d0c144c55c23bd44f2a88
 Section: 常用
 Description: 乌贼的锤子大爆炸，上架备用；roothide版为rootless版本转换。
 Author: lclrc(SquidForce)
-Name: HammerIt(RootHide)
+Name: HammerIt(RootHide) RootHide
 
 Package: com.dao.lockdown
 Version: 1.0.3
@@ -269,7 +269,7 @@ SHA256: bf0cf20f62648087cb7edb2f1d4cc40a3e74c6421b9d26f330dd7c470c4cfd84
 Section: 常用
 Description: 让你的设备免受 DarkSword/Coruna 攻击！针对 WebContent 进程的 JSC 安全加固。通过配置 JavaScriptCore 选项，消除主要的漏洞利用原语（包括地址泄露/伪造对象 addrof/fakeobj、JIT 类型混淆、垃圾回收器 Use-After-Free）。该安全强化默认处于启用状态，无设置。如果使用真皮白名单RootHide，请去白名单勾选 com.apple.WebKit.WebContent。
 Author: roothide
-Name: lockdown(RootHide)
+Name: lockdown(RootHide) RootHide
 
 Package: com.dao.settingsrevamp
 Version: 3.0.1.1
@@ -285,7 +285,7 @@ SHA256: 4801a5a2fbf715091caa0b495677acc901d433dfc829da6732f779bbc6ab9a85
 Section: 常用
 Description: 设置自定义、归类插件，源内有汉化包；v3.0.x版本，功能大体和之前v2.1.1差不多，就改了个插件首页。
 Author: SOPPPra
-Name: SettingsRevamp(RootHide)
+Name: SettingsRevamp(RootHide) RootHide
 
 Package: com.exile90.icleanerpros
 Version: 7.10.0
@@ -305,7 +305,7 @@ Description: iCleaner Pro
  * The first real iOS system cleanup and management utility
 Author: Ivano Bilenchi
 Icon: https://TrollStoreX.Github.io/sileodepiction/iCleanerPro/icon.png
-Name: iCleaner Pro
+Name: iCleaner Pro RootHide
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/iCleanerPro/js.json
 
 Package: com.hbwechathelper.ailuns
@@ -331,7 +331,7 @@ Description: 微信多功能插件
  * 自定义拍一拍 百变小尾巴 实时尾巴时间等功能
 Author: HuangBai
 Icon: https://TrollStoreX.Github.io/sileodepiction/HB/icon.png
-Name: 黄白助手
+Name: 黄白助手 RootHide
 Sileodepiction: https://TrollStoreX.Github.io/
 
 Package: com.huami.dyyy.vita
@@ -355,7 +355,7 @@ Description: 基于 DYYY 的抖音插件
  * 通过“双指长按”或“抖音设置”进入插件
 Author: huami & vita
 Icon: https://TrollStoreX.Github.io/sileodepiction/DYYYVita/icon.png
-Name: 抖音 DYYY 维他
+Name: 抖音 DYYY 维他 RootHide
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/DYYYVita/js.json
 
 Package: com.lclrc.squidgesture
@@ -373,7 +373,7 @@ Section: 常用
 Description: Gestures
 Author: lclrc(SquidForce)
 Icon: file:///Library/PreferenceBundles/SquidGesturePrefs.bundle/SquidGesture_icon@3x.png
-Name: SquidGesture
+Name: SquidGesture RootHide
 
 Package: com.netskao.appdatas
 Version: 1.4.4
@@ -395,7 +395,7 @@ Description: 桌面图标增强插件
  * View & Manage Applications Data from your Home Screen
 Author: Fouad Raheb
 Icon: https://TrollStoreX.Github.io/sileodepiction/Appdata/icon.png
-Name: AppData
+Name: AppData RootHide
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Appdata/js.json
 
 Package: com.storeswitcher.appstore
@@ -414,7 +414,7 @@ Description: 桌面长按 App Store 进行切换账号
  * Long press the App Store on the desktop to switch accounts
 Author: subdiox & iosdump
 Icon: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/icon.png
-Name: StoreSwitcher 账号切换
+Name: StoreSwitcher 账号切换 RootHide
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/js.json
 
 Package: com.susu.fuckwechatadss
@@ -435,7 +435,7 @@ Description: 移除微信广告
  * 在微信 8.0.56 进行测试有效
 Author: susu
 Icon: https://TrollStoreX.Github.io/sileodepiction/FuckWeChatAds/icon.png
-Name: 微信去广告 FuckWeChatAds
+Name: 微信去广告 FuckWeChatAds RootHide
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/FuckWeChatAds/js.json
 
 Package: com.tigisoftware.filza64bits
@@ -456,7 +456,7 @@ Description: Filza 文件管理器 RootHide 专用
  * 支持解压打包 deb 插件
 Author: TIGI Software
 Icon: https://TrollStoreX.Github.io/sileodepiction/Filza/icon.png
-Name: Filza 文件管理器
+Name: Filza 文件管理器 RootHide
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Filza/js.json
 
 Package: com.wkk.filzaswipeselect
@@ -475,7 +475,7 @@ Section: 常用
 Description: Filza的滑动多选功能。
 Author: korboy <korboybeats@gmail.com>
 Icon: https://sini921.github.io/repo/sileodepiction/icon/filzaswipeselect.png
-Name: FilzaSwipeSelect
+Name: FilzaSwipeSelect RootHide
 
 Package: com.wkk.swipeextenderx
 Version: 1.6.2
@@ -493,7 +493,7 @@ Section: 常用
 Description: 用这款传奇的插件重塑你的原生键盘，自带我的预设，在Presets中可以找到并恢复。无汉化。
 Author: MiRO <tweaks_support@miro92.com>
 Icon: https://img.chariz.cloud/icon/swipeextenderx/icon@3x.png
-Name: SwipeExtenderX
+Name: SwipeExtenderX RootHide
 
 Package: com.xybp888.callassist16.dopamine.roothide
 Version: 2.2.8
@@ -510,7 +510,7 @@ Priority: optional
 Description: 电话助手授权版本,通话录音,通话记录合并,T9双卡选卡拨号键盘,短信双卡选卡,来去电归属地,黑名单,骚扰拦截,状态栏图标替换,时间格式修改,常用小功能等强大插件
 Author: xybp888
 Depiction: https://apt.htv123.com/view/588
-Name: 电话助手iOS16-正式版(Roothide)
+Name: 电话助手iOS16-正式版(Roothide) RootHide
 Sileodepiction: https://apt.htv123.com/sileo/588
 
 Package: com.xybp888.perfectdynamiclsland.roothide
@@ -528,7 +528,7 @@ Priority: optional
 Description: 完美的使用原生灵动岛展示系统通知等...
 Author: xybp888
 Depiction: https://apt.htv123.com/view/276
-Name: 灵动通知iOS16-正式版(RootHide)
+Name: 灵动通知iOS16-正式版(RootHide) RootHide
 Sileodepiction: https://apt.htv123.com/sileo/276
 
 Package: jp.soh.freepip
@@ -545,7 +545,7 @@ SHA256: b01e09e9ede05356513270940df126c77fcf3149a47b7061127e72a19b2729e8
 Section: 常用
 Description: FreePIP is a tweak to un-snap and scale the view of Picture-in-Picture on iOS unlimitedly. Long Press PIP window to enable freepip mode. 解锁画中画的限制，可以放在任意位置和调整到任意大小。长按画中画窗口进入 FreePIP 模式进行调整。v0.0.3-1更新：改为默认是正常模式，略微美化FreePIP模式。
 Author: Soh Satoh
-Name: FreePIP
+Name: FreePIP Rootless
 
 Package: me.tomt000.stageduo
 Version: 1.2
@@ -561,7 +561,7 @@ SHA256: f55144278ad75d2c56f14900793c330ccc51f06b2839656e0ebfa812efe4a84f
 Section: 常用
 Description: Stage Manager Reimagined for iPhone
 Author: tomt000
-Name: Dynamic Stage
+Name: Dynamic Stage Rootless
 
 Package: netskao.BlockAppsCreateAlbum
 Version: 1.1.2
@@ -579,5 +579,5 @@ Section: 常用
 Description: 阻止应用创建自己的相册
 Author: Netskao
 Icon: https://TrollStoreX.Github.io/sileodepiction/repo_pic/photo.png
-Name: 禁止应用自动创建相册BlockAppsCreateAlbum
+Name: 禁止应用自动创建相册BlockAppsCreateAlbum RootHide
 
