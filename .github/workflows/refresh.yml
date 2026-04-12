@@ -15,28 +15,35 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 仅清理Packages文件（不碰debs目录）
+      - name: 彻底清理旧文件
         run: |
           rm -rf ./Packages*
           git rm -rf ./Packages* --ignore-unmatch
           git commit -m "清理旧Packages文件" --allow-empty
+
+      - name: 检查并创建debs目录（包存放目录）
+        run: |
+          if [ ! -d "./debs" ]; then
+            mkdir ./debs
+            echo "创建debs目录"
+          fi
 
       - name: 安装依赖
         run: |
           sudo apt update
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      - name: 生成Packages（基于现有debs目录）
+      - name: 重新生成Packages
         run: |
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages
           bzip2 -k Packages
           xz -k Packages
           zstd -k Packages
 
-      - name: 提交修改
+      - name: 强制提交所有修改
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git add .
-          git commit -m "重新生成Packages"
-          git push
+          git commit -m "重新生成Packages，统一分类"
+          git push --force
