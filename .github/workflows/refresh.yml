@@ -3,7 +3,7 @@ name: "refresh"
 on:
   workflow_run:
     workflows: ["pages-build-deployment"]
-    types: 
+    types:
       - completed
 
 permissions:
@@ -13,7 +13,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow.conclusion == 'success' && github.event.workflow.head_branch == 'main' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,53 +31,68 @@ jobs:
       - name: Refresh Packages
         run: |
           rm -rf ./Packages*
-          sudo chmod -R 0755 ./debs/
-          sudo dpkg-scanpackages -m ./debs > Packages.raw
+          dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
-          awk '
-            /^Icon:/    { next }
-            /^Section:/ { next }
+          # 去掉所有图标
+          sed -i '/^Icon:/d' Packages.raw
+          # 去掉所有旧分类
+          sed -i '/^Section:/d' Packages.raw
 
-            /^Package:/ {
-              pkg = tolower($0)
-              print $0
-              next
-            }
+          > Packages
+          while IFS= read -r line; do
+            echo "$line" >> Packages
 
-            /^Architecture:/ {
-              print $0
-              if ($0 ~ /arm64e/) {
-                print "Section: RootHide Packages"
-              } else {
-                if (pkg ~ /tool|util|文件|终端|清理|备份|修复|工具/)
-                  print "Section: 工具"
-                else if (pkg ~ /system|ui|桌面|状态栏|控制中心|锁屏|系统/)
-                  print "Section: 系统"
-                else if (pkg ~ /enhance|plus|pro|增强|优化|加速|功能/)
-                  print "Section: 增强"
+            if [[ "$line" =~ ^Architecture: ]]; then
+              if echo "$line" | grep -q "arm64e"; then
+                echo "Section: RootHide Packages" >> Packages
+              else
+                # 根据插件名称分类
+                if echo "$line" | grep -q "tool|util|文件|终端|清理|备份|修复|工具"; then
+                  echo "Section: 工具类" >> Packages
+                elif echo "$line" | grep -q "enhance|plus|pro|增强|优化|加速|功能"; then
+                  echo "Section: 增强类" >> Packages
+                elif echo "$line" | grep -q "system|ui|桌面|状态栏|控制中心|锁屏|系统"; then
+                  echo "Section: 系统类" >> Packages
                 else
-                  print "Section: 工具"
-              }
-              next
-            }
-            1
-          ' Packages.raw > Packages
+                  echo "Section: 插件" >> Packages
+                fi
+              fi
+            fi
+          done < Packages.raw
 
-          bzip2 -k -9 Packages
-          xz -k -9 Packages
-          zstd -k --ultra -22 Packages
+          # 压缩生成的 Packages 文件
+          bzip2 -v -k -9 Packages
+          xz -v -k -9 --extreme Packages
+          zstd --ultra -22 -k Packages -o Packages.zst
 
-          rm -f Packages.raw
-
-      - name: Git Config
+      - name: Configure Git
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
+          git config --global user.email 'action@github.com'
+          git config --global user.name 'GitHub Action'
 
-      - name: Commit & Push
+      - name: Commit Changes
         run: |
-          git add Packages*
-          if ! git diff --staged --quiet; then
-            git commit -m "Update packages [skip ci]"
-            git push
+          git add .
+          if ! git diff --staged --exit-code; then
+            git commit -m 'Refresh Packages [skip ci]'
           fi
+
+      - name: Push Changes
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git pull --rebase origin main
+          git push origin main
+
+      - name: Download remove_all_actions
+        run: |
+          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
+          sudo chmod +x '/usr/bin/remove_all_actions'
+
+      - name: Remove All Old Actions
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          remove_all_actions
