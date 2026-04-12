@@ -15,35 +15,40 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 提前配置Git身份，解决所有步骤的身份问题
       - name: 配置Git身份
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
 
-      - name: 彻底清理旧文件
+      - name: 清理旧文件
         run: |
           rm -f Packages Packages.bz2 Packages.xz Packages.zst
           git rm -f Packages* --ignore-unmatch
-          git commit -m "清理旧Packages文件" --allow-empty
+          git commit -m "清理旧Packages" --allow-empty
 
-      - name: 检查并创建debs目录（包存放目录）
-        run: mkdir -p debs
+      # 创建分类目录（对应工具/系统/增强类）
+      - name: 创建分类目录
+        run: |
+          mkdir -p debs/工具类
+          mkdir -p debs/系统类
+          mkdir -p debs/增强类
 
+      # 生成带分类的Packages文件
       - name: 安装依赖
         run: |
           sudo apt update
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      - name: 重新生成Packages
+      - name: 生成分类Packages
         run: |
-          sudo dpkg-scanpackages -m ./debs /dev/null > Packages
+          # 按分类生成Packages（自动识别目录）
+          dpkg-scanpackages -m ./debs /dev/null > Packages
           bzip2 -k Packages
           xz -k Packages
           zstd -k Packages
 
-      - name: 强制提交所有修改
+      - name: 提交分类后的文件
         run: |
           git add .
-          git commit -m "重新生成Packages文件"
+          git commit -m "生成工具/系统/增强类分类Packages"
           git push
