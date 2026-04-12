@@ -495,6 +495,42 @@ Author: MiRO <tweaks_support@miro92.com>
 Icon: https://img.chariz.cloud/icon/swipeextenderx/icon@3x.png
 Name: SwipeExtenderX
 
+Package: com.xybp888.callassist16.dopamine.roothide
+Version: 2.2.8
+Architecture: iphoneos-arm64e
+Maintainer: xybp888
+Depends: firmware (>= 16.0), preferenceloader, com.opa334.libsandy
+Filename: ./debs/电话助手iOS16-正式版(Roothide)-2.2.8.deb
+Size: 2997694
+MD5sum: d36b40d32a976f4300d3bdadb49dc2c0
+SHA1: 88bc3ec31da7fec8cee34657cb3746a2410e5f5b
+SHA256: 4962a83c715c1cafd7578ea82b258b1a148e24998ee228353c9c8046098e6b7c
+Section: 常用
+Priority: optional
+Description: 电话助手授权版本,通话录音,通话记录合并,T9双卡选卡拨号键盘,短信双卡选卡,来去电归属地,黑名单,骚扰拦截,状态栏图标替换,时间格式修改,常用小功能等强大插件
+Author: xybp888
+Depiction: https://apt.htv123.com/view/588
+Name: 电话助手iOS16-正式版(Roothide)
+Sileodepiction: https://apt.htv123.com/sileo/588
+
+Package: com.xybp888.perfectdynamiclsland.roothide
+Version: 1.2-28
+Architecture: iphoneos-arm64e
+Maintainer: xybp888
+Depends: firmware (>= 16.0), mobilesubstrate
+Filename: ./debs/灵动通知iOS16-正式版(RootHide)-1.2-28.deb
+Size: 555716
+MD5sum: e761a2b3f0456f6ba66456d4d9d77a0d
+SHA1: 8db1ad17cee01472694c431420932d37dd502189
+SHA256: f0a6bfa57013a1651503490772d4ca0c2cbfad2fbe1d9469ac64d61067a7cb74
+Section: 常用
+Priority: optional
+Description: 完美的使用原生灵动岛展示系统通知等...
+Author: xybp888
+Depiction: https://apt.htv123.com/view/276
+Name: 灵动通知iOS16-正式版(RootHide)
+Sileodepiction: https://apt.htv123.com/sileo/276
+
 Package: jp.soh.freepip
 Version: 0.0.3-1
 Architecture: iphoneos-arm64
