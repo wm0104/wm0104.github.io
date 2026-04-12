@@ -28,6 +28,28 @@ jobs:
           sudo apt update -qq
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
+      - name: Ensure Correct Permissions for .deb Files
+        run: |
+          echo "Checking and fixing permissions for .deb files"
+          sudo chmod -R 755 ./debs
+          ls -l ./debs
+
+      - name: Check and Repair .deb Package Integrity
+        run: |
+          echo "Checking integrity of .deb packages"
+          for deb in ./debs/*.deb; do
+            if ! dpkg-deb --info "$deb" > /dev/null 2>&1; then
+              echo "Error: Package $deb is corrupted or has issues."
+              exit 1
+            fi
+            # Check if the control file exists inside the deb package
+            dpkg-deb -x "$deb" /tmp/deb-extract
+            if [ ! -f "/tmp/deb-extract/DEBIAN/control" ]; then
+              echo "Error: Control file missing in $deb."
+              exit 1
+            fi
+          done
+
       - name: Refresh Packages
         run: |
           rm -rf ./Packages*
