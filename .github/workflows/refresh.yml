@@ -15,18 +15,20 @@ jobs:
         with:
           fetch-depth: 0
 
+      # 提前配置Git身份，解决所有步骤的身份问题
+      - name: 配置Git身份
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+
       - name: 彻底清理旧文件
         run: |
-          rm -rf ./Packages*
-          git rm -rf ./Packages* --ignore-unmatch
+          rm -f Packages Packages.bz2 Packages.xz Packages.zst
+          git rm -f Packages* --ignore-unmatch
           git commit -m "清理旧Packages文件" --allow-empty
 
       - name: 检查并创建debs目录（包存放目录）
-        run: |
-          if [ ! -d "./debs" ]; then
-            mkdir ./debs
-            echo "创建debs目录"
-          fi
+        run: mkdir -p debs
 
       - name: 安装依赖
         run: |
@@ -42,8 +44,6 @@ jobs:
 
       - name: 强制提交所有修改
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
           git add .
-          git commit -m "重新生成Packages，统一分类"
-          git push --force
+          git commit -m "重新生成Packages文件"
+          git push
