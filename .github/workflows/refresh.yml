@@ -33,25 +33,29 @@ jobs:
           # 生成原始Packages
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
           
-          # 核心：无“其他”类，所有包分到4个分类
+          # 核心：无重复+精准分类
           awk '
-            BEGIN { section = "功能类" } # 默认兜底（后续可补充规则）
+            BEGIN { 
+              section = "功能类"
+              rootHideMarked = 0 # 标记RootHide是否已分配，避免重复
+            }
             
             /^Name:/ {
               pkg_name = $0
-              # 1. RootHide专属分类
-              if (pkg_name ~ /RootHide/) {
+              # 1. RootHide类（全局唯一，仅匹配一次）
+              if (pkg_name ~ /RootHide/ && rootHideMarked == 0) {
                 section = "RootHide Packages"
+                rootHideMarked = 1 # 标记已分配，后续包不再重复生成该分类
               }
-              # 2. 工具类（匹配“工具/复制/激活码”类功能）
-              else if (pkg_name ~ /工具|CopyVault|激活码|Tool|备份/) {
+              # 2. 工具类（扩充关键词）
+              else if (pkg_name ~ /工具|CopyVault|激活码|助手|查询|编辑|备份|管理/) {
                 section = "工具类"
               }
-              # 3. 系统类（匹配“系统优化/屏蔽/系统级功能”）
-              else if (pkg_name ~ /系统|屏蔽|App Store|优化|权限|System/) {
+              # 3. 系统类
+              else if (pkg_name ~ /系统|屏蔽|App Store|优化|权限/) {
                 section = "系统类"
               }
-              # 4. 功能类（其余所有包默认归到这里）
+              # 4. 功能类（兜底）
               else {
                 section = "功能类"
               }
@@ -83,7 +87,7 @@ jobs:
           git config --global user.name 'GitHub Action'
           git add .
           if ! git diff --staged --exit-code 1>>/dev/null; then
-            git commit -m 'Fix: 移除其他类，所有包分工具/系统/功能/RootHide'
+            git commit -m 'Fix: 彻底解决重复+精准分类'
             git push
           fi
           
