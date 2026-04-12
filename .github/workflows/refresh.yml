@@ -36,14 +36,19 @@ jobs:
 
       - name: Refresh Packages
         run: |
-          # 彻底删除旧文件
           rm -rf ./Packages*
           sudo chmod -R 755 ./debs
 
-          # 用 sudo 执行 dpkg-scanpackages，彻底解决权限问题
+          # 生成原始 Packages
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
-          # 用 awk 一次性处理，彻底替代 while 循环，杜绝逻辑错误
+          # 彻底删除 Icon 和旧 Section
+          sed -i '/^Icon:/d' Packages.raw
+          sed -i '/^Section:/d' Packages.raw
+
+          # 🔥 核心处理：
+          # arm64e → 直接写 RootHide Packages（不加分类）
+          # 其他 → 按包名自动分 工具/系统/增强
           awk '
             /^Icon:/    { next }
             /^Section:/ { next }
@@ -57,8 +62,10 @@ jobs:
             /^Architecture:/ {
               print $0
               if ($0 ~ /arm64e/) {
+                # 🔴 RootHide 单独一个，不加入任何分类
                 print "Section: RootHide Packages"
               } else {
+                # 🟢 非 arm64e 按包名分类
                 if (pkg ~ /tool|util|filza|icleaner|terminal|ssh|修复|清理|备份|工具/)
                   print "Section: 工具类"
                 else if (pkg ~ /enhance|plus|pro|activator|增强|优化|加速|功能/)
@@ -73,12 +80,11 @@ jobs:
             1
           ' Packages.raw > Packages
 
-          # 生成压缩包
+          # 压缩
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
 
-          # 清理临时文件
           rm -f Packages.raw
 
       - name: Configure Git
@@ -90,7 +96,7 @@ jobs:
         run: |
           git add .
           if ! git diff --staged --exit-code; then
-            git commit -m 'Refresh Packages: 修复权限+三分类自动分配 [skip ci]'
+            git commit -m 'Fix: RootHide独立 + 三分类自动分配 [skip ci]'
           fi
 
       - name: Push Changes
