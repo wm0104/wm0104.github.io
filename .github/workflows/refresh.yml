@@ -3,7 +3,7 @@ name: "refresh"
 on:
   workflow_run:
     workflows: ["pages-build-deployment"]
-    types:
+    types: 
       - completed
 
 permissions:
@@ -28,69 +28,29 @@ jobs:
           sudo apt update -qq
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      - name: Ensure Correct Permissions for .deb Files
-        run: |
-          echo "Fixing permissions for .deb files"
-          sudo chmod -R 755 ./debs
-          ls -l ./debs/*.deb
-
-      - name: Check .deb Packages Integrity
-        run: |
-          echo "Checking integrity of .deb packages"
-          for deb in ./debs/*.deb; do
-            echo "Checking package: $deb"
-            # Validate package integrity
-            if ! dpkg-deb --info "$deb" > /dev/null 2>&1; then
-              echo "Error: Package $deb is corrupted or has issues."
-              exit 1
-            fi
-            # Check if control file exists
-            dpkg-deb -x "$deb" /tmp/deb-extract
-            if [ ! -f "/tmp/deb-extract/DEBIAN/control" ]; then
-              echo "Error: Control file missing in $deb."
-              exit 1
-            fi
-            rm -rf /tmp/deb-extract  # Clean up extracted package
-          done
-
       - name: Refresh Packages
         run: |
           rm -rf ./Packages*
+          dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
-          # Check if deb directory exists
-          if [ ! -d "./debs" ]; then
-            echo "Directory './debs' not found!"
-            exit 1
-          fi
-
-          # Regenerate the Packages file
-          sudo dpkg-scanpackages ./debs /dev/null > Packages.raw
-
-          # Clean up Package.raw (remove icons and sections)
+          # 去掉所有图标
           sed -i '/^Icon:/d' Packages.raw
+          # 去掉所有旧分类
           sed -i '/^Section:/d' Packages.raw
 
-          # Process the Packages.raw to create final Packages
           > Packages
           while IFS= read -r line; do
             echo "$line" >> Packages
+
             if [[ "$line" =~ ^Architecture: ]]; then
               if echo "$line" | grep -q "arm64e"; then
                 echo "Section: RootHide Packages" >> Packages
               else
-                # Category based on plugin name
-                if echo "$line" | grep -q "tool|util|文件|终端|清理|备份|修复|工具"; then
-                  echo "Section: 工具类" >> Packages
-                elif echo "$line" | grep -q "enhance|plus|pro|增强|优化|加速|功能"; then
-                  echo "Section: 增强类" >> Packages
-                elif echo "$line" | grep -q "system|ui|桌面|状态栏|控制中心|锁屏|系统"; then
-                  echo "Section: 系统类" >> Packages
-                fi
+                echo "Section: 插件" >> Packages
               fi
             fi
           done < Packages.raw
 
-          # Compress final Packages file
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
