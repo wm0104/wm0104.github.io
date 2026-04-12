@@ -30,38 +30,37 @@ jobs:
 
       - name: Refresh Packages
         run: |
+          # 🔴 强制彻底删除所有旧Packages文件，从根源杜绝残留
           rm -rf ./Packages*
           
-          # 修复权限
           sudo chmod -R 0755 ./debs/
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
-          # 去掉所有图标
+          # 🔴 彻底清空所有旧图标、旧分类，100%无残留
           sed -i '/^Icon:/d' Packages.raw
-          # 去掉所有旧分类
           sed -i '/^Section:/d' Packages.raw
 
-          > Packages
-          while IFS= read -r line; do
-            echo "$line" >> Packages
+          # 🔴 核心修复：用awk一次性处理，彻底避免重复分类
+          awk '
+            /^Architecture:/ {
+              print $0
+              if ($0 ~ /arm64e/) {
+                print "Section: RootHide Packages"
+              } else {
+                print "Section: 工具"
+              }
+              next
+            }
+            1
+          ' Packages.raw > Packages
 
-            if [[ "$line" =~ ^Architecture: ]]; then
-              if echo "$line" | grep -q "arm64e"; then
-                # arm64e → 保留粗体 RootHide Packages（仅1个）
-                echo "Section: RootHide Packages" >> Packages
-              elif echo "$line" | grep -q "arm64"; then
-                # 普通arm64 → Rootless
-                echo "Section: Rootless" >> Packages
-              else
-                # 其他所有架构 → 工具（彻底替换细体RootHide）
-                echo "Section: 工具" >> Packages
-              fi
-            fi
-          done < Packages.raw
-
+          # 压缩包
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
+
+          # 清理临时文件
+          rm -f Packages.raw
 
       - name: Configure Git
         run: |
@@ -72,12 +71,12 @@ jobs:
         run: |
           git add .
           if ! git diff --staged --exit-code; then
-            git commit -m 'Refresh Packages [skip ci]'
+            git commit -m 'Refresh Packages [彻底修复重复分类] [skip ci]'
           fi
 
       - name: Push Changes
         env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           git pull --rebase origin main
