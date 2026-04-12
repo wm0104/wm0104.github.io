@@ -34,6 +34,14 @@ jobs:
           sudo chmod -R 755 ./debs
           ls -l ./debs
 
+      - name: List .deb Files and Check Permissions
+        run: |
+          echo "Listing .deb files and checking permissions"
+          ls -l ./debs/*.deb
+          for deb in ./debs/*.deb; do
+            dpkg-deb --info "$deb" || echo "Failed to get info for $deb"
+          done
+
       - name: Check and Repair .deb Package Integrity
         run: |
           echo "Checking integrity of .deb packages"
