@@ -26,7 +26,14 @@ jobs:
         if: success()
         run: |
           rm -rf ./Packages*
-          dpkg-scanpackages -m ./debs /dev/null >./Packages
+          
+          # 🔴 仅增加这两行，修复 Permission denied (不要删除你原来的代码)
+          sudo chmod -R 0755 ./debs
+          sudo chown -R runner:runner ./debs
+          
+          # 🔴 关键修复：在这里加上 sudo，最高权限读取 deb
+          sudo dpkg-scanpackages -m ./debs /dev/null >./Packages
+          
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
@@ -52,6 +59,6 @@ jobs:
         if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
+          GH_REPO: ${{ github.repository }} # 这里保持你原来的缩进
         run: |
           remove_all_actions
