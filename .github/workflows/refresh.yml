@@ -26,17 +26,29 @@ jobs:
         if: success()
         run: |
           rm -rf ./Packages*
-          
-          # 仅保留你要求的权限修复，其他完全不动
           sudo chmod -R 0755 ./debs
           sudo chown -R runner:runner ./debs
-          
-          # 完全还原你最初的命令，无任何修改
-          sudo dpkg-scanpackages -m ./debs /dev/null >./Packages
-          
+
+          sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
+
+          # 只处理 arm64 → Rootless
+          # arm64e 完全不碰
+          awk '
+            /^Architecture:/ { arch=$2; print; next }
+            /^Section:/ {
+              if (arch == "arm64") {
+                print "Section: Rootless"
+                next
+              }
+            }
+            1
+          ' Packages.raw > Packages
+
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
+
+          rm -f Packages.raw
 
       - name: save change if local change
         if: success()
