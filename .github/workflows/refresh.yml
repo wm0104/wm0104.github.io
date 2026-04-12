@@ -32,6 +32,7 @@ jobs:
         run: |
           rm -rf ./Packages*
           
+          # 修复权限
           sudo chmod -R 0755 ./debs/
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
@@ -46,10 +47,14 @@ jobs:
 
             if [[ "$line" =~ ^Architecture: ]]; then
               if echo "$line" | grep -q "arm64e"; then
+                # arm64e → 保留粗体 RootHide Packages（仅1个）
                 echo "Section: RootHide Packages" >> Packages
-              else
-                # 👇 这里改成 Rootless
+              elif echo "$line" | grep -q "arm64"; then
+                # 普通arm64 → Rootless
                 echo "Section: Rootless" >> Packages
+              else
+                # 其他所有架构 → 工具（彻底替换细体RootHide）
+                echo "Section: 工具" >> Packages
               fi
             fi
           done < Packages.raw
