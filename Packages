@@ -360,28 +360,6 @@ Icon: https://TrollStoreX.Github.io/sileodepiction/HB/icon.png
 Name: 黄白助手
 Sileodepiction: https://TrollStoreX.Github.io/
 
-Package: com.huami.bilinoads
-Version: 1.0.1
-Architecture: iphoneos-arm64e
-Maintainer: huami
-Installed-Size: 168
-Pre-Depends: rootless-compat(>= 0.9)
-Depends: firmware (>= 5.0), mobilesubstrate
-Conflicts: com.huami.bilinoad
-Filename: ./debs/com.huami.bilinoads_1.0.1_iphoneos-arm64e.deb
-Size: 4608
-MD5sum: 1ba275c5f38d06561e83469b3674e3a0
-SHA1: 0507f023673583dd70398076033f633792568b82
-SHA256: 77bd28476f3db1b4c7c9973e515fc616905ca8c015da6ab2de5d26cd24da3472
-Section: 常用
-Priority: optional
-Description: BiliBili 净化开屏广告
- * 加速开屏动画
-Author: huami
-Icon: https://TrollStoreX.Github.io/sileodepiction/Bilibili/icon.png
-Name: 哔哩哔哩 BiliNoAd
-Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Bilibili/js.json
-
 Package: com.huami.dyyy.vita
 Version: 2.2-8+debug945
 Architecture: iphoneos-arm64e
