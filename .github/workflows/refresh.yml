@@ -3,7 +3,7 @@ name: "refresh"
 on:
   workflow_run:
     workflows: ["pages-build-deployment"]
-    types:
+    types: 
       - completed
 
 permissions:
@@ -16,7 +16,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: checkout@v4
         with:
           submodules: recursive
           token: ${{ secrets.PAT_TOKEN }}
@@ -31,7 +31,7 @@ jobs:
       - name: Refresh Packages
         run: |
           rm -rf ./Packages*
-
+          
           sudo chmod -R 0755 ./debs/
           sudo dpkg-scanpackages -m ./debs /dev/null > Packages.raw
 
@@ -39,21 +39,20 @@ jobs:
           sed -i '/^Icon:/d' Packages.raw
           sed -i '/^Section:/d' Packages.raw
 
-          # 核心：用 awk 重写，彻底去重 + 分类准确
+          # 核心逻辑：只恢复你原来的结构
           awk '
             /^Architecture:/ {
               print $0
               if ($0 ~ /arm64e/) {
                 print "Section: RootHide Packages"
               } else {
-                print "Section: 工具"
+                print "Section: Rootless"
               }
               next
             }
             1
           ' Packages.raw > Packages
 
-          # 生成压缩包
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
@@ -69,7 +68,7 @@ jobs:
         run: |
           git add .
           if ! git diff --staged --exit-code; then
-            git commit -m 'Refresh Packages: 修复重复分类，统一工具分类 [skip ci]'
+            git commit -m 'Revert: 恢复原来的 Rootless 分类 / 删除重复分类'
           fi
 
       - name: Push Changes
