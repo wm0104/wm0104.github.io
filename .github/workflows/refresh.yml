@@ -32,11 +32,41 @@ jobs:
           sudo chown -R runner:runner ./debs
           
           # 🔴 关键修复：在这里加上 sudo，最高权限读取 deb
-          sudo dpkg-scanpackages -m ./debs /dev/null >./Packages
+          sudo dpkg-scanpackages -m ./debs /dev/null >./Packages.raw
           
+          # 🔥 仅追加：架构识别分类逻辑，不动你原有任何代码
+          # 规则：arm64e → Rootless，其他保持原Section
+          awk '
+            BEGIN {
+              current_arch = ""
+            }
+            
+            /^Architecture:/ {
+              current_arch = $2
+              print $0
+              if (current_arch ~ /arm64e/) {
+                print "Section: Rootless"
+              }
+              next
+            }
+            
+            /^Section:/ {
+              if (current_arch !~ /arm64e/) {
+                print $0
+              }
+              next
+            }
+            
+            { print $0 }
+          ' ./Packages.raw > ./Packages
+          
+          # 保留你原有的压缩命令，完全不动
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
+          
+          # 清理临时文件
+          rm -f ./Packages.raw
 
       - name: save change if local change
         if: success()
