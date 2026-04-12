@@ -50,7 +50,7 @@ jobs:
             { print $0 }
           ' Packages.raw > Packages.tmp
 
-          # 核心修改：加括号+彻底去重
+      
           awk '
           BEGIN {
             current_arch = ""
@@ -73,7 +73,7 @@ jobs:
               print $0
               next
             }
-            # 彻底去重：只要名字里包含Rootless/RootHide，就不再追加
+          
             if ($0 ~ /Rootless/ || $0 ~ /RootHide/) {
               print $0
             } else {
