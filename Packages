@@ -479,6 +479,21 @@ Author: MiRO <tweaks_support@miro92.com>
 Icon: https://img.chariz.cloud/icon/swipeextenderx/icon@3x.png
 Name: SwipeExtenderX
 
+Package: com.wm0104.roothide
+Version: 1
+Architecture: iphoneos-arm64e
+Maintainer: wm0104
+Filename: ./debs/插件配置.deb
+Size: 19976
+MD5sum: a3d9aaee6951d1ba6fc991d593e2f6d4
+SHA1: d7a906bd3ccf81b2103f48370758bff5279ae4f0
+SHA256: 296490fba0d7c9814a969e612e3771dc205bfde769ea5324bef469305da406d2
+Section: 常用
+Description: 插件配置
+Tag: cydia::free
+Author: wm0104
+Name: 插件配置
+
 Package: com.xybp888.callassist16.dopamine.roothide
 Version: 2.2.8
 Architecture: iphoneos-arm64e
