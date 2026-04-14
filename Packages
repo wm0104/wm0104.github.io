@@ -473,7 +473,7 @@ Size: 108076
 MD5sum: 40103b2cbc07d4368839c0391c080787
 SHA1: 939db6bc6fde13be35572785c6f5be1ec43caaac
 SHA256: c5fc988471c40bf6c9d299ca9f502e67ec8128237e77949495f96039a74fdc1e
-Section: 增强
+Section: 常用
 Description: 用这款传奇的插件重塑你的原生键盘，自带我的预设，在Presets中可以找到并恢复。无汉化。
 Author: MiRO <tweaks_support@miro92.com>
 Icon: https://img.chariz.cloud/icon/swipeextenderx/icon@3x.png
@@ -489,7 +489,7 @@ Size: 2997694
 MD5sum: d36b40d32a976f4300d3bdadb49dc2c0
 SHA1: 88bc3ec31da7fec8cee34657cb3746a2410e5f5b
 SHA256: 4962a83c715c1cafd7578ea82b258b1a148e24998ee228353c9c8046098e6b7c
-Section: 系统
+Section: 常用
 Priority: optional
 Description: 电话助手授权版本,通话录音,通话记录合并,T9双卡选卡拨号键盘,短信双卡选卡,来去电归属地,黑名单,骚扰拦截,状态栏图标替换,时间格式修改,常用小功能等强大插件
 Author: xybp888
