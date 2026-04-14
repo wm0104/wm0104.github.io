@@ -1,3 +1,58 @@
+Package: cn.octoforce.copyvault
+Version: 1.9.0
+Architecture: iphoneos-arm64e
+Maintainer: SquidForce, Backup
+Installed-Size: 6380
+Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
+Conflicts: com.squidforce.copyvault
+Filename: ./debs/cn.octoforce.copyvault_1.9.0_iphoneos-arm64e.deb
+Size: 1707940
+MD5sum: 2bd6377cc3d7eba043df6963146da50a
+SHA1: 9452d613ca25dfc50ec2e98cd9eeb69ec64d1c3f
+SHA256: 3295d15fa8b0e636699de45a80cc38e8061db1e9114b625e42fc5b39386dac67
+Section: 工具
+Description: 激活码用户或需要激活码的用户安装这个，非激活码用户不要安装！！Do not install if you do not have an activation code!!! Your Copy Vault, Your Pasteboard
+Author: SquidForce, Backup
+Name: CopyVault(激活码版)
+Sileodepiction: https://lclrc.github.io/repo/depictions/native/cn.octoforce.copyvault/depiction.json
+
+Package: cn.zqbb.hello.memorystatus
+Version: 3.6.0-2
+Architecture: iphoneos-arm64e
+Maintainer: zqbb
+Installed-Size: 10864
+Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 14.0), preferenceloader, launchctl
+Filename: ./debs/cn.zqbb.hello.memorystatus_3.6.0-2_iphoneos-arm64e.deb
+Size: 2991680
+MD5sum: 860b1b988dacf90fea7c00c0bfb4e239
+SHA1: 909cd9c1a9c3ee7057786f50885352d696155c15
+SHA256: 924e5bd13ef312b8143f18896e47b4f8b9f6c98ad2b611670f7408885ac7cdc0
+Section: 工具
+Description: Set memorystatus to avoid being killed by the system
+Author: zqbb
+Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.hello.memorystatus.png
+Name: Hello Memory Status
+Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.hello.memorystatus
+
+Package: cn.zqbb.holdcpu
+Version: 2.3.5-3
+Architecture: iphoneos-arm64e
+Maintainer: zqbb
+Installed-Size: 3664
+Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0), preferenceloader, com.opa334.ccsupport
+Conflicts: com.yourepo.0xash.powercuff, byg.iosios.net.powercuff, com.dao.powercuff, com.rpetrich.powercuff, com.yourepo.0xash.devicemonitor, com.yourepo.0xash.fuckthermal, com.shadow.fuckthermal, com.dao.fuckthermal, byg.iosios.net.monitor, byg.iosios.net.disablethermalmonitord, com.nan.disablethermalmonitord
+Filename: ./debs/cn.zqbb.holdcpu_2.3.5-3_iphoneos-arm64e.deb
+Size: 1308488
+MD5sum: 098334a0229cc6b668c17f5542180eef
+SHA1: 4064585192466dfea7e1d60373b84d175d5b8882
+SHA256: c77dea1ef6567b79eeb5830f46b530100c6de7fbd10c32bc563526e70ee33cd5
+Section: 工具
+Description: (解除温控) (锁定低电量CPU频率)
+Author: zqbb
+Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.holdcpu
+Name: Hello CPU
+Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.holdcpu
+
 Package: com.25mao.leftpan.rootless
 Version: 1.0-6
 Architecture: iphoneos-arm64
@@ -13,6 +68,26 @@ Priority: optional
 Description: 左滑返回上一页面
 Author: Mao
 Name: 左滑返回-Rootless
+
+Package: com.25mao.miyou.rootlesss
+Version: 3.9-5
+Architecture: iphoneos-arm64e
+Maintainer: admin@25mao.com
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: firmware (>= 5.0)
+Conflicts: com.25mao.miyou.rootless
+Filename: ./debs/com.25mao.miyou.rootlesss_3.9-5_iphoneos-arm64e.deb
+Size: 5047144
+MD5sum: 24fea916a7f0cadbdbd6e797bf739eeb
+SHA1: 13895d00a25efaa873a88427f823ad16614121ea
+SHA256: b45337b506f106c165e2b73827e00ab3af3aae0adf028650493af2a5d9a2b688
+Section: 微信
+Priority: optional
+Description: 微信多功能插件（密友）
+Author: Mao
+Icon: https://TrollStoreX.Github.io/sileodepiction/mao/icon.png
+Name: 微信助手 密友
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/mao/js.json
 
 Package: com.hbwechathelper.ailuns
 Version: 2.0-9f
@@ -83,4 +158,20 @@ Author: TIGI Software
 Icon: https://TrollStoreX.Github.io/sileodepiction/Filza/icon.png
 Name: Filza 文件管理器
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Filza/js.json
+
+Package: me.tomt000.stageduo
+Version: 1.2
+Architecture: iphoneos-arm64
+Maintainer: tomt000
+Installed-Size: 4900
+Depends: mobilesubstrate (>= 0.9.5000), com.opa334.altlist, preferenceloader
+Filename: ./debs/me.tomt000.stageduo_1.2_iphoneos-arm64.deb
+Size: 3072280
+MD5sum: 1fa51add9e4abc892cec0b8943ba271a
+SHA1: 39c0078537f775c96124ec4f65192d15a8b1f281
+SHA256: 28e8e9f1f27f661f5e0ec8649a8be2ec75c0279f23b921ee2572e9d44f6d3414
+Section: 增强
+Description: Stage Manager Reimagined for iPhone
+Author: tomt000
+Name: Dynamic Stage
 
