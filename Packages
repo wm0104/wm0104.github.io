@@ -333,11 +333,11 @@ Installed-Size: 3808
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist, com.opa334.ccsupport, com.opa334.libsandy, firmware (>= 14.0)
 Conflicts: com.lclrc.hammerit
-Filename: ./debs/Hammer It 翻译-1.7.0-iphoneos-arm64e.deb
-Size: 2767754
-MD5sum: daeb14dabefeb181078c31120570b494
-SHA1: 273e45e31f45963c3804315e905c7aca6215e379
-SHA256: 782584980e658f7227ef22f43b25813cb2f5418f956f07609d3cd0296ca0e260
+Filename: ./debs/com.lclrc.hammerits_1.7.0_iphoneos-arm64e.deb
+Size: 987636
+MD5sum: 417cf80637e7c20936694ee4f459d974
+SHA1: 5344f8ddb5705a112aad652731beeee7571d1103
+SHA256: 2aefe4d4edaca802625ab080703dcb84f999e0f8eaa318a10e4cdde1759e1a24
 Section: Bootstrap
 Description: 控制您的文本或根据您的意愿进行翻译。
  * 支持Twitter Telegram Discord Sileo 等快捷翻译
@@ -355,12 +355,12 @@ Installed-Size: 3808
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist, com.opa334.ccsupport, com.opa334.libsandy, firmware (>= 14.0)
 Conflicts: com.lclrc.hammerit
-Filename: ./debs/com.lclrc.hammerits_1.7.0_iphoneos-arm64e.deb
-Size: 987636
-MD5sum: 417cf80637e7c20936694ee4f459d974
-SHA1: 5344f8ddb5705a112aad652731beeee7571d1103
-SHA256: 2aefe4d4edaca802625ab080703dcb84f999e0f8eaa318a10e4cdde1759e1a24
-Section: Bootstrap
+Filename: ./debs/hammer it.deb
+Size: 986448
+MD5sum: 5d8c4fa515607f256bd1d4b5d3a9bc0d
+SHA1: eabd9223292a6b545ba287bd3c82501d25ae25da
+SHA256: f6334128ef99ecb2b2b349b910b3e3e7cd55ede8a6d313f70923e96a64529e7c
+Section: 工具
 Description: 控制您的文本或根据您的意愿进行翻译。
  * 支持Twitter Telegram Discord Sileo 等快捷翻译
  * Control your text or translate as you wish.
