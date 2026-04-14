@@ -212,11 +212,11 @@ Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 15.0), mobilesubstrate
 Conflicts: com.netskao.filzacrack, netskao.filzacrack-rootless
 Filename: ./debs/com.dao.filzacrack_1.1-9_iphoneos-arm64e.deb
-Size: 28928
-MD5sum: 367ad15647ced7dcd3abf0b3fa705b8d
-SHA1: 37f4b217b4087776ff403d0428e240ee89e31186
-SHA256: 11ffbbf29db1417a08c706d790ffbef8db82d9a004464e97ba7dc28afe74dbe2
-Section: 工具
+Size: 28968
+MD5sum: 2320f3ffaf673aaf622778e1bb5c8bfb
+SHA1: a86e8ea8452e319f0dda34143da91d40adda47ac
+SHA256: ea53745f541bf8a073022404f286caa3c20cb018deeb41a1a8c508416b68fb77
+Section: 增强
 Description: Filza解锁全部功能，请在官方源安装Filza。Netskao新更的版本，上架备份；转换支持 roothide。
 Author: Netskao
 Name: Filza Crack(RootHide)
