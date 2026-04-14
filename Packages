@@ -338,7 +338,7 @@ Size: 2767754
 MD5sum: daeb14dabefeb181078c31120570b494
 SHA1: 273e45e31f45963c3804315e905c7aca6215e379
 SHA256: 782584980e658f7227ef22f43b25813cb2f5418f956f07609d3cd0296ca0e260
-Section: 工具
+Section: Bootstrap
 Description: 控制您的文本或根据您的意愿进行翻译。
  * 支持Twitter Telegram Discord Sileo 等快捷翻译
  * Control your text or translate as you wish.
@@ -360,7 +360,7 @@ Size: 987636
 MD5sum: 417cf80637e7c20936694ee4f459d974
 SHA1: 5344f8ddb5705a112aad652731beeee7571d1103
 SHA256: 2aefe4d4edaca802625ab080703dcb84f999e0f8eaa318a10e4cdde1759e1a24
-Section: 工具
+Section: Bootstrap
 Description: 控制您的文本或根据您的意愿进行翻译。
  * 支持Twitter Telegram Discord Sileo 等快捷翻译
  * Control your text or translate as you wish.
