@@ -26,7 +26,21 @@ jobs:
         if: success()
         run: |
           rm -rf ./Packages*
-          dpkg-scanpackages -m ./debs /dev/null >./Packages
+          # 1. 先生成原始 Packages
+          dpkg-scanpackages -m ./debs /dev/null >./Packages_raw
+
+          # 2. 👇 核心步骤：根据插件名强制修改 Section
+          # 语法说明：/^Package: 包名/,/^Section: / s/^Section: .*/Section: 工具/
+          # 你可以添加多个 sed -i 语句，对应不同插件
+          sed -i '/^Package: com.lclrc.hammerits/,/^Section: / s/^Section: .*/Section: 工具/' ./Packages_raw
+          sed -i '/^Package: com.dao.hammerit/,/^Section: / s/^Section: .*/Section: 工具/' ./Packages_raw
+          # 👇 在这里继续添加更多插件...
+          # sed -i '/^Package: 你的下一个包名/,/^Section: / s/^Section: .*/Section: 工具/' ./Packages_raw
+
+          # 3. 将处理好的内容保存为正式的 Packages
+          mv ./Packages_raw ./Packages
+
+          # 4. 继续压缩
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
@@ -38,7 +52,7 @@ jobs:
           git config --global user.name 'GitHub Action'
           git add .
           if ! git diff --staged --exit-code 1>>/dev/null; then
-            git commit -m 'Refresh Packages'
+            git commit -m 'Refresh Packages & Fix Section for HammerIt'
             git push
           fi
           
