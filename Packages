@@ -27,7 +27,7 @@ Size: 184452
 MD5sum: 85fdba12874a09c134a9297981ed7c2f
 SHA1: 4e9f10d92f92bc4cde4c895dbbabc0ea64c15c3f
 SHA256: 92d253d97b910ac94962ba256c4caf5ede02163c42742ab5da89c048d3c35d14
-Section: 系统类
+Section: APP
 Description: (RootHide) 白名单注入辅助器
 Author: Domo, SXX , zp
 Name: CocoaTop64 inject (RootHide)
@@ -84,7 +84,7 @@ Size: 2991680
 MD5sum: 860b1b988dacf90fea7c00c0bfb4e239
 SHA1: 909cd9c1a9c3ee7057786f50885352d696155c15
 SHA256: 924e5bd13ef312b8143f18896e47b4f8b9f6c98ad2b611670f7408885ac7cdc0
-Section: 状态类
+Section: 工具
 Description: Set memorystatus to avoid being killed by the system
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.hello.memorystatus.png
@@ -138,7 +138,7 @@ Size: 44236
 MD5sum: 9daf9cdab3aa3b633c115cb8922ed38d
 SHA1: d16f731b7201a0cd94a7cd024c4a1830652d12fa
 SHA256: 7e978f560a8d7a2520a30cd3b3da995e29a003abf7e9fa780e8872865ed3fa94
-Section: 系统类
+Section: 增强
 Priority: optional
 Description: 左滑返回上一页面
 Author: Mao
@@ -156,7 +156,7 @@ Size: 5047144
 MD5sum: 24fea916a7f0cadbdbd6e797bf739eeb
 SHA1: 13895d00a25efaa873a88427f823ad16614121ea
 SHA256: b45337b506f106c165e2b73827e00ab3af3aae0adf028650493af2a5d9a2b688
-Section: 系统类
+Section: 微信
 Priority: optional
 Description: 微信多功能插件（密友）
 Author: Mao
@@ -197,7 +197,7 @@ Size: 24516
 MD5sum: 091ef3ee9ac63747120c787d32f84190
 SHA1: 61bb9220597d23d14107b6a2f8d8f32c97bdadd7
 SHA256: 9f3ac49c09521d3d71fa44673843aa97b4215a39af9bc6cb822347e2ff7868ba
-Section: 微信类
+Section: 微信
 Description: 弥补微信通知不足，支持点击微信消息通知横幅，跳转到对应的窗口
 Author: be-huge
 Icon: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/icon.png
@@ -287,7 +287,7 @@ Size: 13916636
 MD5sum: 9967b2fd9a2d7919e86cdec6ebb88b36
 SHA1: 741da4814d66b1d0ff849e9c7b25fa2099b93cc1
 SHA256: d4c47fc75d9111dab76e98c0c9beb4f1f943d7139c20f48a11f2fda08af6d773
-Section: 微信类
+Section: 微信
 Description: 微信多功能插件
  * 一个微信插件文本转语音
  * 点歌朋友圈一键点赞等诸多功能
@@ -338,7 +338,7 @@ Size: 987636
 MD5sum: 417cf80637e7c20936694ee4f459d974
 SHA1: 5344f8ddb5705a112aad652731beeee7571d1103
 SHA256: 2aefe4d4edaca802625ab080703dcb84f999e0f8eaa318a10e4cdde1759e1a24
-Section: 工具类
+Section: Bootstrap
 Description: 控制您的文本或根据您的意愿进行翻译。
  * 支持Twitter Telegram Discord Sileo 等快捷翻译
  * Control your text or translate as you wish.
@@ -360,7 +360,7 @@ Size: 986448
 MD5sum: 5d8c4fa515607f256bd1d4b5d3a9bc0d
 SHA1: eabd9223292a6b545ba287bd3c82501d25ae25da
 SHA256: f6334128ef99ecb2b2b349b910b3e3e7cd55ede8a6d313f70923e96a64529e7c
-Section: 工具类
+Section: 工具
 Description: 控制您的文本或根据您的意愿进行翻译。
  * 支持Twitter Telegram Discord Sileo 等快捷翻译
  * Control your text or translate as you wish.
@@ -441,7 +441,7 @@ Size: 17936
 MD5sum: a6b55d54c968b6414aab6f9ac6ad6dc2
 SHA1: 67b2d5f8835527058eecaa82b9a870cfcf1dd7f9
 SHA256: d76f16e1a0d303e0b4118ea196f7d00ec17b65418160bbebbfc902d7d7b833a7
-Section: 微信类
+Section: 微信
 Description: 移除微信广告
  * 在微信 8.0.56 进行测试有效
 Author: susu
