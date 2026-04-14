@@ -49,19 +49,19 @@
         h1 {
             color: var(--text-color);
             font-size: 1.8rem;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .btn {
             display: block;
-            width: 100%;
-            padding: 16px;
-            margin: 12px 0;
+            width: 70%; /* 按钮宽度从100%缩小到70% */
+            padding: 12px; /* 内边距缩小，按钮高度降低 */
+            margin: 10px auto; /* 上下间距缩小，左右自动居中 */
             border: none;
             border-radius: 12px;
-            font-size: 1.1rem;
+            font-size: 1rem; /* 字体缩小 */
             font-weight: 500;
             color: var(--text-color);
             background: var(--btn-bg);
@@ -76,7 +76,7 @@
 
         .tip {
             color: var(--text-color);
-            margin-top: 20px;
+            margin-top: 18px;
             font-size: 0.85rem;
             opacity: 0.7;
             transition: color 0.3s ease;
