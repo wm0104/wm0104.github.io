@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>选择添加源</title>
+    <title>WM0104 Source</title>
     <style>
         * {
             margin: 0;
@@ -12,84 +12,201 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        /* 浅色模式：纯白背景 */
         :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --btn-bg: #f0f0f0;
-            --btn-hover: #dcdcdc;
+            --bg: #ffffff;
+            --text: #1d1d1f;
+            --card: #f2f2f7;
+            --button: #f2f2f7;
+            --hover: #dcdce2;
+            --blue: #007aff;
+            --gray: #8e8e93;
         }
 
-        /* 深色模式：纯黑背景 */
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-color: #000000;
-                --text-color: #ffffff;
-                --btn-bg: #2a2a2a;
-                --btn-hover: #444444;
+                --bg: #000000;
+                --text: #f5f5f7;
+                --card: #1c1c1e;
+                --button: #1c1c1e;
+                --hover: #2c2c2e;
+                --blue: #0a84ff;
+                --gray: #8e8e93;
             }
         }
 
         body {
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            background: var(--bg-color);
+            padding: 40px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .container {
+        .wrap {
             width: 100%;
-            max-width: 500px;
-            text-align: center;
+            max-width: 420px;
+            animation: fadeIn 0.4s ease forwards;
         }
 
-        h1 {
-            color: var(--text-color);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-            transition: color 0.3s ease;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 15px;
+            color: var(--gray);
+        }
+
+        .source-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .source-card label {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .source-url {
+            width: 100%;
+            background: var(--bg);
+            border: none;
+            border-radius: 10px;
+            padding: 14px 16px;
+            font-size: 15px;
+            text-align: center;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .copy-btn {
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:active {
+            background: #0062cc;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 28px;
         }
 
         .btn {
             display: block;
-            width: 70%; /* 按钮宽度从100%缩小到70% */
-            padding: 12px; /* 内边距缩小，按钮高度降低 */
-            margin: 10px auto; /* 上下间距缩小，左右自动居中 */
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem; /* 字体缩小 */
-            font-weight: 500;
-            color: var(--text-color);
-            background: var(--btn-bg);
-            cursor: pointer;
-            transition: all 0.2s ease;
+            background: var(--button);
+            color: var(--text);
+            text-align: center;
             text-decoration: none;
+            border-radius: 14px;
+            padding: 16px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background 0.2s;
         }
 
         .btn:hover {
-            background: var(--btn-hover);
+            background: var(--hover);
         }
 
-        .tip {
-            color: var(--text-color);
-            margin-top: 18px;
-            font-size: 0.85rem;
-            opacity: 0.7;
-            transition: color 0.3s ease;
+        .info {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .info h2 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .info p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 13px;
+            color: var(--gray);
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>选择添加源</h1>
-        <a href="sileo://source/https://wm0104.github.io/" class="btn">Sileo</a>
-        <a href="saily://add?url=https://wm0104.github.io/" class="btn">Saily</a>
-        <a href="zbra://sources/add?url=https://wm0104.github.io/" class="btn">Zebra</a>
-        <p class="tip">点击对应按钮，自动唤起包管理器添加源</p>
+    <div class="wrap">
+        <div class="header">
+            <h1>WM0104 Source</h1>
+            <p>iOS 越狱插件仓库备份</p>
+        </div>
+
+        <div class="source-card">
+            <label>源地址</label>
+            <input type="text" class="source-url" id="source" value="https://wm0104.github.io/" readonly>
+            <button class="copy-btn" onclick="copySource()">复制源地址</button>
+        </div>
+
+        <div class="btn-group">
+            <a href="sileo://source/https://wm0104.github.io/" class="btn">Sileo 一键添加</a>
+            <a href="saily://add?url=https://wm0104.github.io/" class="btn">Saily 一键添加</a>
+            <a href="zbra://sources/add?https://wm0104.github.io/" class="btn">Zebra 一键添加</a>
+        </div>
+
+        <div class="info">
+            <h2>关于仓库</h2>
+            <p>自用备份插件</p>
+        </div>
+
+        <div class="footer">
+            © 2026 WM0104
+        </div>
     </div>
+
+    <script>
+        function copySource() {
+            const i = document.getElementById("source");
+            i.select();
+            document.execCommand("copy");
+            
+            const oldText = document.querySelector(".copy-btn").innerText;
+            document.querySelector(".copy-btn").innerText = "✅ 复制成功";
+            setTimeout(() => {
+                document.querySelector(".copy-btn").innerText = oldText;
+            }, 1500);
+        }
+    </script>
 </body>
 </html>
