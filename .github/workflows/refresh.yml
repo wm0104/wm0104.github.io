@@ -27,31 +27,6 @@ jobs:
         run: |
           rm -rf ./Packages*
           dpkg-scanpackages -m ./debs /dev/null >./Packages
-
-          # ========== 自动按插件用途修改分类 ==========
-          # 微信类
-          sed -i '/^Package:.*wechat/,/^Section:/ s/^Section:.*/Section: 微信类/' ./Packages
-          sed -i '/^Package:.*wx/,/^Section:/ s/^Section:.*/Section: 微信类/' ./Packages
-
-          # 状态类
-          sed -i '/^Package:.*status/,/^Section:/ s/^Section:.*/Section: 状态类/' ./Packages
-          sed -i '/^Package:.*bar/,/^Section:/ s/^Section:.*/Section: 状态类/' ./Packages
-          sed -i '/^Package:.*state/,/^Section:/ s/^Section:.*/Section: 状态类/' ./Packages
-
-          # 系统类
-          sed -i '/^Package:.*system/,/^Section:/ s/^Section:.*/Section: 系统类/' ./Packages
-          sed -i '/^Package:.*sys/,/^Section:/ s/^Section:.*/Section: 系统类/' ./Packages
-          sed -i '/^Package:.*bootstrap/,/^Section:/ s/^Section:.*/Section: 系统类/' ./Packages
-          sed -i '/^Package:.*root/,/^Section:/ s/^Section:.*/Section: 系统类/' ./Packages
-          sed -i '/^Package:.*hide/,/^Section:/ s/^Section:.*/Section: 系统类/' ./Packages
-
-          # 工具类（你的插件默认）
-          sed -i '/^Package:.*hammerit/,/^Section:/ s/^Section:.*/Section: 工具类/' ./Packages
-          sed -i '/^Package:.*wm0104/,/^Section:/ s/^Section:.*/Section: 工具类/' ./Packages
-          sed -i '/^Package:.*tool/,/^Section:/ s/^Section:.*/Section: 工具类/' ./Packages
-          sed -i '/^Package:.*util/,/^Section:/ s/^Section:.*/Section: 工具类/' ./Packages
-          # ============================================
-
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
