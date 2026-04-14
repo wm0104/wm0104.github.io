@@ -17,13 +17,56 @@ jobs:
           submodules: recursive
 
       - name: install depend
-        if: success()
         run: |
           sudo apt update 2>>/dev/null 1>>/dev/null
-          sudo apt install dpkg-dev bzip2 xz-utils zstd -y
+          sudo apt install dpkg-dev bzip2 xz-utils zstd fakeroot -y
+
+      - name: Auto fix Section by package name
+        run: |
+          TMP_DIR="/tmp/fix_deb"
+
+          for deb in ./debs/*.deb; do
+            [ -f "$deb" ] || continue
+
+            PKG=$(dpkg-deb -I "$deb" 2>/dev/null | grep ^Package: | awk '{print $2}')
+            [ -z "$PKG" ] && continue
+
+            # ======================
+            # 按用途精准分类
+            # 系统类 / 微信类 / 状态类 / 工具类
+            # ======================
+            SECTION=""
+
+            # 微信类
+            if [[ "$PKG" == *"wechat"* || "$PKG" == *"wx"* ]]; then
+              SECTION="微信类"
+
+            # 状态类：状态栏相关
+            elif [[ "$PKG" == *"status"* || "$PKG" == *"state"* || "$PKG" == *"bar"* ]]; then
+              SECTION="状态类"
+
+            # 系统类：越狱核心、Bootstrap、root、hide
+            elif [[ "$PKG" == *"system"* || "$PKG" == *"sys"* || "$PKG" == *"bootstrap"* || "$PKG" == *"root"* || "$PKG" == *"hide"* ]]; then
+              SECTION="系统类"
+
+            # 工具类：默认，你的插件、实用工具
+            elif [[ "$PKG" == *"hammerit"* || "$PKG" == *"wm0104"* || "$PKG" == *"tool"* || "$PKG" == *"util"* ]]; then
+              SECTION="工具类"
+
+            else
+              # 不认识的全部归为工具类
+              SECTION="工具类"
+            fi
+
+            rm -rf "$TMP_DIR"
+            mkdir -p "$TMP_DIR"
+            dpkg-deb -R "$deb" "$TMP_DIR"
+            sed -i "s/^Section:.*/Section: $SECTION/" "$TMP_DIR/DEBIAN/control"
+            fakeroot dpkg-deb -b "$TMP_DIR" "$deb"
+            rm -rf "$TMP_DIR"
+          done
 
       - name: Refresh Packages
-        if: success()
         run: |
           rm -rf ./Packages*
           dpkg-scanpackages -m ./debs /dev/null >./Packages
@@ -32,7 +75,6 @@ jobs:
           zstd --ultra -22 -k Packages -o Packages.zst
 
       - name: save change if local change
-        if: success()
         run: |
           git config --global user.email 'action@github.com'
           git config --global user.name 'GitHub Action'
@@ -41,15 +83,13 @@ jobs:
             git commit -m 'Refresh Packages'
             git push
           fi
-          
+
       - name: download remove_all_actions
-        if: success()
         run: |
           sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
           sudo chmod -R 0755 '/usr/bin/remove_all_actions'
 
       - name: remove all old actions
-        if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
