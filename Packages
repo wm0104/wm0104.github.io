@@ -356,10 +356,10 @@ Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist, com.opa334.ccsupport, com.opa334.libsandy, firmware (>= 14.0)
 Conflicts: com.lclrc.hammerit
 Filename: ./debs/com.lclrc.hammerits_1.7.0_iphoneos-arm64e.deb
-Size: 985560
-MD5sum: 8c25cec96647adc4eaf6999c1b43c626
-SHA1: e10502aa604e382253c71a4dfdd9a6880c9ebcab
-SHA256: 9883b3a7741386fbb10add96f369a7474829eb70a9a6a0f46b2f460112a24d15
+Size: 987636
+MD5sum: 417cf80637e7c20936694ee4f459d974
+SHA1: 5344f8ddb5705a112aad652731beeee7571d1103
+SHA256: 2aefe4d4edaca802625ab080703dcb84f999e0f8eaa318a10e4cdde1759e1a24
 Section: 工具
 Description: 控制您的文本或根据您的意愿进行翻译。
  * 支持Twitter Telegram Discord Sileo 等快捷翻译
