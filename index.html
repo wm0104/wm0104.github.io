@@ -38,9 +38,9 @@
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 60px 20px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             transition: all 0.3s ease;
         }
@@ -56,110 +56,160 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* 顶部小图标 */
+        .icon-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .icon {
+            font-size: 50px;
+            line-height: 1;
+        }
+
         .header {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
-
         .header h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
         }
-
         .header p {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--gray);
         }
 
-        .source-card {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 24px;
+        /* 毛玻璃卡片 */
+        .source-card,
+        .btn,
+        .info,
+        .plugin-list {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @media (prefers-color-scheme: dark) {
+            .source-card,
+            .btn,
+            .info,
+            .plugin-list {
+                background: rgba(30, 30, 30, 0.3);
+            }
         }
 
+        .source-card {
+            border-radius: 18px;
+            padding: 22px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
         .source-card label {
             font-size: 14px;
             color: var(--gray);
             margin-bottom: 10px;
             display: block;
         }
-
         .source-url {
             width: 100%;
-            background: var(--bg);
+            background: rgba(0,0,0,0.05);
             border: none;
-            border-radius: 10px;
-            padding: 14px 16px;
+            border-radius: 12px;
+            padding: 16px;
             font-size: 15px;
             text-align: center;
             color: var(--text);
             margin-bottom: 12px;
         }
-
         .copy-btn {
             background: var(--blue);
             color: #fff;
             border: none;
-            border-radius: 12px;
-            padding: 12px 20px;
+            border-radius: 14px;
+            padding: 14px 20px;
             font-size: 15px;
             font-weight: 500;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: 0.2s;
+            width: 100%;
         }
-
         .copy-btn:active {
-            background: #0062cc;
+            transform: scale(0.98);
+            background: #0066cc;
         }
 
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-bottom: 28px;
+            gap: 12px;
+            margin-bottom: 32px;
         }
-
         .btn {
             display: block;
-            background: var(--button);
             color: var(--text);
             text-align: center;
             text-decoration: none;
-            border-radius: 14px;
-            padding: 16px 20px;
+            border-radius: 16px;
+            padding: 18px 20px;
             font-size: 16px;
             font-weight: 500;
-            transition: background 0.2s;
+            transition: 0.2s;
+        }
+        .btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        .btn:active {
+            transform: scale(0.98);
         }
 
-        .btn:hover {
-            background: var(--hover);
+        /* 插件列表 */
+        .plugin-list {
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        .plugin-list h2 {
+            font-size: 17px;
+            margin-bottom: 16px;
+        }
+        .plugin-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .plugin-item:last-child {
+            border-bottom: none;
+        }
+        .plugin-name {
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .plugin-desc {
+            font-size: 13px;
+            color: var(--gray);
         }
 
         .info {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 18px;
+            padding: 24px;
         }
-
         .info h2 {
             font-size: 17px;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
-
         .info p {
             font-size: 14px;
             color: var(--gray);
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .footer {
             text-align: center;
-            margin-top: 24px;
+            margin-top: 30px;
             font-size: 13px;
             color: var(--gray);
         }
@@ -168,9 +218,14 @@
 
 <body>
     <div class="wrap">
+        <!-- 顶部小图标 -->
+        <div class="icon-box">
+            <div class="icon">🧩</div>
+        </div>
+
         <div class="header">
             <h1>WM0104 Source</h1>
-            <p>iOS 越狱插件仓库备份</p>
+            <p>iOS 越狱插件 · 自用备份仓库</p>
         </div>
 
         <div class="source-card">
@@ -183,6 +238,23 @@
             <a href="sileo://source/https://wm0104.github.io/" class="btn">Sileo 一键添加</a>
             <a href="saily://add?url=https://wm0104.github.io/" class="btn">Saily 一键添加</a>
             <a href="zbra://sources/add?https://wm0104.github.io/" class="btn">Zebra 一键添加</a>
+        </div>
+
+        <!-- 插件列表 -->
+        <div class="plugin-list">
+            <h2>📦 仓库插件</h2>
+            <div class="plugin-item">
+                <div>
+                    <div class="plugin-name">DEB Backup</div>
+                    <div class="plugin-desc">一键备份插件与配置</div>
+                </div>
+            </div>
+            <div class="plugin-item">
+                <div>
+                    <div class="plugin-name">Repo Tools</div>
+                    <div class="plugin-desc">源管理辅助工具</div>
+                </div>
+            </div>
         </div>
 
         <div class="info">
@@ -201,11 +273,10 @@
             i.select();
             document.execCommand("copy");
             
-            const oldText = document.querySelector(".copy-btn").innerText;
-            document.querySelector(".copy-btn").innerText = "✅ 复制成功";
-            setTimeout(() => {
-                document.querySelector(".copy-btn").innerText = oldText;
-            }, 1500);
+            const btn = document.querySelector(".copy-btn");
+            const old = btn.innerText;
+            btn.innerText = "✅ 复制成功";
+            setTimeout(() => btn.innerText = old, 1400);
         }
     </script>
 </body>
