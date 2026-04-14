@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 禁止缩放 + 固定视口，彻底解决滑动/缩放问题 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>WM0104 Source</title>
     <style>
         * {
@@ -15,9 +16,9 @@
         :root {
             --bg: #ffffff;
             --text: #1d1d1f;
-            --card: #f2f2f7;
-            --button: #f2f2f7;
-            --hover: #dcdce2;
+            --card: rgba(242, 242, 247, 0.7);
+            --button: rgba(242, 242, 247, 0.7);
+            --hover: rgba(220, 220, 226, 0.8);
             --blue: #007aff;
             --gray: #8e8e93;
         }
@@ -26,19 +27,25 @@
             :root {
                 --bg: #000000;
                 --text: #f5f5f7;
-                --card: #1c1c1e;
-                --button: #1c1c1e;
-                --hover: #2c2c2e;
+                --card: rgba(28, 28, 30, 0.7);
+                --button: rgba(28, 28, 30, 0.7);
+                --hover: rgba(44, 44, 46, 0.8);
                 --blue: #0a84ff;
                 --gray: #8e8e93;
             }
         }
 
+        /* 核心修复：禁止页面滚动，固定布局 */
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+
         body {
             background: var(--bg);
             color: var(--text);
-            min-height: 100vh;
-            padding: 40px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -48,6 +55,7 @@
         .wrap {
             width: 100%;
             max-width: 420px;
+            padding: 0 20px;
             animation: fadeIn 0.4s ease forwards;
         }
 
@@ -59,47 +67,43 @@
         /* 顶部小图标 */
         .icon-box {
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 16px;
         }
         .icon {
-            font-size: 44px;
+            font-size: 48px;
+            line-height: 1;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 36px;
         }
 
         .header h1 {
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 8px;
+            text-align: center;
         }
 
         .header p {
             font-size: 15px;
             color: var(--gray);
+            text-align: center;
         }
 
         /* 毛玻璃效果 */
         .source-card,
         .btn,
         .info {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--card);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        @media (prefers-color-scheme: dark) {
-            .source-card,
-            .btn,
-            .info {
-                background: rgba(30, 30, 30, 0.3);
-            }
+            border-radius: 16px;
         }
 
         .source-card {
-            border-radius: 16px;
             padding: 20px;
             text-align: center;
             margin-bottom: 24px;
@@ -110,6 +114,7 @@
             color: var(--gray);
             margin-bottom: 10px;
             display: block;
+            text-align: center;
         }
 
         .source-url {
@@ -122,6 +127,7 @@
             text-align: center;
             color: var(--text);
             margin-bottom: 12px;
+            box-sizing: border-box;
         }
 
         .copy-btn {
@@ -134,6 +140,7 @@
             font-weight: 500;
             cursor: pointer;
             transition: background 0.2s;
+            width: auto;
         }
 
         .copy-btn:active {
@@ -145,27 +152,29 @@
             flex-direction: column;
             gap: 10px;
             margin-bottom: 28px;
+            align-items: center;
         }
 
         .btn {
             display: block;
+            width: 100%;
             color: var(--text);
             text-align: center;
             text-decoration: none;
-            border-radius: 14px;
             padding: 16px 20px;
             font-size: 16px;
             font-weight: 500;
             transition: all 0.2s;
+            box-sizing: border-box;
         }
 
         .btn:hover {
-            background: rgba(255,255,255,0.1);
+            background: var(--hover);
         }
 
         .info {
-            border-radius: 16px;
             padding: 20px;
+            text-align: left;
         }
 
         .info h2 {
