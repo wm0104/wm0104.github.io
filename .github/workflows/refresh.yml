@@ -87,7 +87,7 @@ jobs:
           
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
-          zstd --ultra-22 -k Packages -o Packages.zst
+          zstd --ultra -22 -k Packages -o Packages.zst
 
       - name: save change if local change
         if: success()
@@ -104,7 +104,7 @@ jobs:
         if: success()
         run: |
           sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
-          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
+          sudo chmod 0755 '/usr/bin/remove_all_actions'
 
       - name: remove all old actions
         if: success()
