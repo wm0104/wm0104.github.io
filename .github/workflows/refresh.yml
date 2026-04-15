@@ -20,7 +20,7 @@ jobs:
         if: success()
         run: |
           sudo apt update 2>>/dev/null 1>>/dev/null
-          sudo apt install dpkg-dev bzip2 xz-utils zstd -y
+          sudo apt install dpkg-dev bzip2 xz-utils zstd -y gh -y
 
       - name: Refresh Packages
         if: success()
@@ -79,16 +79,11 @@ jobs:
             git push
           fi
           
-      - name: download remove_all_actions
-        if: success()
-        run: |
-          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/action/main/remove_all_actions'
-          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
-
-      - name: remove all old actions
+      # 【修复】用GitHub官方gh命令清理旧工作流，替代无效的remove_all_actions
+      - name: Remove old actions runs
         if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
         run: |
-          remove_all_actions
+          # 列出所有refresh工作流的运行记录，删除除了最新10条之外的所有
+          gh run list --workflow refresh.yml --limit 50 --json databaseId --jq '.[].databaseId' | tail -n +11 | xargs -I {} gh run delete {} --yes
