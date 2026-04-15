@@ -27,15 +27,22 @@ jobs:
         run: |
           chmod -R 0644 ./debs/*.deb
           chmod 0755 ./debs
+          chmod 0777 /tmp
 
       - name: Refresh Packages
         if: success()
         run: |
           rm -rf ./Packages*
+          TMP_DIR=$(mktemp -d)
+          for deb in ./debs/*.deb; do
+            dpkg-deb --fsys-tarfile "$deb" | tar -x -C "$TMP_DIR" ./DEBIAN/control
+            chmod 0644 "$TMP_DIR/DEBIAN/control"
+          done
           dpkg-scanpackages -m ./debs /dev/null > ./Packages
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
+          rm -rf "$TMP_DIR"
 
       - name: save change if local change
         if: success()
