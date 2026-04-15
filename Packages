@@ -147,6 +147,22 @@ Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.holdcpu
 Name: Hello CPU
 Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.holdcpu
 
+Package: com.25mao.leftpan.rootless
+Version: 1.0-6
+Architecture: iphoneos-arm64
+Maintainer: admin@25mao.com
+Depends: mobilesubstrate, preferenceloader, com.opa334.altlist (>=1.0.4)
+Filename: ./debs/左滑返回-Rootless-1.0-6.deb
+Size: 66402
+MD5sum: e0268dfd449fc1973941da59bb3e4743
+SHA1: c9ea4ae935426ee471effdd5e4f85596cba42534
+SHA256: 6ced73222aadaf35091aa25fbf878648a2947ee80f9ca4d4c36b5fa92311aa2e
+Section: 常用插件
+Priority: optional
+Description: 左滑返回上一页面
+Author: Mao
+Name: 左滑返回-Rootless
+
 Package: com.25mao.miyou.rootlesss
 Version: 3.9-5
 Architecture: iphoneos-arm64e
