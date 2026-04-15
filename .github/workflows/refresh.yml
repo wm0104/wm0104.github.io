@@ -19,44 +19,70 @@ jobs:
       - name: install depend
         if: success()
         run: |
-          sudo apt update 2>>/dev/null 1>>/dev/null
+          sudo apt update 2>/dev/null 1>/dev/null
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
       - name: Refresh Packages
         if: success()
         run: |
           rm -rf ./Packages*
-          
+
           sudo chmod -R 0755 ./debs
           sudo chown -R runner:runner ./debs
-          
-          sudo dpkg-scanpackages -m ./debs /dev/null >./Packages
-          
+
+          sudo dpkg-scanpackages -m ./debs /dev/null > ./Packages
 
           awk '
-            BEGIN { in_section = 0; has_section = 0 }
-            /^Section:/ { 
-              print "Section: 常用插件"
-              in_section = 1
-              has_section = 1
-              next
-            }
-            /^[A-Za-z0-9-]+:/ { 
-              if (in_section) {
-                in_section = 0
+            function tolowerstr(str) {
+              newstr = ""
+              for (i=1; i<=length(str); i++) {
+                c = substr(str, i, 1)
+                if (c ~ /[A-Z]/) newstr = newstr tolower(c)
+                else newstr = newstr c
               }
-              print
+              return newstr
+            }
+
+            BEGIN {
+              in_desc = 0
+              current_section = "工具类"
+            }
+
+            /^Package:/ {
+              pkg = tolowerstr($0)
+            }
+
+            /^Description:/ {
+              desc = tolowerstr($0)
+
+              # 先排除 hellopay，强制归为系统类
+              if (pkg ~ /hellopay/) {
+                current_section = "系统类"
+              }
+              # 再判断微信类（不含 hellopay）
+              else if (desc ~ /微信|wechat|vx/) {
+                current_section = "微信类"
+              }
+              # 系统类
+              else if (desc ~ /系统|ui|桌面|锁屏|状态栏|手势|全局|设置|美化|控制中心|dock|导航|快捷操作/) {
+                current_section = "系统类"
+              }
+              # 其他都算工具类
+              else {
+                current_section = "工具类"
+              }
+            }
+
+            /^Section:/ {
+              print "Section: " current_section
               next
             }
+
             { print }
-            END {
-              if (!has_section) {
-                print "Section: 常用插件"
-              }
-            }
+
+            END {}
           ' ./Packages > ./Packages.tmp && mv ./Packages.tmp ./Packages
-        
-          
+
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
@@ -67,11 +93,11 @@ jobs:
           git config --global user.email 'action@github.com'
           git config --global user.name 'GitHub Action'
           git add .
-          if ! git diff --staged --exit-code 1>>/dev/null; then
+          if ! git diff --staged --exit-code 2>/dev/null; then
             git commit -m 'Refresh Packages'
             git push
           fi
-          
+
       - name: download remove_all_actions
         if: success()
         run: |
