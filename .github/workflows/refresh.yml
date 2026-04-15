@@ -1,4 +1,4 @@
-name: refresh
+name: "refresh"
 
 on:
   workflow_run:
@@ -9,77 +9,79 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success'
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          submodules: recursive
 
-      - name: Install dependencies
+      - name: install depend
+        if: success()
         run: |
-          sudo apt update -qq
+          sudo apt update 2>>/dev/null 1>>/dev/null
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      # 🔴 关键修复：只删旧索引，绝不删 debs 文件夹
-      - name: Clean old index files (SAFE)
+      - name: Refresh Packages
+        if: success()
         run: |
-          # 1. 只删除根目录旧的 Packages 文件，不动 debs
-          rm -f Packages Packages.bz2 Packages.xz Packages.zst
-          # 2. 删除分类目录旧索引（如果有）
-          rm -rf 增强与功能/ 实用工具/ 系统调整/ 应用与软件/
-          # 3. 重置 debs 权限（这是修复，不是删除）
-          chmod -R 755 debs/
-          find debs -name "*.deb" -exec chmod 644 {} \;
+          rm -rf ./Packages*
+          
+          sudo chmod -R 0755 ./debs
+          sudo chown -R runner:runner ./debs
+          
+          sudo dpkg-scanpackages -m ./debs /dev/null >./Packages
+          
 
-      # 🔴 生成全新 Packages (中文兼容)
-      - name: Generate Full Packages
-        run: |
-          LC_ALL=C.UTF-8 dpkg-scanpackages -m debs /dev/null > Packages
+          awk '
+            BEGIN { in_section = 0; has_section = 0 }
+            /^Section:/ { 
+              print "Section: 常用插件"
+              in_section = 1
+              has_section = 1
+              next
+            }
+            /^[A-Za-z0-9-]+:/ { 
+              if (in_section) {
+                in_section = 0
+              }
+              print
+              next
+            }
+            { print }
+            END {
+              if (!has_section) {
+                print "Section: 常用插件"
+              }
+            }
+          ' ./Packages > ./Packages.tmp && mv ./Packages.tmp ./Packages
+        
+          
+          bzip2 -v -k -9 Packages
+          xz -v -k -9 --extreme Packages
+          zstd --ultra -22 -k Packages -o Packages.zst
 
-      # ==================== 严格4分类 ====================
-      # 1. 增强与功能
-      - name: Build 增强与功能
+      - name: save change if local change
+        if: success()
         run: |
-          mkdir -p 增强与功能
-          grep -A 50 -E "Section:.*(Enhancements|Tweaks|Animation|Gesture)|Name:.*(增强|功能|动画|手势|解锁)|Description:.*(增强|功能|动画|手势|解锁)" Packages > 增强与功能/Packages || true
-          bzip2 -f -k9 增强与功能/Packages
-
-      # 2. 实用工具
-      - name: Build 实用工具
-        run: |
-          mkdir -p 实用工具
-          grep -A 50 -E "Section:.*(Utilities|Tools|Manager)|Name:.*(工具|管理|备份|文件|脚本)|Description:.*(工具|管理|备份|文件|脚本)" Packages > 实用工具/Packages || true
-          bzip2 -f -k9 实用工具/Packages
-
-      # 3. 系统调整
-      - name: Build 系统调整
-        run: |
-          mkdir -p 系统调整
-          grep -A 50 -E "Section:.*(System|System Tweaks|StatusBar|SpringBoard)|Name:.*(系统|状态栏|控制中心|内核|启动)|Description:.*(系统|状态栏|控制中心|内核|启动)" Packages > 系统调整/Packages || true
-          bzip2 -f -k9 系统调整/Packages
-
-      # 4. 应用与软件
-      - name: Build 应用与软件
-        run: |
-          mkdir -p 应用与软件
-          grep -A 50 -E "Section:.*(Applications|App|AppExt)|Name:.*(微信|QQ|Telegram|Safari|抖音|淘宝|应用|程序)|Description:.*(微信|QQ|Telegram|Safari|抖音|淘宝|应用|程序)" Packages > 应用与软件/Packages || true
-          bzip2 -f -k9 应用与软件/Packages
-
-      # ==================== 总索引 (强制覆盖) ====================
-      - name: Build full index
-        run: |
-          bzip2 -f -k9 Packages
-          xz -f -k9 --extreme Packages
-          zstd --ultra -22 -f -k Packages -o Packages.zst
-
-      # ==================== 自动提交 ====================
-      - name: Commit and push
-        run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
+          git config --global user.email 'action@github.com'
+          git config --global user.name 'GitHub Action'
           git add .
-          if ! git diff --staged --quiet; then
-            git commit -m "Refresh: Fixed overwrite issue (debs preserved)"
+          if ! git diff --staged --exit-code 1>>/dev/null; then
+            git commit -m 'Refresh Packages'
             git push
           fi
+          
+      - name: download remove_all_actions
+        if: success()
+        run: |
+          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
+          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
+
+      - name: remove all old actions
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          remove_all_actions
