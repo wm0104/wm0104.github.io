@@ -35,8 +35,47 @@ jobs:
 
           awk '
             BEGIN { in_section = 0; has_section = 0 }
+
+            /^Package:/ {
+                mysec = "实用工具" # 默认兜底
+                pkg = tolower($0)
+                # 1. 最高优先级：hello强制归为系统增强
+                if (pkg ~ /hello/) {
+                    mysec = "系统增强"
+                }
+                print
+                next
+            }
+
+            /^Description:/ {
+                desc = tolower($0)
+                # 2. 如果已经是系统增强(hello插件)，跳过后面判断
+                if (mysec == "系统增强") {
+                    print
+                    next
+                }
+                
+                # 3. 强力匹配：全局优化(优先级高于应用增强)
+                # 关键词：广告、弹窗、流畅、省电、全局、修复、优化、去广告、隐藏、屏蔽
+                if (desc ~ /广告|去广告|弹窗|流畅|省电|全局|修复|优化|屏蔽|隐藏|解锁/) {
+                    mysec = "全局优化"
+                }
+                # 4. 强力匹配：应用增强(针对第三方APP功能)
+                # 关键词：app|应用|抖音|快手|微信|qq|淘宝|功能|模块|增强|补丁
+                else if (desc ~ /app|应用|抖音|快手|微信|qq|淘宝|模块|增强|补丁/) {
+                    mysec = "应用增强"
+                }
+                # 5. 其余兜底：实用工具
+                else {
+                    mysec = "实用工具"
+                }
+                
+                print
+                next
+            }
+
             /^Section:/ { 
-              print "Section: 常用插件"
+              print "Section: " mysec
               in_section = 1
               has_section = 1
               next
@@ -51,7 +90,7 @@ jobs:
             { print }
             END {
               if (!has_section) {
-                print "Section: 常用插件"
+                print "Section: " mysec
               }
             }
           ' ./Packages > ./Packages.tmp && mv ./Packages.tmp ./Packages
@@ -76,7 +115,7 @@ jobs:
         if: success()
         run: |
           sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
-          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
+          sudo chmod 0755 '/usr/bin/remove_all_actions'
 
       - name: remove all old actions
         if: success()
