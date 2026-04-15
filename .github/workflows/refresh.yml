@@ -1,4 +1,4 @@
-name: "refresh"
+name: refresh
 
 on:
   workflow_run:
@@ -9,79 +9,66 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: github.event.workflow_run.conclusion == 'success'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          fetch-depth: 0
 
-      - name: install depend
-        if: success()
+      - name: Install dependencies
         run: |
-          sudo apt update 2>>/dev/null 1>>/dev/null
+          sudo apt update -qq
           sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
-      - name: Refresh Packages
-        if: success()
+      # 先生成完整 Packages
+      - name: Scan all debs
         run: |
-          rm -rf ./Packages*
-          
-          sudo chmod -R 0755 ./debs
-          sudo chown -R runner:runner ./debs
-          
-          sudo dpkg-scanpackages -m ./debs /dev/null >./Packages
-          
+          dpkg-scanpackages -m debs /dev/null > Packages
 
-          awk '
-            BEGIN { in_section = 0; has_section = 0 }
-            /^Section:/ { 
-              print "Section: 常用插件"
-              in_section = 1
-              has_section = 1
-              next
-            }
-            /^[A-Za-z0-9-]+:/ { 
-              if (in_section) {
-                in_section = 0
-              }
-              print
-              next
-            }
-            { print }
-            END {
-              if (!has_section) {
-                print "Section: 常用插件"
-              }
-            }
-          ' ./Packages > ./Packages.tmp && mv ./Packages.tmp ./Packages
-        
-          
-          bzip2 -v -k -9 Packages
-          xz -v -k -9 --extreme Packages
+      # ==================== 4 分类自动拆分 ====================
+      # 1. 增强与功能
+      - name: Build 增强与功能
+        run: |
+          mkdir -p 增强与功能
+          grep -A 30 "Section:.*Enhancements" Packages > 增强与功能/Packages || true
+          bzip2 -k9 增强与功能/Packages
+
+      # 2. 实用工具
+      - name: Build 实用工具
+        run: |
+          mkdir -p 实用工具
+          grep -A 30 "Section:.*Utilities" Packages > 实用工具/Packages || true
+          bzip2 -k9 实用工具/Packages
+
+      # 3. 系统调整
+      - name: Build 系统调整
+        run: |
+          mkdir -p 系统调整
+          grep -A 30 "Section:.*System" Packages > 系统调整/Packages || true
+          bzip2 -k9 系统调整/Packages
+
+      # 4. 应用与软件
+      - name: Build 应用与软件
+        run: |
+          mkdir -p 应用与软件
+          grep -A 30 "Section:.*Applications" Packages > 应用与软件/Packages || true
+          bzip2 -k9 应用与软件/Packages
+
+      # ==================== 生成总索引 ====================
+      - name: Build full index
+        run: |
+          bzip2 -k9 Packages
+          xz -k9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
 
-      - name: save change if local change
-        if: success()
+      # 提交更新
+      - name: Commit and push
         run: |
-          git config --global user.email 'action@github.com'
-          git config --global user.name 'GitHub Action'
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
           git add .
-          if ! git diff --staged --exit-code 1>>/dev/null; then
-            git commit -m 'Refresh Packages'
+          if ! git diff --staged --quiet; then
+            git commit -m "Auto refresh 4 categories"
             git push
           fi
-          
-      - name: download remove_all_actions
-        if: success()
-        run: |
-          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
-          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
-
-      - name: remove all old actions
-        if: success()
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-        run: |
-          remove_all_actions
