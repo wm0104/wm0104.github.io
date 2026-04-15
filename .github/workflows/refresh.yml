@@ -10,83 +10,78 @@ jobs:
   build:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    permissions:
-      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: install depend
+        if: success()
         run: |
-          sudo apt update -y
-          sudo apt install -y dpkg-dev bzip2 xz-utils zstd
+          sudo apt update 2>>/dev/null 1>>/dev/null
+          sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
       - name: Refresh Packages
+        if: success()
         run: |
-          # 1. 彻底清理旧包，避免残留
           rm -rf ./Packages*
           
-          # 2. 【核心权限修复】递归强制授权，100%解决Permission denied
           sudo chmod -R 0755 ./debs
-          sudo chown -R $(id -u):$(id -g) ./debs
+          sudo chown -R runner:runner ./debs
           
-          # 3. 【终极权限方案】用sudo执行dpkg-scanpackages，彻底绕开权限问题
-          sudo dpkg-scanpackages -m ./debs /dev/null > ./Packages
+          sudo dpkg-scanpackages -m ./debs /dev/null >./Packages
           
 
-          # 4. 4分类逻辑：彻底删除常用插件，每个插件独立判断，绝不污染
           awk '
-            /^Package:/ {
-                sec = "实用工具"
-                pkg = tolower($0)
-                if (pkg ~ /hello/) sec = "系统增强"
-                print
-                next
+            BEGIN { in_section = 0; has_section = 0 }
+            /^Section:/ { 
+              print "Section: 常用插件"
+              in_section = 1
+              has_section = 1
+              next
             }
-
-            /^Description:/ {
-                desc = tolower($0)
-                if (sec != "系统增强") {
-                    if (desc ~ /系统|状态栏|控制中心|锁屏|手势|桌面|cpu|充电|灵动|输入法/) {
-                        sec = "系统增强"
-                    } else if (desc ~ /广告|去广告|弹窗|流畅|省电|修复|优化|全局|屏蔽|隐藏|解锁/) {
-                        sec = "全局优化"
-                    } else if (desc ~ /app|应用|抖音|快手|微信|qq|淘宝|模块|增强|补丁/) {
-                        sec = "应用增强"
-                    }
-                }
-                print
-                next
+            /^[A-Za-z0-9-]+:/ { 
+              if (in_section) {
+                in_section = 0
+              }
+              print
+              next
             }
-
-            /^Section:/ {
-                print "Section: " sec
-                next
-            }
-
-            /^[A-Za-z0-9-]+:/ {
-                print
-                next
-            }
-
             { print }
+            END {
+              if (!has_section) {
+                print "Section: 常用插件"
+              }
+            }
           ' ./Packages > ./Packages.tmp && mv ./Packages.tmp ./Packages
+        
           
-
-          # 5. 压缩命令全部修复，无语法错误
-          bzip2 -v -k -9 ./Packages
-          xz -v -k -9 --extreme ./Packages
-          zstd --ultra -22 -k ./Packages -o ./Packages.zst
+          bzip2 -v -k -9 Packages
+          xz -v -k -9 --extreme Packages
+          zstd --ultra -22 -k Packages -o Packages.zst
 
       - name: save change if local change
+        if: success()
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git add ./Packages*
-          if ! git diff --staged --exit-code; then
-            git commit -m "Refresh Packages (4分类+权限根治)"
+          git config --global user.email 'action@github.com'
+          git config --global user.name 'GitHub Action'
+          git add .
+          if ! git diff --staged --exit-code 1>>/dev/null; then
+            git commit -m 'Refresh Packages'
             git push
           fi
+          
+      - name: download remove_all_actions
+        if: success()
+        run: |
+          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
+          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
+
+      - name: remove all old actions
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          remove_all_actions
