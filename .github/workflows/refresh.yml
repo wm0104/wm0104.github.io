@@ -34,53 +34,52 @@ jobs:
           
 
           awk '
-            # 初始化变量
-            BEGIN { 
-              current_section = "工具类"  # 默认兜底
-              has_section = 0
-            }
+            BEGIN { in_section = 0; has_section = 0 }
 
-            # 1. 捕获包名，做最高优先级判断
+            # 先判断包名：hello 一律系统类
             /^Package:/ {
               pkg = tolower($0)
-              # 只要包名含 hello -> 强制系统类
               if (pkg ~ /hello/) {
-                current_section = "系统类"
+                mysec = "系统类"
+              } else {
+                mysec = "工具类"
               }
+              print
               next
             }
 
-            # 2. 捕获描述，做分类判断
+            # 再判断描述：只要有微信相关，强制微信类
             /^Description:/ {
               desc = tolower($0)
-              # 如果还没被强制归为系统类（比如不是hello插件）
-              if (current_section != "系统类") {
-                if (desc ~ /微信|wechat|vx/) {
-                  current_section = "微信类"
-                } else if (desc ~ /系统|ui|桌面|锁屏|状态栏|手势|全局|设置|美化|控制中心|dock/) {
-                  current_section = "系统类"
-                } else {
-                  current_section = "工具类"
+              if (mysec != "系统类") {
+                if (desc ~ /微信|wechat|vx|密友|黄白|wechat/) {
+                  mysec = "微信类"
+                } else if (desc ~ /系统|ui|桌面|锁屏|状态栏|手势|控制中心|美化|dock/) {
+                  mysec = "系统类"
                 }
               }
               print
               next
             }
 
-            # 3. 覆盖Section字段
             /^Section:/ { 
-              print "Section: " current_section
+              print "Section: " mysec
+              in_section = 1
               has_section = 1
               next
             }
 
-            # 4. 其他行原样输出
+            /^[A-Za-z0-9-]+:/ { 
+              if (in_section) in_section = 0
+              print
+              next
+            }
+
             { print }
 
-            # 5. 兜底：如果没有Section字段，手动加上
             END {
               if (!has_section) {
-                print "Section: " current_section
+                print "Section: " mysec
               }
             }
           ' ./Packages > ./Packages.tmp && mv ./Packages.tmp ./Packages
@@ -101,7 +100,6 @@ jobs:
             git push
           fi
           
-      # 【保留】你原来的清理旧动作步骤
       - name: download remove_all_actions
         if: success()
         run: |
