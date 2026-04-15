@@ -35,36 +35,8 @@ jobs:
 
           awk '
             BEGIN { in_section = 0; has_section = 0 }
-
-            /^Package:/ {
-                mysec = "实用工具"
-                pkg = tolower($0)
-                if (pkg ~ /hello/) {
-                    mysec = "系统增强"
-                }
-                print
-                next
-            }
-
-            /^Description:/ {
-                desc = tolower($0)
-                if (mysec != "系统增强") {
-                    if (desc ~ /系统|状态栏|控制中心|锁屏|手势|桌面|cpu|充电|灵动|输入法/) {
-                        mysec = "系统增强"
-                    } else if (desc ~ /广告|弹窗|流畅|省电|修复|优化|全局/) {
-                        mysec = "全局优化"
-                    } else if (desc ~ /app|应用|抖音|快手|功能|模块|增强/) {
-                        mysec = "应用增强"
-                    } else {
-                        mysec = "实用工具"
-                    }
-                }
-                print
-                next
-            }
-
             /^Section:/ { 
-              print "Section: " mysec
+              print "Section: 常用插件"
               in_section = 1
               has_section = 1
               next
@@ -79,7 +51,7 @@ jobs:
             { print }
             END {
               if (!has_section) {
-                print "Section: " mysec
+                print "Section: 常用插件"
               }
             }
           ' ./Packages > ./Packages.tmp && mv ./Packages.tmp ./Packages
@@ -104,7 +76,7 @@ jobs:
         if: success()
         run: |
           sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
-          sudo chmod 0755 '/usr/bin/remove_all_actions'
+          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
 
       - name: remove all old actions
         if: success()
