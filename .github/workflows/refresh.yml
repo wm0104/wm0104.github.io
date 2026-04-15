@@ -34,49 +34,60 @@ jobs:
           
 
           awk '
-            BEGIN { in_section = 0; has_section = 0 }
+            # 【核心修复】全局初始化变量，彻底解决空值问题
+            BEGIN { 
+              mysec = "工具类"  # 默认兜底
+              has_section = 0
+              in_section = 0
+            }
 
-            # 先判断包名：hello 一律系统类
+            # 1. 优先判断包名：hello 一律系统类（最高优先级）
             /^Package:/ {
               pkg = tolower($0)
               if (pkg ~ /hello/) {
                 mysec = "系统类"
-              } else {
-                mysec = "工具类"
               }
               print
               next
             }
 
-            # 再判断描述：只要有微信相关，强制微信类
+            # 2. 次高优先级：只要描述含微信相关，强制微信类（覆盖系统类判断）
             /^Description:/ {
               desc = tolower($0)
-              if (mysec != "系统类") {
-                if (desc ~ /微信|wechat|vx|密友|黄白|wechat/) {
-                  mysec = "微信类"
-                } else if (desc ~ /系统|ui|桌面|锁屏|状态栏|手势|控制中心|美化|dock/) {
-                  mysec = "系统类"
-                }
+              # 先判断微信，优先级高于系统类
+              if (desc ~ /微信|wechat|vx|密友|黄白/) {
+                mysec = "微信类"
+              }
+              # 只有不是微信类，才判断系统类
+              else if (mysec != "微信类" && desc ~ /系统|ui|桌面|锁屏|状态栏|手势|控制中心|美化|dock|充电|cpu|输入法|icleaner/) {
+                mysec = "系统类"
+              }
+              # 否则保持工具类
+              print
+              next
+            }
+
+            # 3. 强制覆盖Section字段，用最终判断的分类
+            /^Section:/ { 
+              print "Section: " mysec
+              has_section = 1
+              in_section = 1
+              next
+            }
+
+            # 4. 保留你原版的Section后续行处理逻辑，完全不动
+            /^[A-Za-z0-9-]+:/ { 
+              if (in_section) {
+                in_section = 0
               }
               print
               next
             }
 
-            /^Section:/ { 
-              print "Section: " mysec
-              in_section = 1
-              has_section = 1
-              next
-            }
-
-            /^[A-Za-z0-9-]+:/ { 
-              if (in_section) in_section = 0
-              print
-              next
-            }
-
+            # 5. 其他行原样输出
             { print }
 
+            # 6. 兜底：如果没有Section，手动加上
             END {
               if (!has_section) {
                 print "Section: " mysec
