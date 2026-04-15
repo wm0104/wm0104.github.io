@@ -1,4 +1,4 @@
-name: refresh-strict-4cat
+name: refresh
 
 on:
   workflow_run:
