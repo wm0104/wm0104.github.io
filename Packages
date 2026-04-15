@@ -5,7 +5,7 @@ Maintainer: gblw
 Installed-Size: 123
 Depends: mobilesubstrate (>= 0.9.5000)
 Conflicts: cn.Bswbw.fixset
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/FixSet RootHide-1.1-iphoneos-arm64e.deb
+Filename: ./debs/FixSet RootHide-1.1-iphoneos-arm64e.deb
 Size: 36776
 MD5sum: 0dfccec44d27331f54f7ccd4d94dfb7a
 SHA1: 44d23178b112e26aba022497489390169ef01320
@@ -24,7 +24,7 @@ Maintainer: SquidForce, Backup
 Installed-Size: 6380
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
 Conflicts: com.squidforce.copyvault
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/CopyVault(激活码版)-1.9.0-iphoneos-arm64e.deb
+Filename: ./debs/CopyVault(激活码版)-1.9.0-iphoneos-arm64e.deb
 Size: 1706700
 MD5sum: 1a5621471aca26b018ed683e98cd5310
 SHA1: 94cfacd0452d09fa12cbd37fd0be95627eb89ecf
@@ -41,7 +41,7 @@ Architecture: iphoneos-arm64e
 Maintainer: zp, SXX, Domo
 Installed-Size: 840
 Conflicts: ru.domo.cocoatop, ru.domo.cocoatop64, zp.cocoatop64, zp.cocoatop64.unject, zp.cocoatop64.inject
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/CocoaTop64 inject (RootHide)-3.2.0-iphoneos-arm64e.deb
+Filename: ./debs/CocoaTop64 inject (RootHide)-3.2.0-iphoneos-arm64e.deb
 Size: 184392
 MD5sum: 163f55c68cb082386275f9c90a226880
 SHA1: 9cbb82dd9060ef0a9c92c22491ac6c2ffb2c07a2
@@ -58,7 +58,7 @@ Architecture: iphoneos-arm64e
 Maintainer: zqbb
 Installed-Size: 720
 Depends: mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/Hello App-2.0.0-6-iphoneos-arm64e.deb
+Filename: ./debs/Hello App-2.0.0-6-iphoneos-arm64e.deb
 Size: 129804
 MD5sum: cde720ec3a3c718948f181cfc1a96b67
 SHA1: a999c2b1c8856ed4485856c76572e72fef7b2360
@@ -77,7 +77,7 @@ Maintainer: zqbb
 Installed-Size: 1084
 Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0), preferenceloader, com.opa334.altlist
 Conflicts: cn.zqbb.fix120hz15, com.zqbb.fix120hz, com.zqbb.dynamic120hz
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/Hello 120Hz-3.3.0-1-iphoneos-arm64e.deb
+Filename: ./debs/Hello 120Hz-3.3.0-1-iphoneos-arm64e.deb
 Size: 314114
 MD5sum: db7e168678f8c615f588b75cbdf1c029
 SHA1: 178ac250916972793a3c9ecf8481a82094b61b1a
@@ -98,7 +98,7 @@ Architecture: iphoneos-arm64e
 Maintainer: zqbb
 Installed-Size: 10864
 Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 14.0), preferenceloader, launchctl
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/Hello Memory Status-3.6.0-2-iphoneos-arm64e.deb
+Filename: ./debs/Hello Memory Status-3.6.0-2-iphoneos-arm64e.deb
 Size: 2987162
 MD5sum: 7dd5dfae6a2e51fbe6497ae4371173fb
 SHA1: 1b47306d9105f0dc223a61273e1f79ef1f3ce362
@@ -116,7 +116,7 @@ Architecture: iphoneos-arm64e
 Maintainer: zqbb
 Installed-Size: 324
 Depends: com.opa334.ccsupport
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/Hello Pay-1.0.2-iphoneos-arm64e.deb
+Filename: ./debs/Hello Pay-1.0.2-iphoneos-arm64e.deb
 Size: 103228
 MD5sum: e26fea8ac2b462131e5536f14e32e0f6
 SHA1: c1d1c5e9e20301527f284c6a9cb2b2630d639801
@@ -135,7 +135,7 @@ Maintainer: zqbb
 Installed-Size: 3664
 Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0), preferenceloader, com.opa334.ccsupport
 Conflicts: com.yourepo.0xash.powercuff, byg.iosios.net.powercuff, com.dao.powercuff, com.rpetrich.powercuff, com.yourepo.0xash.devicemonitor, com.yourepo.0xash.fuckthermal, com.shadow.fuckthermal, com.dao.fuckthermal, byg.iosios.net.monitor, byg.iosios.net.disablethermalmonitord, com.nan.disablethermalmonitord
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/Hello CPU-2.3.5-3-iphoneos-arm64e.deb
+Filename: ./debs/Hello CPU-2.3.5-3-iphoneos-arm64e.deb
 Size: 1307670
 MD5sum: a88a116794274340441ee289835d3e4e
 SHA1: e5abdaac1a18432a429858164507f2a894a5ae8a
@@ -152,7 +152,7 @@ Version: 1.0-6
 Architecture: iphoneos-arm64
 Maintainer: admin@25mao.com
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist (>=1.0.4)
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/左滑返回-Rootless-1.0-6-iphoneos-arm64.deb
+Filename: ./debs/左滑返回-Rootless-1.0-6-iphoneos-arm64.deb
 Size: 66402
 MD5sum: e0268dfd449fc1973941da59bb3e4743
 SHA1: c9ea4ae935426ee471effdd5e4f85596cba42534
@@ -170,7 +170,7 @@ Maintainer: admin@25mao.com
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 5.0)
 Conflicts: com.25mao.miyou.rootless
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/微信助手 密友-3.9-5-iphoneos-arm64e.deb
+Filename: ./debs/微信助手 密友-3.9-5-iphoneos-arm64e.deb
 Size: 5047936
 MD5sum: 52b0e1e6808c619e2598447228e66078
 SHA1: e48ec50fc9805336308a5a70fa44619fa9057a76
@@ -191,7 +191,7 @@ Installed-Size: 468
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 14.0), mobilesubstrate, com.opa334.altlist, com.opa334.libsandy
 Conflicts: com.82flex.noredirect
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/No Redirect 禁字诀-1.3-iphoneos-arm64e.deb
+Filename: ./debs/No Redirect 禁字诀-1.3-iphoneos-arm64e.deb
 Size: 57588
 MD5sum: 3380788e193d1f3c2dba03afdf902f1f
 SHA1: ac04a78d2afd569db65a15a251d6ffb9de68924a
@@ -212,7 +212,7 @@ Installed-Size: 232
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: dev.theos.orion (>= 1.0.0), firmware (>= 12.2)
 Conflicts: com.be-huge.wechat-push-msg-page
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/微信推送直达聊天窗口-0.0.5-iphoneos-arm64e.deb
+Filename: ./debs/微信推送直达聊天窗口-0.0.5-iphoneos-arm64e.deb
 Size: 30930
 MD5sum: aeb15c49099f5f8507f4ca288d875dfa
 SHA1: 4c1c19012c01190242b4785917a44060e7e7ebe0
@@ -230,7 +230,7 @@ Architecture: iphoneos-arm64
 Maintainer: Brend0n <brendonjkding@126.com>
 Installed-Size: 168
 Depends: mobilesubstrate
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/NoPassAfterRespring (Safe)-0.0.2-iphoneos-arm64.deb
+Filename: ./debs/NoPassAfterRespring (Safe)-0.0.2-iphoneos-arm64.deb
 Size: 2976
 MD5sum: 3ee0a5f0fee875338405825673ec82d5
 SHA1: 4c6b4edd4e53e638e8927c56a225cb6863ed8bb5
@@ -247,7 +247,7 @@ Maintainer: 妖刀
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 15.0), mobilesubstrate, com.opa334.ccsupport
 Conflicts: com.skypain.cclocation, com.skypain.ccsettrings, com.skypain.ccrespring, com.sop.cpumagicrootless, netskao.ccbadgeclear-rootless, com.mtac.uptime, netskao.alipayscan-rootless, netskao.wechatscan-rootless, com.skypain.ccvpn, netskao.ccswitchdata-rootless, netskao.ccsim-rootless, netskao.tinyccmodules-rootless, netskao.cccellularrate-rootless, netskao.quantumultxlauncher-rootless, com.p2kdev.snapper2cc, com.skypain.ccautobrightness, com.skypain.ccscreenshot, com.skypain.cclockscreen, xyz.cypwn.safeccmodules, com.zqbb.ccpay, com.zqbb.qszqb, com.netskao.ccbadgeclear, com.kingpuffdaddi.control-center.ccvpn, com.netskao.cclifttowake, com.kdt.caperfhudmodule, com.kingpuffdaddi.control-center.ccvibration, com.hk.roothide.cc, com.hk.rootless.cc
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/CCLess++(RootHide)-2.1.0.1-iphoneos-arm64e.deb
+Filename: ./debs/CCLess++(RootHide)-2.1.0.1-iphoneos-arm64e.deb
 Size: 498256
 MD5sum: edbbb602ba5ec129edc1396803efff79
 SHA1: d66d7fb81718be6dd220f40621a538b8fb933e97
@@ -265,7 +265,7 @@ Maintainer: Nets
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 15.0), mobilesubstrate
 Conflicts: com.netskao.filzacrack, netskao.filzacrack-rootless
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/Filza Crack(RootHide)-1.1-9-iphoneos-arm64e.deb
+Filename: ./debs/Filza Crack(RootHide)-1.1-9-iphoneos-arm64e.deb
 Size: 28916
 MD5sum: 780888e00f6a297ae56497c8a703e641
 SHA1: 32f92db6ca5cc095b25291484ff87a293263fd24
@@ -282,7 +282,7 @@ Maintainer: roothide
 Installed-Size: 136
 Depends: mobilesubstrate (>= 0.9.5000)
 Conflicts: com.roothide.lockdown, cc.dao.lightshield
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/lockdown(RootHide)-1.0.3-iphoneos-arm64e.deb
+Filename: ./debs/lockdown(RootHide)-1.0.3-iphoneos-arm64e.deb
 Size: 5640
 MD5sum: 4d4826ef0d75a8df2278997b0e8a49f3
 SHA1: 0b967cf2a8d044357e07bcdf21d9a65a0f164063
@@ -298,7 +298,7 @@ Architecture: iphoneos-arm64e
 Maintainer: SOPPPra
 Depends: mobilesubstrate, preferenceloader, com.mrgcgamer.libgcuniversal, firmware (>= 14), com.hk.settingsrevamp.cn.rl
 Conflicts: com.creaturecoding.shuffle, com.trappledestek.ikset, pro.ikghd.iksettings, xyz.cypwn.settingswidgets, org.mr.settingswidgets, com.trappledestek.settingswidgets, com.shepgoba.settingswidgets, com.sop.settingsrevamp
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/SettingsRevamp(RootHide)-3.0.1.1-iphoneos-arm64e.deb
+Filename: ./debs/SettingsRevamp(RootHide)-3.0.1.1-iphoneos-arm64e.deb
 Size: 408120
 MD5sum: 62944430c975e25f84e1b0d421dfb798
 SHA1: 306174e2b598351e6cd5d521f70d16e7318d8869
@@ -315,7 +315,7 @@ Maintainer: Ivano Bilenchi
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 4.0), findutils, apt | apt7
 Conflicts: com.exile90.icleanerpro, org.altervista.exilecom.icleaner
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/iCleaner Pro-7.10.0-iphoneos-arm64e.deb
+Filename: ./debs/iCleaner Pro-7.10.0-iphoneos-arm64e.deb
 Size: 2493324
 MD5sum: 88d09886db54aec8b3aa59ddcef1bd06
 SHA1: ad7fd0aed46b7427351a7abd3cd9bba7f3c4de46
@@ -336,7 +336,7 @@ Maintainer: HuangBai
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate
 Conflicts: com.HBWechatHelper.ailun, byg.iosios.net.hbwechathelper.rootlless
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/黄白助手-2.0-9f-iphoneos-arm64e.deb
+Filename: ./debs/黄白助手-2.0-9f-iphoneos-arm64e.deb
 Size: 13902268
 MD5sum: d13b262ac42bfe04acb0cb4905f64be1
 SHA1: 67d7cbce6cbc1489dd17e847cafbd852ce9d02e2
@@ -360,7 +360,7 @@ Version: 3.0.1
 Architecture: iphoneos-arm64e
 Maintainer: 妖刀
 Depends: mobilesubstrate
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/SettingsRevamp 简体中文包(RootHide)-3.0.1-iphoneos-arm64e.deb
+Filename: ./debs/SettingsRevamp 简体中文包(RootHide)-3.0.1-iphoneos-arm64e.deb
 Size: 8668
 MD5sum: 745ff8754c4d10aa024a6d2479bf31e8
 SHA1: 5678930641d606c2bb04a627eda41971ce960997
@@ -377,7 +377,7 @@ Maintainer: vita
 Installed-Size: 2184
 Depends: firmware (>= 5.0), mobilesubstrate
 Conflicts: com.huami.dyyy, com.huami.dyyys
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/抖音 DYYY-2.2-9-bulid1653-iphoneos-arm64e.deb
+Filename: ./debs/抖音 DYYY-2.2-9-bulid1653-iphoneos-arm64e.deb
 Size: 463376
 MD5sum: 0e41ddccedd97f8d483c6163998b8af9
 SHA1: 63c579bcfebcdc82be5ed4284182cf8fb8c912f9
@@ -401,7 +401,7 @@ Maintainer: SquidForce
 Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000)
 Conflicts: com.chr1s.newtab
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/ControlTab - 控制Safari标签页-1.0-iphoneos-arm64.deb
+Filename: ./debs/ControlTab - 控制Safari标签页-1.0-iphoneos-arm64.deb
 Size: 6112
 MD5sum: 99fdb6bf17f0be5fb441b6f76c9e77a5
 SHA1: deafe2721eb678d28bfe0074980a55e369a1ab31
@@ -420,7 +420,7 @@ Installed-Size: 3808
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist, com.opa334.ccsupport, com.opa334.libsandy, firmware (>= 14.0)
 Conflicts: com.lclrc.hammerit
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/Hammer It 翻译-1.7.0-iphoneos-arm64e.deb
+Filename: ./debs/Hammer It 翻译-1.7.0-iphoneos-arm64e.deb
 Size: 2767754
 MD5sum: daeb14dabefeb181078c31120570b494
 SHA1: 273e45e31f45963c3804315e905c7aca6215e379
@@ -440,7 +440,7 @@ Architecture: iphoneos-arm64e
 Maintainer: lclrc(SquidForce)
 Installed-Size: 1512
 Depends: mobilesubstrate, preferenceloader, firmware (>= 14.0), com.opa334.altlist
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/SquidGesture-1.3.7-iphoneos-arm64e.deb
+Filename: ./debs/SquidGesture-1.3.7-iphoneos-arm64e.deb
 Size: 382118
 MD5sum: 563038333d02c7d290ebd2f67df0e60f
 SHA1: b454c39cb87c5b837ea9f9ce1d167942645ebb3e
@@ -458,7 +458,7 @@ Maintainer: MrGcGamer
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 14.0) | ws.hbang.alderis, firmware (>= 12.0)
 Provides: com.mrgcgamer.libgcimagepicker, com.mrgcgamer.libgccolorpicker
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/LibGcUniversal(RootHide)-1.7.0-iphoneos-arm64e.deb
+Filename: ./debs/LibGcUniversal(RootHide)-1.7.0-iphoneos-arm64e.deb
 Size: 53172
 MD5sum: cfc4d7732d17412f94e89fb0cc84f822
 SHA1: 337f64d8bbc06f337382fc99492ae8890ef155a4
@@ -477,7 +477,7 @@ Installed-Size: 3772
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 15.0), mobilesubstrate, preferenceloader
 Conflicts: com.netskao.appdata, byg.iosios.net.appdata-rootless, com.dao.appdata
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/AppData-1.4.4-iphoneos-arm64e.deb
+Filename: ./debs/AppData-1.4.4-iphoneos-arm64e.deb
 Size: 10005284
 MD5sum: a50b7a76d1590d5dd9d1f2d6ff4021cb
 SHA1: ee752badb65f1ba95fc0815b7d0d0e7f54064898
@@ -499,7 +499,7 @@ Maintainer: Nets
 Installed-Size: 2336
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>= 15.0), firmware (<< 17.0), mobilesubstrate
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/WeChatNotiAvatar 微信头像-1.3-1-iphoneos-arm64e.deb
+Filename: ./debs/WeChatNotiAvatar 微信头像-1.3-1-iphoneos-arm64e.deb
 Size: 341576
 MD5sum: 680bd6e0fb3649b0e5a9b00705b376fb
 SHA1: b7b6b8985f1175a73595672221697356a075a124
@@ -517,7 +517,7 @@ Architecture: iphoneos-arm64e
 Maintainer: 0xkuj
 Depends: firmware (>= 11)
 Conflicts: com.yourepo.0xkuj.storeswitcher2rootless
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/StoreSwitcher 账号切换-1.0.6-iphoneos-arm64e.deb
+Filename: ./debs/StoreSwitcher 账号切换-1.0.6-iphoneos-arm64e.deb
 Size: 24152
 MD5sum: 9e28f4fb48eed98d3189a6aa9c7e1bb9
 SHA1: 5ae167be449299be6c6afde3252961e3053d41ce
@@ -538,7 +538,7 @@ Installed-Size: 104
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate (>= 0.9.5000)
 Conflicts: com.susu.fuckwechatads
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/微信去广告 FuckWeChatAds-1.0.2-iphoneos-arm64e.deb
+Filename: ./debs/微信去广告 FuckWeChatAds-1.0.2-iphoneos-arm64e.deb
 Size: 22760
 MD5sum: 2d964f79e13258d8725bfc1b6bc857b8
 SHA1: 3b2244bc38e4f8421646d6bb41667b892860b67e
@@ -558,7 +558,7 @@ Maintainer: TIGI Software
 Pre-Depends: patches-com.tigisoftware.filza64bit(= 4.0.1-4~roothide)
 Recommends: zip, unzip, gzip, p7zip, unrar, xz-utils
 Conflicts: com.tigisoftware.filza, com.tigisoftware.filza39
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/Filza File Manager 64-bit-4.0.1-4~roothide-iphoneos-arm64e.deb
+Filename: ./debs/Filza File Manager 64-bit-4.0.1-4~roothide-iphoneos-arm64e.deb
 Size: 6972652
 MD5sum: 6391c39283f2cc45dcecf101228d4e28
 SHA1: 718d5c9bb34d0c749ca311e4917736804fe217ec
@@ -575,7 +575,7 @@ Maintainer: korboy <korboybeats@gmail.com>
 Installed-Size: 184
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate (>= 0.9.5000)
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/FilzaSwipeSelect-0.0.2-iphoneos-arm64e.deb
+Filename: ./debs/FilzaSwipeSelect-0.0.2-iphoneos-arm64e.deb
 Size: 11518
 MD5sum: 12381c78ef3ae369a6e1634a49389bb8
 SHA1: a275599ccce5f9dd4cf88526ff37a852dfe543cb
@@ -593,7 +593,7 @@ Maintainer: MiRO <tweaks_support@miro92.com>
 Installed-Size: 614
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: firmware (>=14.0), mobilesubstrate, org.thebigboss.libcolorpicker
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/SwipeExtenderX-1.6.2-iphoneos-arm64e.deb
+Filename: ./debs/SwipeExtenderX-1.6.2-iphoneos-arm64e.deb
 Size: 108076
 MD5sum: 40103b2cbc07d4368839c0391c080787
 SHA1: 939db6bc6fde13be35572785c6f5be1ec43caaac
@@ -609,7 +609,7 @@ Version: 2.2.8
 Architecture: iphoneos-arm64e
 Maintainer: xybp888
 Depends: firmware (>= 16.0), preferenceloader, com.opa334.libsandy
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/电话助手ios16(Roothide).deb
+Filename: ./debs/电话助手ios16(Roothide).deb
 Size: 2997694
 MD5sum: d36b40d32a976f4300d3bdadb49dc2c0
 SHA1: 88bc3ec31da7fec8cee34657cb3746a2410e5f5b
@@ -627,7 +627,7 @@ Version: 1.2-28
 Architecture: iphoneos-arm64e
 Maintainer: xybp888
 Depends: firmware (>= 16.0), mobilesubstrate
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/灵动通知ios16(Roothide).deb
+Filename: ./debs/灵动通知ios16(Roothide).deb
 Size: 555716
 MD5sum: e761a2b3f0456f6ba66456d4d9d77a0d
 SHA1: 8db1ad17cee01472694c431420932d37dd502189
@@ -647,7 +647,7 @@ Maintainer: zqbb
 Installed-Size: 244
 Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0)
 Conflicts: zp.limitcharging.rootless
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/Hello Charging-1.0.8-iphoneos-arm64e.deb
+Filename: ./debs/Hello Charging-1.0.8-iphoneos-arm64e.deb
 Size: 17980
 MD5sum: ae3cceb16c0922ade08fbcff8d13bf90
 SHA1: 12a848dea64dadae45a67156bb79421764cd3ed7
@@ -666,7 +666,7 @@ Architecture: iphoneos-arm64
 Maintainer: Soh Satoh
 Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000)
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/FreePIP-0.0.3-1-iphoneos-arm64.deb
+Filename: ./debs/FreePIP-0.0.3-1-iphoneos-arm64.deb
 Size: 6436
 MD5sum: b3ebc197d00de4d0efa18d44fb5ffeda
 SHA1: 261894f30792c470d74d7c23a52fa118a28f229b
@@ -682,7 +682,7 @@ Architecture: iphoneos-arm64
 Maintainer: 来了老弟
 Installed-Size: 168
 Depends: mobilesubstrate
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/强制第三方输入法-rootless-2.0-iphoneos-arm64.deb
+Filename: ./debs/强制第三方输入法-rootless-2.0-iphoneos-arm64.deb
 Size: 4168
 MD5sum: 963101af5421eb4a619668683de452f9
 SHA1: a76d8e0a92d00285760b6f02009fcbd817d59cf7
@@ -699,7 +699,7 @@ Architecture: iphoneos-arm64
 Maintainer: tomt000
 Installed-Size: 4900
 Depends: mobilesubstrate (>= 0.9.5000), com.opa334.altlist, preferenceloader
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/Dynamic Stage-1.2-iphoneos-arm64.deb
+Filename: ./debs/Dynamic Stage-1.2-iphoneos-arm64.deb
 Size: 3086730
 MD5sum: a7928dbcbcda367cd69eb0fcaa43ee8e
 SHA1: 6bc513dd33949b42150a745488cd45c12353ef06
@@ -716,7 +716,7 @@ Maintainer: Nets
 Installed-Size: 19660
 Pre-Depends: rootless-compat(>= 0.9)
 Depends: mobilesubstrate, firmware (>= 15.0)
-Filename: /home/runner/work/wm0104.github.io/wm0104.github.io/debs/禁止应用自动创建相册BlockAppsCreateAlbum-1.1.2-iphoneos-arm64e.deb
+Filename: ./debs/禁止应用自动创建相册BlockAppsCreateAlbum-1.1.2-iphoneos-arm64e.deb
 Size: 6232
 MD5sum: e8ff13f866a92b806dda8e2419dbe425
 SHA1: eb709609949f5a7488dafeec35bf8434b909ed49
