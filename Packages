@@ -35,6 +35,23 @@ Author: SquidForce, Backup
 Name: CopyVault(激活码版)
 Sileodepiction: https://lclrc.github.io/repo/depictions/native/cn.octoforce.copyvault/depiction.json
 
+Package: cn.zqbb.cocoatop64.inject.roothide
+Version: 3.2.0
+Architecture: iphoneos-arm64e
+Maintainer: zp, SXX, Domo
+Installed-Size: 840
+Conflicts: ru.domo.cocoatop, ru.domo.cocoatop64, zp.cocoatop64, zp.cocoatop64.unject, zp.cocoatop64.inject
+Filename: ./debs/CocoaTop64 inject (RootHide)-3.2.0-iphoneos-arm64e.deb
+Size: 184392
+MD5sum: 163f55c68cb082386275f9c90a226880
+SHA1: 9cbb82dd9060ef0a9c92c22491ac6c2ffb2c07a2
+SHA256: 8567f38a1093bb3d83f12e9bfcfb445866c2fb47315b91d83db32e2501f6ba22
+Section: 常用插件
+Description: (RootHide) 白名单注入辅助器
+Author: Domo, SXX , zp
+Name: CocoaTop64 inject (RootHide)
+Sileodepiction: https://rootless.zqbb.cf/web/cn.zqbb.cocoatop64.inject.roothide
+
 Package: cn.zqbb.disupdateapp
 Version: 2.0.0-6
 Architecture: iphoneos-arm64e
