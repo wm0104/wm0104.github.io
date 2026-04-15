@@ -92,7 +92,6 @@ Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.fix120hz
 Name: Hello 120Hz
 Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.fix120hz
 
-Package: cn.zqbb.hello.memorystatus
 Version: 3.6.0-2
 Architecture: iphoneos-arm64e
 Maintainer: zqbb
@@ -103,14 +102,13 @@ Size: 2987162
 MD5sum: 7dd5dfae6a2e51fbe6497ae4371173fb
 SHA1: 1b47306d9105f0dc223a61273e1f79ef1f3ce362
 SHA256: ac8bde17876ed3e2546a944f6c73fd51ec3ad270aabc32b2a9888fa709da1121
-Section: 工具类
+Section: 系统类
 Description: Set memorystatus to avoid being killed by the system
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.hello.memorystatus.png
 Name: Hello Memory Status
 Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.hello.memorystatus
 
-Package: cn.zqbb.hellopay
 Version: 1.0.2
 Architecture: iphoneos-arm64e
 Maintainer: zqbb
@@ -121,7 +119,7 @@ Size: 103228
 MD5sum: e26fea8ac2b462131e5536f14e32e0f6
 SHA1: c1d1c5e9e20301527f284c6a9cb2b2630d639801
 SHA256: a98463608c3b436a51820b306b0a0c7dff0710f5a221b7e02d57cd30b3fc5dcc
-Section: 工具类
+Section: 系统类
 Description: 微信+支付宝 控制中心添加 扫一扫,付款码.
  - 默认支付宝扫一扫, 长按出菜单!
 Author: zqbb
@@ -140,7 +138,7 @@ Size: 1307670
 MD5sum: a88a116794274340441ee289835d3e4e
 SHA1: e5abdaac1a18432a429858164507f2a894a5ae8a
 SHA256: d12974e3910a945cf81b17735062539606b3f11ed8b66d58d76334ea665605ef
-Section: 系统类
+Section: 微信类
 Description: (解除温控) (锁定低电量CPU频率)
 Author: zqbb
 Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.holdcpu
