@@ -355,6 +355,21 @@ Icon: https://TrollStoreX.Github.io/sileodepiction/HB/icon.png
 Name: 黄白助手
 Sileodepiction: https://TrollStoreX.Github.io/
 
+Package: com.hk.settingsrevamp.cn.rl
+Version: 3.0.1
+Architecture: iphoneos-arm64e
+Maintainer: 妖刀
+Depends: mobilesubstrate
+Filename: ./debs/SettingsRevamp 简体中文包(RootHide)-3.0.1-iphoneos-arm64e.deb
+Size: 8668
+MD5sum: 745ff8754c4d10aa024a6d2479bf31e8
+SHA1: 5678930641d606c2bb04a627eda41971ce960997
+SHA256: 65891937e1c591a163a8d69b1c173b362766da2e4b60dc8caec19a2b4a0f5b74
+Section: 常用插件
+Description: SettingsRevamp 简体中文包(RootHide)。
+Author: 妖刀
+Name: SettingsRevamp 简体中文包(RootHide)
+
 Package: com.huami.dyyy.vita
 Version: 2.2-9-bulid1653
 Architecture: iphoneos-arm64e
@@ -435,6 +450,24 @@ Description: Gestures
 Author: lclrc(SquidForce)
 Icon: file:///Library/PreferenceBundles/SquidGesturePrefs.bundle/SquidGesture_icon@3x.png
 Name: SquidGesture
+
+Package: com.mrgcgamer.libgcuniversal
+Version: 1.7.0
+Architecture: iphoneos-arm64e
+Maintainer: MrGcGamer
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: firmware (>= 14.0) | ws.hbang.alderis, firmware (>= 12.0)
+Provides: com.mrgcgamer.libgcimagepicker, com.mrgcgamer.libgccolorpicker
+Filename: ./debs/LibGcUniversal(RootHide)-1.7.0-iphoneos-arm64e.deb
+Size: 53172
+MD5sum: cfc4d7732d17412f94e89fb0cc84f822
+SHA1: 337f64d8bbc06f337382fc99492ae8890ef155a4
+SHA256: 52b5cbf44d50083889f0d04a2b77bcdb47ab8e891a3b16de763c0fe0b2b33453
+Section: 常用插件
+Description: 开发通用库，例如SettingsRevamp就需要依赖此；转换支持roothide。
+Tag: role::developer
+Author: MrGcGamer
+Name: LibGcUniversal(RootHide)
 
 Package: com.netskao.appdatas
 Version: 1.4.4
