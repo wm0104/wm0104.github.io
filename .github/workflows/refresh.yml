@@ -32,7 +32,7 @@ jobs:
         if: success()
         run: |
           rm -rf ./Packages*
-          dpkg-scanpackages -m --root-owner-group ./debs /dev/null > ./Packages
+          dpkg-scanpackages -m ./debs /dev/null > ./Packages
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
           zstd --ultra -22 -k Packages -o Packages.zst
