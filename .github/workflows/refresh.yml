@@ -34,49 +34,41 @@ jobs:
           
 
           awk '
-            # 【核心修复】每个插件独立重置分类，彻底解决污染
+            BEGIN { in_section = 0; has_section = 0 }
+
             /^Package:/ {
-              # 每个新插件开头，强制重置分类为工具类（兜底）
-              mysec = "工具类"
-              has_section = 0
-              in_section = 0
-
-              # 1. 最高优先级：包名带 hello → 系统类
-              pkg = tolower($0)
-              if (pkg ~ /hello/) {
-                mysec = "系统类"
-              }
-              print
-              next
+                mysec = "实用工具"
+                pkg = tolower($0)
+                if (pkg ~ /hello/) {
+                    mysec = "系统增强"
+                }
+                print
+                next
             }
 
-            # 2. 次高优先级：描述带微信 → 微信类（覆盖系统类，仅当不是hello插件）
             /^Description:/ {
-              desc = tolower($0)
-              # 只有当前不是系统类（不是hello插件），才判断微信
-              if (mysec != "系统类") {
-                if (desc ~ /微信|wechat|vx|密友|黄白/) {
-                  mysec = "微信类"
+                desc = tolower($0)
+                if (mysec != "系统增强") {
+                    if (desc ~ /系统|状态栏|控制中心|锁屏|手势|桌面|cpu|充电|灵动|输入法/) {
+                        mysec = "系统增强"
+                    } else if (desc ~ /广告|弹窗|流畅|省电|修复|优化|全局/) {
+                        mysec = "全局优化"
+                    } else if (desc ~ /app|应用|抖音|快手|功能|模块|增强/) {
+                        mysec = "应用增强"
+                    } else {
+                        mysec = "实用工具"
+                    }
                 }
-                # 3. 第三优先级：不是微信类，才判断系统类
-                else if (desc ~ /系统|ui|桌面|锁屏|状态栏|手势|控制中心|美化|dock|充电|cpu|输入法|icleaner/) {
-                  mysec = "系统类"
-                }
-                # 否则保持工具类
-              }
-              print
-              next
+                print
+                next
             }
 
-            # 4. 强制覆盖Section字段，用当前插件的独立分类
             /^Section:/ { 
               print "Section: " mysec
-              has_section = 1
               in_section = 1
+              has_section = 1
               next
             }
-
-            # 5. 完全保留你原版的Section后续行处理逻辑，一丝不动
             /^[A-Za-z0-9-]+:/ { 
               if (in_section) {
                 in_section = 0
@@ -84,11 +76,7 @@ jobs:
               print
               next
             }
-
-            # 6. 其他行原样输出
             { print }
-
-            # 7. 兜底：如果没有Section，手动加上
             END {
               if (!has_section) {
                 print "Section: " mysec
@@ -99,7 +87,7 @@ jobs:
           
           bzip2 -v -k -9 Packages
           xz -v -k -9 --extreme Packages
-          zstd --ultra -22 -k Packages -o Packages.zst
+          zstd --ultra-22 -k Packages -o Packages.zst
 
       - name: save change if local change
         if: success()
