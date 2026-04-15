@@ -20,7 +20,7 @@ jobs:
         if: success()
         run: |
           sudo apt update 2>>/dev/null 1>>/dev/null
-          sudo apt install dpkg-dev bzip2 xz-utils zstd -y gh -y
+          sudo apt install dpkg-dev bzip2 xz-utils zstd -y
 
       - name: Refresh Packages
         if: success()
@@ -34,33 +34,55 @@ jobs:
           
 
           awk '
-            BEGIN { current_section = "工具类" }
+            # 初始化变量
+            BEGIN { 
+              current_section = "工具类"  # 默认兜底
+              has_section = 0
+            }
 
+            # 1. 捕获包名，做最高优先级判断
             /^Package:/ {
               pkg = tolower($0)
-              # 只要包名带 hello → 全部系统类
+              # 只要包名含 hello -> 强制系统类
               if (pkg ~ /hello/) {
                 current_section = "系统类"
-                next
               }
+              next
             }
 
+            # 2. 捕获描述，做分类判断
             /^Description:/ {
               desc = tolower($0)
-              if (desc ~ /微信|wechat|vx/) {
-                current_section = "微信类"
+              # 如果还没被强制归为系统类（比如不是hello插件）
+              if (current_section != "系统类") {
+                if (desc ~ /微信|wechat|vx/) {
+                  current_section = "微信类"
+                } else if (desc ~ /系统|ui|桌面|锁屏|状态栏|手势|全局|设置|美化|控制中心|dock/) {
+                  current_section = "系统类"
+                } else {
+                  current_section = "工具类"
+                }
               }
-              else if (desc ~ /系统|ui|桌面|锁屏|状态栏|手势|全局|设置|美化|控制中心|dock/) {
-                current_section = "系统类"
-              }
-              else {
-                current_section = "工具类"
-              }
+              print
+              next
             }
 
-            /^Section:/ { print "Section: " current_section; next }
+            # 3. 覆盖Section字段
+            /^Section:/ { 
+              print "Section: " current_section
+              has_section = 1
+              next
+            }
 
+            # 4. 其他行原样输出
             { print }
+
+            # 5. 兜底：如果没有Section字段，手动加上
+            END {
+              if (!has_section) {
+                print "Section: " current_section
+              }
+            }
           ' ./Packages > ./Packages.tmp && mv ./Packages.tmp ./Packages
         
           
@@ -74,16 +96,22 @@ jobs:
           git config --global user.email 'action@github.com'
           git config --global user.name 'GitHub Action'
           git add .
-          if ! git diff --staged --exit-code 2>>/dev/null; then
+          if ! git diff --staged --exit-code 1>>/dev/null; then
             git commit -m 'Refresh Packages'
             git push
           fi
           
-      # 【修复】用GitHub官方gh命令清理旧工作流，替代无效的remove_all_actions
-      - name: Remove old actions runs
+      # 【保留】你原来的清理旧动作步骤
+      - name: download remove_all_actions
+        if: success()
+        run: |
+          sudo curl -L -o '/usr/bin/remove_all_actions' 'https://raw.githubusercontent.com/invalidunit/action/main/remove_all_actions'
+          sudo chmod -R 0755 '/usr/bin/remove_all_actions'
+
+      - name: remove all old actions
         if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
         run: |
-          # 列出所有refresh工作流的运行记录，删除除了最新10条之外的所有
-          gh run list --workflow refresh.yml --limit 50 --json databaseId --jq '.[].databaseId' | tail -n +11 | xargs -I {} gh run delete {} --yes
+          remove_all_actions
