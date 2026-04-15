@@ -1,3 +1,128 @@
+Package: cn.octoforce.copyvault
+Version: 1.9.0
+Architecture: iphoneos-arm64e
+Maintainer: SquidForce, Backup
+Installed-Size: 6380
+Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
+Conflicts: com.squidforce.copyvault
+Filename: ./debs/CopyVault(激活码版)-1.9.0-iphoneos-arm64e.deb
+Size: 1706700
+MD5sum: 1a5621471aca26b018ed683e98cd5310
+SHA1: 94cfacd0452d09fa12cbd37fd0be95627eb89ecf
+SHA256: 1c9cf44e27ee4d54d907784e3ac3178e8f5982487b217149a17027cc58cc7a9b
+Section: Tweaks
+Description: 激活码用户或需要激活码的用户安装这个，非激活码用户不要安装！！Do not install if you do not have an activation code!!! Your Copy Vault, Your Pasteboard
+Author: SquidForce, Backup
+Name: CopyVault(激活码版)
+Sileodepiction: https://lclrc.github.io/repo/depictions/native/cn.octoforce.copyvault/depiction.json
+
+Package: cn.zqbb.hello.memorystatus
+Version: 3.6.0-2
+Architecture: iphoneos-arm64e
+Maintainer: zqbb
+Installed-Size: 10864
+Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 14.0), preferenceloader, launchctl
+Filename: ./debs/Hello Memory Status-3.6.0-2-iphoneos-arm64e.deb
+Size: 2987162
+MD5sum: 7dd5dfae6a2e51fbe6497ae4371173fb
+SHA1: 1b47306d9105f0dc223a61273e1f79ef1f3ce362
+SHA256: ac8bde17876ed3e2546a944f6c73fd51ec3ad270aabc32b2a9888fa709da1121
+Section: Tweaks
+Description: Set memorystatus to avoid being killed by the system
+Author: zqbb
+Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.hello.memorystatus.png
+Name: Hello Memory Status
+Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.hello.memorystatus
+
+Package: com.25mao.miyou.rootlesss
+Version: 3.9-5
+Architecture: iphoneos-arm64e
+Maintainer: admin@25mao.com
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: firmware (>= 5.0)
+Conflicts: com.25mao.miyou.rootless
+Filename: ./debs/微信助手 密友-3.9-5-iphoneos-arm64e.deb
+Size: 5047936
+MD5sum: 52b0e1e6808c619e2598447228e66078
+SHA1: e48ec50fc9805336308a5a70fa44619fa9057a76
+SHA256: 197bf729b0d5aba5cce54d4333d570b7fc90abf74d6bad9241f626f6c03eb61b
+Section: 微信插件
+Priority: optional
+Description: 微信多功能插件（密友）
+Author: Mao
+Icon: https://TrollStoreX.Github.io/sileodepiction/mao/icon.png
+Name: 微信助手 密友
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/mao/js.json
+
+Package: com.exile90.icleanerpros
+Version: 7.10.0
+Architecture: iphoneos-arm64e
+Maintainer: Ivano Bilenchi
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: firmware (>= 4.0), findutils, apt | apt7
+Conflicts: com.exile90.icleanerpro, org.altervista.exilecom.icleaner
+Filename: ./debs/iCleaner Pro-7.10.0-iphoneos-arm64e.deb
+Size: 2493324
+MD5sum: 88d09886db54aec8b3aa59ddcef1bd06
+SHA1: ad7fd0aed46b7427351a7abd3cd9bba7f3c4de46
+SHA256: b494302ec57388e154e609b84851c00f434e146c0595592f584a587cfc396d9c
+Section: Bootstrap
+Description: iCleaner Pro
+ * 垃圾清理工具，启动项管理等
+ * The first real iOS system cleanup and management utility
+Author: Ivano Bilenchi
+Icon: https://TrollStoreX.Github.io/sileodepiction/iCleanerPro/icon.png
+Name: iCleaner Pro
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/iCleanerPro/js.json
+
+Package: com.hbwechathelper.ailuns
+Version: 2.0-9f
+Architecture: iphoneos-arm64e
+Maintainer: HuangBai
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: mobilesubstrate
+Conflicts: com.HBWechatHelper.ailun, byg.iosios.net.hbwechathelper.rootlless
+Filename: ./debs/黄白助手-2.0-9f-iphoneos-arm64e.deb
+Size: 13902268
+MD5sum: d13b262ac42bfe04acb0cb4905f64be1
+SHA1: 67d7cbce6cbc1489dd17e847cafbd852ce9d02e2
+SHA256: e4733bfe687e78a87208feeb07cd1864487899bbd9630b963ab2d18956a603a1
+Section: 微信插件
+Description: 微信多功能插件
+ * 一个微信插件文本转语音
+ * 点歌朋友圈一键点赞等诸多功能
+ * 发送网络语录舔狗日记骂人等文案
+ * 4K 原图手绘壁纸等
+ * 抢私聊红包
+ * 自定义信息尾巴
+ * 自定义拍一拍 百变小尾巴 实时尾巴时间等功能
+Author: HuangBai
+Icon: https://TrollStoreX.Github.io/sileodepiction/HB/icon.png
+Name: 黄白助手
+Sileodepiction: https://TrollStoreX.Github.io/
+
+Package: com.lclrc.hammerits
+Version: 1.7.0
+Architecture: iphoneos-arm64e
+Maintainer: lclrc(SquidForce)
+Installed-Size: 3808
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: mobilesubstrate, preferenceloader, com.opa334.altlist, com.opa334.ccsupport, com.opa334.libsandy, firmware (>= 14.0)
+Conflicts: com.lclrc.hammerit
+Filename: ./debs/Hammer It 翻译-1.7.0-iphoneos-arm64e.deb
+Size: 2767754
+MD5sum: daeb14dabefeb181078c31120570b494
+SHA1: 273e45e31f45963c3804315e905c7aca6215e379
+SHA256: 782584980e658f7227ef22f43b25813cb2f5418f956f07609d3cd0296ca0e260
+Section: Bootstrap
+Description: 控制您的文本或根据您的意愿进行翻译。
+ * 支持Twitter Telegram Discord Sileo 等快捷翻译
+ * Control your text or translate as you wish.
+Author: lclrc(SquidForce)
+Icon: https://TrollStoreX.Github.io/sileodepiction/Hammerit/icon.png
+Name: Hammer It 翻译
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Hammerit/js.json
+
 Package: com.netskao.appdatas
 Version: 1.4.4
 Architecture: iphoneos-arm64e
@@ -20,4 +145,55 @@ Author: Fouad Raheb
 Icon: https://TrollStoreX.Github.io/sileodepiction/Appdata/icon.png
 Name: AppData
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Appdata/js.json
+
+Package: com.tigisoftware.filza64bit
+Version: 4.0.1-4~roothide
+Architecture: iphoneos-arm64e
+Maintainer: TIGI Software
+Pre-Depends: patches-com.tigisoftware.filza64bit(= 4.0.1-4~roothide)
+Recommends: zip, unzip, gzip, p7zip, unrar, xz-utils
+Conflicts: com.tigisoftware.filza, com.tigisoftware.filza39
+Filename: ./debs/Filza File Manager 64-bit-4.0.1-4~roothide-iphoneos-arm64e.deb
+Size: 6972652
+MD5sum: 6391c39283f2cc45dcecf101228d4e28
+SHA1: 718d5c9bb34d0c749ca311e4917736804fe217ec
+SHA256: 35be3aa392b06cd7ed53dd3aa05bf5c3ddaa126ee692b33fba67321fc6cec28d
+Section: Utilities
+Description: File Manager for iPhone, iPad, iPod Touch. Supports iOS 11+. This version only supports 64-bit devices
+Author: TIGI Software
+Name: Filza File Manager 64-bit
+
+Package: com.xybp888.callassist16.dopamine.roothide
+Version: 2.2.8
+Architecture: iphoneos-arm64e
+Maintainer: xybp888
+Depends: firmware (>= 16.0), preferenceloader, com.opa334.libsandy
+Filename: ./debs/电话助手ios16(Roothide).deb
+Size: 2997694
+MD5sum: d36b40d32a976f4300d3bdadb49dc2c0
+SHA1: 88bc3ec31da7fec8cee34657cb3746a2410e5f5b
+SHA256: 4962a83c715c1cafd7578ea82b258b1a148e24998ee228353c9c8046098e6b7c
+Section: Tweaks
+Priority: optional
+Description: 电话助手授权版本,通话录音,通话记录合并,T9双卡选卡拨号键盘,短信双卡选卡,来去电归属地,黑名单,骚扰拦截,状态栏图标替换,时间格式修改,常用小功能等强大插件
+Author: xybp888
+Depiction: https://apt.htv123.com/view/588
+Name: 电话助手iOS16-正式版(Roothide)
+Sileodepiction: https://apt.htv123.com/sileo/588
+
+Package: me.tomt000.stageduo
+Version: 1.2
+Architecture: iphoneos-arm64
+Maintainer: tomt000
+Installed-Size: 4900
+Depends: mobilesubstrate (>= 0.9.5000), com.opa334.altlist, preferenceloader
+Filename: ./debs/Dynamic Stage-1.2-iphoneos-arm64.deb
+Size: 3086730
+MD5sum: a7928dbcbcda367cd69eb0fcaa43ee8e
+SHA1: 6bc513dd33949b42150a745488cd45c12353ef06
+SHA256: f55144278ad75d2c56f14900793c330ccc51f06b2839656e0ebfa812efe4a84f
+Section: Tweaks
+Description: Stage Manager Reimagined for iPhone
+Author: tomt000
+Name: Dynamic Stage
 
