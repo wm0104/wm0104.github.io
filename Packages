@@ -63,7 +63,7 @@ Maintainer: SquidForce, Backup
 Installed-Size: 6236
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
 Conflicts: com.squidforce.copyvault
-Filename: ./debs/CopyVault(激活码版)-1.9.0.deb
+Filename: ./debs/CopyVault(激活码版)-1.9.0-1.deb
 Size: 1683254
 MD5sum: c369178f844cae33ccc9e14cad5dfdcd
 SHA1: 731fa6e8b1d9b59a7e550440abc0142eb9ef21b6
@@ -642,21 +642,6 @@ Section: 常用插件
 Description: SettingsRevamp 简体中文包(RootHide)。
 Author: 妖刀
 Name: SettingsRevamp 简体中文包(RootHide)
-
-Package: com.hk.xkfilza
-Version: 0.0.1-23
-Architecture: iphoneos-arm
-Maintainer: xia0z
-Depends: mobilesubstrate
-Filename: ./debs/Filza Crack-0.0.1-23.deb
-Size: 3760
-MD5sum: 7cb48f607c299d9f9c68a2266b1dddf1
-SHA1: 976a56db0adc882fc3898d4b8f59b233d1c48d7a
-SHA256: 2caa8804c65f8b21267a18b44a743a31f8a6d01a2cadbdc02a22d52a7cfd509e
-Section: 常用插件
-Description: Filza破解补丁，搭配官方版使用。若发现Filza激活状态不是"完整"，用iCleaner Pro清理下Filza的设置文件即可。
-Author: xia0z
-Name: Filza Crack
 
 Package: com.huami.dyyy.vita
 Version: 2.2-9-bulid1653
