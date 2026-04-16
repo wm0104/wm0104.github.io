@@ -845,6 +845,23 @@ Icon: https://TrollStoreX.Github.io/sileodepiction/Appdata/icon.png
 Name: AppData
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Appdata/js.json
 
+Package: com.netskao.filzacrack
+Version: 1.1-9
+Architecture: iphoneos-arm64
+Maintainer: Nets
+Installed-Size: 120
+Depends: firmware (>= 15.0), mobilesubstrate
+Filename: ./debs/Filza Crack-1.1-9.deb
+Size: 28676
+MD5sum: f915f4f389116a2a37129da5d5cd271d
+SHA1: aaabf8e0845d5ab5e9d8720a25aad22e4f73bc33
+SHA256: fef7b736d38b016bb7a3865321b505f6af3e590e3e2dc40e25ab96962a1d41b0
+Section: 常用插件
+Description: Filza Crack
+Author: Netskao
+Name: Filza Crack
+Sileodepiction: https://jailrepo.initnil.com/api?Package=com.netskao.filzacrack
+
 Package: com.netskao.wechatnotiavatars
 Version: 1.3-1
 Architecture: iphoneos-arm64e
