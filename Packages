@@ -724,6 +724,23 @@ Author: SquidForce
 Name: ControlTab - 控制Safari标签页
 Sileodepiction: https://lclrc.github.io/repo/depictions/native/com.lclrc.controltab/depiction.json
 
+Package: com.lclrc.hammerit
+Version: 1.7.1
+Architecture: iphoneos-arm64
+Maintainer: lclrc(SquidForce)
+Installed-Size: 3808
+Depends: mobilesubstrate, preferenceloader, com.opa334.altlist, com.opa334.ccsupport, com.opa334.libsandy, firmware (>= 14.0)
+Filename: ./debs/Hammer It(rootless)-1.7.1.deb
+Size: 978564
+MD5sum: 9e26439edd6109b88170dc671b3fe4b2
+SHA1: 2b24d630724a39e53b53705b7136184bc7c9a47b
+SHA256: 834dece2f38f55418840f10ad6d71b895997ad96f14410ce7db5ff37bb94f32f
+Section: 常用插件
+Description: Control your text or translate as you wish.
+Author: lclrc(SquidForce)
+Icon: file:///var/jb/Library/PreferenceBundles/HammerItPrefs.bundle/HammerIt@3x.png
+Name: Hammer It
+
 Package: com.lclrc.hammerits
 Version: 1.7.0
 Architecture: iphoneos-arm64e
@@ -864,22 +881,22 @@ Name: WeChatNotiAvatar 微信头像
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WeChatNotiAvatar/js.json
 
 Package: com.qiop1379.swipeextenderx
-Version: 1.5.3-1
+Version: 1.6.1~2
 Architecture: iphoneos-arm
-Maintainer: qwertyuiop1379 <support@qwertyuiop1379.com>
-Installed-Size: 624
-Depends: firmware (>= 12.0), mobilesubstrate, org.thebigboss.libcolorpicker
-Filename: ./debs/SwipeExtenderX-1.5.3-1.deb
-Size: 109442
-MD5sum: b08d3d6acc5a475c3a5407a534da60ee
-SHA1: 34f8354e168dd5943ceea251595257ae4cd1abb4
-SHA256: d538a3676d3a25fe6495f67cce80bb7c2853e495ba33fbc87b86f7dfadd6ae68
+Maintainer: MiRO <tweaks_support@miro92.com>
+Installed-Size: 606
+Depends: firmware (>=14.0), mobilesubstrate, org.thebigboss.libcolorpicker
+Filename: ./debs/SwipeExtenderX-1.6.1~2.deb
+Size: 85656
+MD5sum: be8b61a238058f54158c7cbc13b98694
+SHA1: 0d8d3da858128307efb6dd3a4bc76f061a44bb06
+SHA256: a7dd013fb724c171f108073e0bb447164301b6748473f8d6aaff6bf3ffdc3828
 Section: 常用插件
 Description: Reinvent your keyboard with this full remake of the legendary SwipeExpander tweak, designed to work on modern iOS!
-Tag: compatible_min::ios12.0
-Author: qwertyuiop1379 <support@qwertyuiop1379.com>
+Tag: compatible_min::ios14.0
+Author: MiRO <tweaks_support@miro92.com>
 Depiction: https://chariz.com/get/swipeextenderx
-Icon: https://cdn.chariz.cloud/icon/swipeextenderx/icon@3x.png
+Icon: https://img.chariz.cloud/icon/swipeextenderx/icon@3x.png
 Name: SwipeExtenderX
 
 Package: com.sini.filzaswipeselect
