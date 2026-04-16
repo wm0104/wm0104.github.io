@@ -16,6 +16,27 @@ Icon: https://chinesebuilding.club/pic/cydia.png
 Name: CCLess控制中心多模块
 Sponsor: 搬运工
 
+Package: cc.forcequit.lightshields
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Maintainer: Taj C (forcequit)
+Installed-Size: 200
+Depends: preferenceloader, com.opa334.libsandy, firmware (>= 15.0)
+Conflicts: cc.forcequit.lightshield
+Filename: ./debs/Lightshield-1.0.0.deb
+Size: 21592
+MD5sum: fed4cf8c404bfe1864a872cf704c1c19
+SHA1: 05672427327397cd9b1ba394177b323091cb0e48
+SHA256: 7de9d7a5f92b8ed01534b1ac9b8fb99988e0e5cbb2277bee7df1a3f409e6acb1
+Section: 常用插件
+Description: 用来缓解 Coruna and DarkSword 攻击的插件
+ * 这是一个面向越狱 iOS（15及以上）的轻量级安全工具，用来替代系统的 Lockdown Mode。它通过关闭 WebKit 的 JavaScript JIT 编译来降低被漏洞（如 Coruna、DarkSword）利用的风险，从而提升浏览器及应用的整体安全性
+ * Lightweight Lockdown Mode alternative for WebKit.
+Author: Taj C (forcequit)
+Icon: https://TrollStoreX.Github.io/sileodepiction/Lockdown/icon.png
+Name: Lightshield
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/Lockdown/Lightshield.json
+
 Package: cn.Bswbw.fixsets
 Version: 1.1
 Architecture: iphoneos-arm64e
@@ -99,6 +120,24 @@ Size: 129804
 MD5sum: cde720ec3a3c718948f181cfc1a96b67
 SHA1: a999c2b1c8856ed4485856c76572e72fef7b2360
 SHA256: 8b636260cec451024da0c620602d798533b87d97634991cd531504a79958908f
+Section: 常用插件
+Description: 屏蔽App Store更新提示(Block App Store Updates)!
+Author: zqbb
+Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.disupdateapp
+Name: Hello App
+Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.disupdateapp
+
+Package: cn.zqbb.disupdateapp
+Version: 2.0.0-6
+Architecture: iphoneos-arm64
+Maintainer: zqbb
+Installed-Size: 692
+Depends: mobilesubstrate (>= 0.9.5000), preferenceloader, com.opa334.altlist
+Filename: ./debs/Hello App-2.0.0-6.deb
+Size: 129654
+MD5sum: c75257b62eaea463a9ca9444e21c25ba
+SHA1: b37330e105bd3e812b5cd143c02d49d8ea55e464
+SHA256: acb6b6f4f96c61f9c061aca4cc4728211ecbfed74038c2167cc717aa335e6859
 Section: 常用插件
 Description: 屏蔽App Store更新提示(Block App Store Updates)!
 Author: zqbb
@@ -242,6 +281,26 @@ Icon: https://rootless.002599.xyz/web/icon/cn.zqbb.holdcpu
 Name: Hello CPU
 Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.holdcpu
 
+Package: cn.zqbb.stopautolaunchapps
+Version: 1.1
+Architecture: iphoneos-arm64
+Maintainer: zqbb
+Installed-Size: 216
+Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0)
+Conflicts: zp.stopautolaunchapps
+Filename: ./debs/Hello 3Q-1.1.deb
+Size: 30450
+MD5sum: 283685c116141193860286828aa57f8d
+SHA1: d3be3c89b619f3cadd58e57ffcdaa5206b58179f
+SHA256: a1249978de9ec62675080668ff34aa863ae5e74dfd729836c5386ffe8cd59ea1
+Section: 常用插件
+Description: 禁用ios热启动神经网络引擎,别在后台热加载app咯!
+ - 优点:节约内存,少杀后台.
+ - 玄学:减少重启概率
+Author: zqbb
+Name: Hello 3Q
+Sileodepiction: https://rootless.002599.xyz/web/cn.zqbb.stopautolaunchapps
+
 Package: com.25mao.leftpan.rootless
 Version: 1.0-6
 Architecture: iphoneos-arm64
@@ -318,6 +377,26 @@ Icon: https://TrollStoreX.Github.io/sileodepiction/NoRedirect/icon.png
 Name: No Redirect 禁字诀
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/NoRedirect/js.json
 
+Package: com.82flex.noredirects
+Version: 1.3
+Architecture: iphoneos-arm64
+Maintainer: Lessica <82flex@gmail.com>
+Installed-Size: 468
+Depends: firmware (>= 14.0), mobilesubstrate, com.opa334.altlist, com.opa334.libsandy
+Conflicts: com.82flex.noredirect
+Filename: ./debs/No Redirect 禁字诀-1.3.deb
+Size: 44248
+MD5sum: 7decf0db8b5b7e3650e88092ed6e65bd
+SHA1: 1abcee55cafe31a48817237835392bcf464ffbef
+SHA256: fb8590c8b57e1a66e8960c7a3f78429ed35135e267b24c98b6f2556af919d6aa
+Section: 常用插件
+Description: 阻止指定的应用重定向到 App Store、Safari 或其他应用。
+ * Stop specified apps from redirecting to App Store, Safari or other apps.
+Author: Lessica <82flex@gmail.com>
+Icon: https://TrollStoreX.Github.io/sileodepiction/NoRedirect/icon.png
+Name: No Redirect 禁字诀
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/NoRedirect/js.json
+
 Package: com.be-huge.wechat-push-msg-pages
 Version: 0.0.5
 Architecture: iphoneos-arm64e
@@ -331,6 +410,25 @@ Size: 30930
 MD5sum: aeb15c49099f5f8507f4ca288d875dfa
 SHA1: 4c1c19012c01190242b4785917a44060e7e7ebe0
 SHA256: ac60fdf1080ad04d7609d1179ed2dbaf0cbaf565030e234d80d030bd97d1c44e
+Section: 常用插件
+Description: 弥补微信通知不足，支持点击微信消息通知横幅，跳转到对应的窗口
+Author: be-huge
+Icon: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/icon.png
+Name: 微信推送直达聊天窗口
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WechatPushMsgPage/js.json
+
+Package: com.be-huge.wechat-push-msg-pages
+Version: 0.0.5
+Architecture: iphoneos-arm64
+Maintainer: be-huge
+Installed-Size: 232
+Depends: dev.theos.orion (>= 1.0.0), firmware (>= 12.2)
+Conflicts: com.be-huge.wechat-push-msg-page
+Filename: ./debs/微信推送直达聊天窗口-0.0.5.deb
+Size: 23408
+MD5sum: 1795a322f073875df8098f0f0375cfc5
+SHA1: 29d985562644d4cda5cf921fd6aa2c98fee3fb92
+SHA256: a9c803e7f240f9da29ad5faff947985cd9624534a4e1f4ce60a9476271e4f3bb
 Section: 常用插件
 Description: 弥补微信通知不足，支持点击微信消息通知横幅，跳转到对应的窗口
 Author: be-huge
@@ -405,6 +503,22 @@ Section: 常用插件
 Description: 让你的设备免受 DarkSword/Coruna 攻击！针对 WebContent 进程的 JSC 安全加固。通过配置 JavaScriptCore 选项，消除主要的漏洞利用原语（包括地址泄露/伪造对象 addrof/fakeobj、JIT 类型混淆、垃圾回收器 Use-After-Free）。该安全强化默认处于启用状态，无设置。如果使用真皮白名单RootHide，请去白名单勾选 com.apple.WebKit.WebContent。
 Author: roothide
 Name: lockdown(RootHide)
+
+Package: com.dao.settingsrevamp
+Version: 2.1.1
+Architecture: iphoneos-arm64
+Maintainer: SOPPPra
+Depends: mobilesubstrate, preferenceloader, com.mrgcgamer.libgcuniversal, firmware (>= 14)
+Conflicts: com.creaturecoding.shuffle, com.trappledestek.ikset, pro.ikghd.iksettings, xyz.cypwn.settingswidgets, org.mr.settingswidgets, com.trappledestek.settingswidgets, com.shepgoba.settingswidgets, com.sop.settingsrevamp
+Filename: ./debs/SettingsRevamp(rootless)-2.1.1.deb
+Size: 97460
+MD5sum: 5184096c2b3c43b01eeac79a895f719d
+SHA1: abe7d054448bd331995d7a8d9cd62668a2b204f6
+SHA256: 83867fcca805ed2de7a65e628de5970c5a8d8f4f3c5f642c22f1b3cdbc90ee57
+Section: 常用插件
+Description: 设置自定义、归类插件，源内有汉化包。
+Author: SOPPPra
+Name: SettingsRevamp(rootless)
 
 Package: com.dao.settingsrevamp
 Version: 3.0.1.1
@@ -528,6 +642,21 @@ Section: 常用插件
 Description: SettingsRevamp 简体中文包(RootHide)。
 Author: 妖刀
 Name: SettingsRevamp 简体中文包(RootHide)
+
+Package: com.hk.xkfilza
+Version: 0.0.1-23
+Architecture: iphoneos-arm
+Maintainer: xia0z
+Depends: mobilesubstrate
+Filename: ./debs/Filza Crack-0.0.1-23.deb
+Size: 3760
+MD5sum: 7cb48f607c299d9f9c68a2266b1dddf1
+SHA1: 976a56db0adc882fc3898d4b8f59b233d1c48d7a
+SHA256: 2caa8804c65f8b21267a18b44a743a31f8a6d01a2cadbdc02a22d52a7cfd509e
+Section: 常用插件
+Description: Filza破解补丁，搭配官方版使用。若发现Filza激活状态不是"完整"，用iCleaner Pro清理下Filza的设置文件即可。
+Author: xia0z
+Name: Filza Crack
 
 Package: com.huami.dyyy.vita
 Version: 2.2-9-bulid1653
@@ -716,6 +845,61 @@ Icon: https://TrollStoreX.Github.io/sileodepiction/WeChatNotiAvatar/icon.png
 Name: WeChatNotiAvatar 微信头像
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WeChatNotiAvatar/js.json
 
+Package: com.netskao.wechatnotiavatars
+Version: 1.3-1
+Architecture: iphoneos-arm64
+Maintainer: Nets
+Installed-Size: 2336
+Depends: firmware (>= 15.0), firmware (<< 17.0), mobilesubstrate
+Filename: ./debs/WeChatNotiAvatar 微信头像-1.3-1.deb
+Size: 243788
+MD5sum: 3f0b6673d73db4a3a959d32ae9fac83a
+SHA1: a1acdc6954258f6baad57e00c8e996eb5768fda0
+SHA256: c00e4fd0671180158f7dda1d479aa2f6deff31de9276d27e4a10197f10263254
+Section: 常用插件
+Description: 让微信消息通知显示微信好友头像
+Author: Netskao
+Icon: https://TrollStoreX.Github.io/sileodepiction/WeChatNotiAvatar/icon.png
+Name: WeChatNotiAvatar 微信头像
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/WeChatNotiAvatar/js.json
+
+Package: com.qiop1379.swipeextenderx
+Version: 1.5.3-1
+Architecture: iphoneos-arm
+Maintainer: qwertyuiop1379 <support@qwertyuiop1379.com>
+Installed-Size: 624
+Depends: firmware (>= 12.0), mobilesubstrate, org.thebigboss.libcolorpicker
+Filename: ./debs/SwipeExtenderX-1.5.3-1.deb
+Size: 109442
+MD5sum: b08d3d6acc5a475c3a5407a534da60ee
+SHA1: 34f8354e168dd5943ceea251595257ae4cd1abb4
+SHA256: d538a3676d3a25fe6495f67cce80bb7c2853e495ba33fbc87b86f7dfadd6ae68
+Section: 常用插件
+Description: Reinvent your keyboard with this full remake of the legendary SwipeExpander tweak, designed to work on modern iOS!
+Tag: compatible_min::ios12.0
+Author: qwertyuiop1379 <support@qwertyuiop1379.com>
+Depiction: https://chariz.com/get/swipeextenderx
+Icon: https://cdn.chariz.cloud/icon/swipeextenderx/icon@3x.png
+Name: SwipeExtenderX
+
+Package: com.sini.filzaswipeselect
+Version: 0.0.2
+Architecture: iphoneos-arm64
+Maintainer: korboy <korboybeats@gmail.com>
+Installed-Size: 184
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: ./debs/FilzaSwipeSelect(rootless)-0.0.2.deb
+Size: 8756
+MD5sum: 74dd4ec964a2d55211124b6c180915c0
+SHA1: d80d8e002c694c6f23a573aebd3f515c2d3b4dd1
+SHA256: c2d00a55c23a50133ac2d1e865de8cd20c577f5e04eb0dd2c056850984a28a70
+Section: 常用插件
+Description: Filza的滑动多选功能。不再单独点击每个文件进行选择。
+Author: korboy <korboybeats@gmail.com>
+Icon: https://sini921.github.io/repo/sileodepiction/icon/filzaswipeselect.png
+Name: FilzaSwipeSelect(rootless)
+Sileodepiction: https://sini921.github.io/repo/sileodepiction/filzaswipeselect/js.json
+
 Package: com.storeswitcher.appstore
 Version: 1.0.6
 Architecture: iphoneos-arm64e
@@ -734,6 +918,26 @@ Author: subdiox & iosdump
 Icon: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/icon.png
 Name: StoreSwitcher 账号切换
 Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/StoreSwitcher/js.json
+
+Package: com.susu.fuckwechatadss
+Version: 1.0.2
+Architecture: iphoneos-arm64
+Maintainer: susu
+Installed-Size: 104
+Depends: mobilesubstrate (>= 0.9.5000)
+Conflicts: com.susu.fuckwechatads
+Filename: ./debs/微信去广告 FuckWeChatAds-1.0.2.deb
+Size: 16932
+MD5sum: cdbcf7e42c19c2b2169c6b4b4387fcaf
+SHA1: 453b40ff34c47c0cc5f556ce950ebf3508fb1982
+SHA256: 21ea2824f23ecaa6c14acff0e204e19c209d7de06cad1baf29ac06e19513e9eb
+Section: 常用插件
+Description: 移除微信广告
+ * 在微信 8.0.56 进行测试有效
+Author: susu
+Icon: https://TrollStoreX.Github.io/sileodepiction/FuckWeChatAds/icon.png
+Name: 微信去广告 FuckWeChatAds
+Sileodepiction: https://TrollStoreX.Github.io/sileodepiction/FuckWeChatAds/js.json
 
 Package: com.susu.fuckwechatadss
 Version: 1.0.2
@@ -884,6 +1088,26 @@ Author: zqbb
 Name: Hello Charging
 Sileodepiction: https://rootless.002599.xyz/web/com.zqbb.limitcharging
 
+Package: com.zqbb.limitcharging
+Version: 1.0.8
+Architecture: iphoneos-arm64
+Maintainer: zqbb
+Installed-Size: 248
+Depends: mobilesubstrate (>= 0.9.5000) , firmware (>= 15.0)
+Conflicts: zp.limitcharging.rootless
+Filename: ./debs/Hello Charging-1.0.8.deb
+Size: 19148
+MD5sum: dd3e4d1029c519be4d9f6710f45cb827
+SHA1: cbf87fdb8de8de4c98c923e50de729d303ce2386
+SHA256: f6e3814c294baf31fff4fbb2115dbcf44e5a4c8704005c1273bfe6920405edf9
+Section: 常用插件
+Description: Hello Charging (限制充电)
+ - Wi-Fi Not Disconnected on Lock Screen (Standby consumes 5% more power)
+ - 锁屏不断Wi-Fi(待机多费电5%)
+Author: zqbb
+Name: Hello Charging
+Sileodepiction: https://rootless.002599.xyz/web/com.zqbb.limitcharging
+
 Package: jp.soh.freepip
 Version: 0.0.3-1
 Architecture: iphoneos-arm64
@@ -899,6 +1123,22 @@ Section: 常用插件
 Description: FreePIP is a tweak to un-snap and scale the view of Picture-in-Picture on iOS unlimitedly. Long Press PIP window to enable freepip mode. 解锁画中画的限制，可以放在任意位置和调整到任意大小。长按画中画窗口进入 FreePIP 模式进行调整。v0.0.3-1更新：改为默认是正常模式，略微美化FreePIP模式。
 Author: Soh Satoh
 Name: FreePIP
+
+Package: llld.keyboard
+Version: 2.0
+Architecture: iphoneos-arm64
+Maintainer: 来了老弟
+Installed-Size: 168
+Depends: mobilesubstrate
+Filename: ./debs/强制第三方输入法-rootless-2.0.deb
+Size: 4164
+MD5sum: 0353977b8885498f3e6a4fc569042061
+SHA1: 16f563bd168032a9a381043be00103506f48b36a
+SHA256: cc385c8732dbe808973ccd1bdda70d0732ae4440a8fbc71dc79d5caa475de984
+Section: 常用插件
+Description: Function: Allow third-party input methods in any password box。***强制第三方输入法（键盘），作用：在任意密码框可允许第三方输入法输入（银行等特制键盘除外），20240104:更新版本号。***
+Author: 来了老弟
+Name: 强制第三方输入法-rootless
 
 Package: llld.keyboard
 Version: 2.0
@@ -933,6 +1173,22 @@ Description: Stage Manager Reimagined for iPhone
 Author: tomt000
 Name: Dynamic Stage
 
+Package: mterminal
+Version: 1.6
+Architecture: iphoneos-arm64
+Maintainer: zqbb
+Installed-Size: 464
+Depends: coreutils, firmware (>= 11.0), gettext-localizations, system-cmds, zsh
+Filename: ./debs/MTerminal - xina-1.6.deb
+Size: 98844
+MD5sum: 6f838cf843002878893d9d3912a0d262
+SHA1: 482c671631605719ba6304b0046c8abf1c7c75d4
+SHA256: 1403ff4fff30b2fce5b753daadf70c7bbc1b86f27078d1d8f758c8791eec8c3c
+Section: 常用插件
+Description: A MobileTerminal fork
+Author: lordscotland <admin@officialscheduler.com>
+Name: MTerminal - xina
+
 Package: netskao.BlockAppsCreateAlbum
 Version: 1.1.2
 Architecture: iphoneos-arm64e
@@ -950,4 +1206,82 @@ Description: 阻止应用创建自己的相册
 Author: Netskao
 Icon: https://TrollStoreX.Github.io/sileodepiction/repo_pic/photo.png
 Name: 禁止应用自动创建相册BlockAppsCreateAlbum
+
+Package: netskao.BlockAppsCreateAlbum
+Version: 1.1.2
+Architecture: iphoneos-arm64
+Maintainer: Nets
+Installed-Size: 19660
+Depends: mobilesubstrate, firmware (>= 15.0)
+Filename: ./debs/禁止应用自动创建相册BlockAppsCreateAlbum-1.1.2.deb
+Size: 4508
+MD5sum: 07913f2ebddbb34f9db154c484985b85
+SHA1: 52496d3a6f4043dc19d6c738f3b7538008b2af90
+SHA256: 1a75483d5aff7b1ba8d8a15ef66f7a9eaf0e530a11a24a2895ed3de27a959544
+Section: 常用插件
+Description: 阻止应用创建自己的相册
+Author: Netskao
+Icon: https://TrollStoreX.Github.io/sileodepiction/repo_pic/photo.png
+Name: 禁止应用自动创建相册BlockAppsCreateAlbum
+
+Package: zp.3dtouchtounject.rootless
+Version: 1.0.2
+Architecture: iphoneos-arm64
+Maintainer: zqbb
+Installed-Size: 168
+Depends: mobilesubstrate
+Filename: ./debs/禁止注入之长按图标 - rootless-1.0.2.deb
+Size: 5596
+MD5sum: 02de3d079c856bba8398f19a9f7b8a2b
+SHA1: c90725e4b157078e63fdc6a40d8d7ecb2efff1b8
+SHA256: 8d6537c988c3be0ab638d7d9e34e826ddddc7512917787ba84b2c9ec5c68aad4
+Section: 常用插件
+Description: 底层控制是否禁用注入（也是操作plist文件，所以官方版不支持）
+ - 优点：大部分APP不会检测到越狱。
+ - 缺点：插件无法生效。
+ - 1.0.1：修复下初始化问题。
+ - 1.0.2：细节优化。!
+Author: zqbb
+Name: 禁止注入之长按图标 - rootless
+Sileodepiction: https://rootless.002599.xyz/web/zp.3dtouchtounject.rootless
+
+Package: zp.cocoatop64.unject
+Version: 3.1.2
+Architecture: iphoneos-arm64
+Maintainer: zp, SXX, Domo
+Installed-Size: 840
+Conflicts: ru.domo.cocoatop , ru.domo.cocoatop64 , zp.cocoatop64 , zp.cocoatop64.inject
+Filename: ./debs/CocoaTop64.zp-3.1.2.deb
+Size: 184032
+MD5sum: 6ed8f338e07bdb1a5b3e15bca6a07588
+SHA1: a2363cf51e44d5a5681f6581a11ec3e309cd767c
+SHA256: dd1e84fe55fc8b2e0e2d4f113bf99e50f3d6ad92853dfd871f052c4c1dc53f00
+Section: 常用插件
+Description: Process Viewer for iOS GUI,适配rootless并增加一些小功能.
+ - 1.长按图标的插件针对APP更友好
+ - 2.此app更适合屏蔽进程类的注入
+ - 3.laileld要加的copy给加上(如果是/开头,使用filza打开)
+Author: Domo, SXX , zp
+Name: CocoaTop64.zp
+Sileodepiction: https://rootless.zqbb.cf/web/zp.cocoatop64.unject
+
+Package: zp.dopamine.blacklist
+Version: 0.0.1-1
+Architecture: iphoneos-arm64
+Maintainer: zqbb
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: ./debs/DopamineBlackList-0.0.1-1.deb
+Size: 27376
+MD5sum: e6c0faaee3f21fdc0c7356753492eab2
+SHA1: 8a39b0e915f2f1a9fcbf6da3ed044d962ee4ca7f
+SHA256: 6dfbb78bc0844cf24c3407db5d0df1821e8704ad295fbdd8329c8785643081e2
+Section: 常用插件
+Description: 皮版Dopamine屏蔽注入.
+ - 暴力修改XinaA15注入黑名单.(●'◡'●)
+ - 浪哥v587
+ - 浪哥v587
+ - 浪哥v587
+Author: zqbb
+Name: DopamineBlackList
+Sileodepiction: https://rootless.002599.xyz/web/zp.dopamine.blacklist
 
