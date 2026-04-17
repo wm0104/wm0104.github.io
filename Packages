@@ -63,7 +63,7 @@ Maintainer: SquidForce, Backup
 Installed-Size: 6236
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
 Conflicts: com.squidforce.copyvault
-Filename: ./debs/CopyVault(激活码版)-1.9.0-1.deb
+Filename: ./debs/CopyVault(激活码版)-1.9.0.deb
 Size: 1683254
 MD5sum: c369178f844cae33ccc9e14cad5dfdcd
 SHA1: 731fa6e8b1d9b59a7e550440abc0142eb9ef21b6
