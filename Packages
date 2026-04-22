@@ -641,17 +641,17 @@ Name: SwipeExtenderX
 
 Package: com.wkk.zggdhook
 Version: 1.0-1
-Architecture: iphoneos-arm64
+Architecture: iphoneos-arm64e
 Maintainer: wkk
 Installed-Size: 168
 Depends: mobilesubstrate (>= 0.9.5000)
-Filename: ./debs/中国广电NoAds-1.0-1.deb
-Size: 4816
-MD5sum: 6125adc380bf0f2e8dc95c8360a231f6
-SHA1: 91213fa3d389a1ac346a42bef60cad6edab62d45
-SHA256: 50b99f09ea874e2cf989b2ddaa99063d3fe88708671d245c7d59a1359adf9a49
+Filename: ./debs/中国广电去广告.deb
+Size: 4632
+MD5sum: 41e4a88a26b6429617a3c30a9d3a9944
+SHA1: b4af1c0f226e049cd2aca9863167b72f15015d52
+SHA256: 98d48e1a7311fb9e0e77ac724f631f165c817b1e05821ade699ca62e4b6f5c3f
 Section: 常用插件
-Description: 去开屏广告及首页底栏视频按钮，版本：2.0.5，接大量冷门热门app定制去广告/去更新提示/精简app等业务。联系qq：1772773799（如果源内某些去广告插件下载deb安装不生效，请选择用TrollFools注入）
+Description: 中国广电去广告
 Author: wkk
 Icon: https://s1.imagehub.cc/images/2026/01/20/0844d5dc67efca60805d2d82a04a0f93.png
 Name: 中国广电NoAds
