@@ -603,6 +603,24 @@ Author: korboy <korboybeats@gmail.com>
 Icon: https://sini921.github.io/repo/sileodepiction/icon/filzaswipeselect.png
 Name: FilzaSwipeSelect
 
+Package: com.wkk.kuanhook
+Version: 1.0-2
+Architecture: iphoneos-arm64e
+Maintainer: wkk
+Installed-Size: 168
+Pre-Depends: rootless-compat(>= 0.9)
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: ./debs/酷安去广告.deb
+Size: 4800
+MD5sum: 66a2ab4614e5e458ed392e44e2c882c3
+SHA1: cb677e5993d306c4b9ef624415d1b1d13cd9bf61
+SHA256: f00138f257997e6ccd3de5f9ce1085d6bfdd529a216d9aa66386970d70883287
+Section: 常用插件
+Description: 酷安去广告
+Author: wkk
+Icon: https://s1.imagehub.cc/images/2025/11/16/f8fd055eb3664e24cc261c870165860a.png
+Name: 酷安NoAds
+
 Package: com.wkk.swipeextenderx
 Version: 1.6.2
 Architecture: iphoneos-arm64e
